@@ -3,10 +3,11 @@
 
 //colors
 $primary-background-color: #272727;
-$primary-font-color-1: #FF652F;
-$primary-font-color-2: #FFE400;
-$primary-font-color-3: #14A76C;
+$primary-font-color-orange: #FF652F;
+$primary-font-color-yellow: #FFE400;
+$primary-font-color-green: #14A76C;
 $secondary-fond-color: #747474;
+$primary-light-color: #FFFFFF;
 
 
 //fonts
@@ -28,9 +29,9 @@ h4,
 h5,
 h6 {
     font-family: $font-header;
-    color: $primary-font-color-3;
+    color: $primary-font-color-green;
 }
 
 p {
-    color: $secondary-fond-color;
+    color: $primary-light-color;
 }
