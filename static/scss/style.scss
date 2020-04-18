@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 //colors
+$primary-background-color: #272727;
+$primary-font-color-1: #FF652F;
+$primary-font-color-2: #FFE400;
+$primary-font-color-3: #14A76C;
+$secondary-fond-color: #747474;
 
 
 //fonts
@@ -13,6 +18,7 @@ sans-serif;
 
 body {
     font-family: $font-regular;
+    background-color: $primary-background-color;
 }
 
 h1,
@@ -22,4 +28,9 @@ h4,
 h5,
 h6 {
     font-family: $font-header;
+    color: $primary-font-color-3;
+}
+
+p {
+    color: $secondary-fond-color;
 }

@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 body {
   font-family: "Raleway", sans-serif;
+  background-color: #272727;
 }
 
 h1,
@@ -11,6 +12,11 @@ h4,
 h5,
 h6 {
   font-family: "Open Sans", sans-serif;
+  color: #14A76C;
+}
+
+p {
+  color: #747474;
 }
 
 /*# sourceMappingURL=style.css.map */
