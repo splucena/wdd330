@@ -3,6 +3,7 @@
 body {
   font-family: "Raleway", sans-serif;
   background-color: #272727;
+  color: #FFFFFF;
 }
 
 h1,
@@ -17,6 +18,37 @@ h6 {
 
 p {
   color: #FFFFFF;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li:first-child {
+  display: block;
+}
+nav ul li {
+  border-bottom: 1px solid #747474;
+  display: none;
+  padding: 0.5em 0.5em;
+}
+nav ul li a {
+  text-decoration: none;
+}
+nav ul li a:visited {
+  color: #14A76C;
+}
+nav ul li a:hover {
+  color: #FF652F;
+}
+nav ul li a:active {
+  color: #FFE400;
+}
+
+/* Class selectors */
+.open li {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

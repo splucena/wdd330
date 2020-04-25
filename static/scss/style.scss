@@ -6,7 +6,7 @@ $primary-background-color: #272727;
 $primary-font-color-orange: #FF652F;
 $primary-font-color-yellow: #FFE400;
 $primary-font-color-green: #14A76C;
-$secondary-fond-color: #747474;
+$secondary-font-color: #747474;
 $primary-light-color: #FFFFFF;
 
 
@@ -20,6 +20,7 @@ sans-serif;
 body {
     font-family: $font-regular;
     background-color: $primary-background-color;
+    color: $primary-light-color;
 }
 
 h1,
@@ -34,4 +35,43 @@ h6 {
 
 p {
     color: $primary-light-color;
+}
+
+nav {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li:first-child {
+            display: block;
+        }
+
+        li {
+            border-bottom: 1px solid $secondary-font-color;
+            display: none;
+            padding: 0.5em 0.5em;
+
+            a {
+                text-decoration: none;
+            }
+
+            a:visited {
+                color: $primary-font-color-green;
+            }
+
+            a:hover {
+                color: $primary-font-color-orange;
+            }
+
+            a:active {
+                color: $primary-font-color-yellow;
+            }
+        }
+    }
+}
+
+/* Class selectors */
+.open li {
+    display: block;
 }
