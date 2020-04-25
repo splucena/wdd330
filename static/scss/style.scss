@@ -1,5 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: url(../fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: Raleway;
+    src: url(../fonts/Raleway-Regular.ttf);
+}
 
 //colors
 $primary-background-color: #272727;
@@ -7,20 +18,23 @@ $primary-font-color-orange: #FF652F;
 $primary-font-color-yellow: #FFE400;
 $primary-font-color-green: #14A76C;
 $secondary-font-color: #747474;
+$tertiary-font-color: #EBEDEE;
 $primary-light-color: #FFFFFF;
 
 
 //fonts
-$font-header: 'Open Sans',
+$font-header: OpenSans,
 sans-serif;
-$font-regular: 'Raleway',
+$font-regular: Raleway,
 sans-serif;
+$font-code: monospace;
 ;
 
 body {
-    font-family: $font-regular;
     background-color: $primary-background-color;
     color: $primary-light-color;
+    font-family: $font-regular;
+    letter-spacing: 0.03em;
 }
 
 h1,
@@ -35,6 +49,34 @@ h6 {
 
 p {
     color: $primary-light-color;
+    font-family: $font-regular;
+}
+
+figure {
+    background-color: lighten($color: $primary-background-color, $amount: 0.5) ;
+    border-radius: 4px;
+    border: solid 1px $secondary-font-color;
+    color: $primary-light-color;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+pre,
+code {
+    font-family: monospace, monospace;
+    font-size: small;
+    margin: 0;
+    padding: 0;
+}
+
+pre {
+    overflow: auto;
+}
+
+pre>code {
+    display: block;
+    padding: 0.5em;
+    word-wrap: normal;
 }
 
 nav {
@@ -50,7 +92,7 @@ nav {
         li {
             border-bottom: 1px solid $secondary-font-color;
             display: none;
-            padding: 0.5em 0.5em;
+            padding: 0.6em 0.6em;
 
             a {
                 text-decoration: none;
@@ -62,6 +104,7 @@ nav {
 
             a:hover {
                 color: $primary-font-color-orange;
+                cursor: pointer;
             }
 
             a:active {
