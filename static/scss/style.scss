@@ -13,13 +13,12 @@
 }
 
 //colors
-$primary-background-color: #272727;
-$primary-font-color-orange: #FF652F;
-$primary-font-color-yellow: #FFE400;
-$primary-font-color-green: #14A76C;
-$secondary-font-color: #747474;
-$tertiary-font-color: #EBEDEE;
-$primary-light-color: #FFFFFF;
+$color-green: #00887A;
+$color-orange: #FFCCBC;
+$color-white: #FFFFFF;
+$color-ligth-blue: #D3E3FC;
+$color-blue: #77A6F7;
+$color-black: #272727;
 
 
 //fonts
@@ -31,8 +30,8 @@ $font-code: monospace;
 ;
 
 body {
-    background-color: $primary-background-color;
-    color: $primary-light-color;
+    background-color: $color-green;
+    color: $color-white;
     font-family: $font-regular;
     letter-spacing: 0.03em;
 }
@@ -44,19 +43,18 @@ h4,
 h5,
 h6 {
     font-family: $font-header;
-    color: $primary-font-color-green;
+    color: $color-black;
 }
 
 p {
-    color: $primary-light-color;
     font-family: $font-regular;
 }
 
 figure {
-    background-color: lighten($color: $primary-background-color, $amount: 0.5) ;
+    background-color: $color-ligth-blue;
     border-radius: 4px;
-    border: solid 1px $secondary-font-color;
-    color: $primary-light-color;
+    border: solid 1px $color-white;
+    color: $color-black;
     margin: 0.5em;
     padding: 0.5em;
 }
@@ -70,7 +68,7 @@ code {
 }
 
 pre {
-    overflow: auto;
+    overflow-x: auto;
 }
 
 pre>code {
@@ -90,7 +88,7 @@ nav {
         }
 
         li {
-            border-bottom: 1px solid $secondary-font-color;
+            border-bottom: 1px solid $color-ligth-blue;
             display: none;
             padding: 0.6em 0.6em;
 
@@ -99,22 +97,39 @@ nav {
             }
 
             a:visited {
-                color: $primary-font-color-green;
+                color: $color-white;
             }
 
             a:hover {
-                color: $primary-font-color-orange;
+                color: $color-ligth-blue;
                 cursor: pointer;
             }
 
             a:active {
-                color: $primary-font-color-yellow;
+                color: $color-black;
             }
         }
     }
 }
 
+footer {
+    text-align: center;
+    padding: 1em;
+}
+
 /* Class selectors */
 .open li {
     display: block;
+}
+
+@media only screen and (min-width: 768px) {
+
+    /* For desktop: */
+    nav,
+    header,
+    main,
+    footer {
+        width: 80%;
+        margin: 0 auto;
+    }
 }

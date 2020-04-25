@@ -11,7 +11,7 @@
   src: url(../fonts/Raleway-Regular.ttf);
 }
 body {
-  background-color: #272727;
+  background-color: #00887A;
   color: #FFFFFF;
   font-family: Raleway, sans-serif;
   letter-spacing: 0.03em;
@@ -24,19 +24,18 @@ h4,
 h5,
 h6 {
   font-family: OpenSans, sans-serif;
-  color: #14A76C;
+  color: #272727;
 }
 
 p {
-  color: #FFFFFF;
   font-family: Raleway, sans-serif;
 }
 
 figure {
-  background-color: #282828;
+  background-color: #D3E3FC;
   border-radius: 4px;
-  border: solid 1px #747474;
-  color: #FFFFFF;
+  border: solid 1px #FFFFFF;
+  color: #272727;
   margin: 0.5em;
   padding: 0.5em;
 }
@@ -50,7 +49,7 @@ code {
 }
 
 pre {
-  overflow: auto;
+  overflow-x: auto;
 }
 
 pre > code {
@@ -68,7 +67,7 @@ nav ul li:first-child {
   display: block;
 }
 nav ul li {
-  border-bottom: 1px solid #747474;
+  border-bottom: 1px solid #D3E3FC;
   display: none;
   padding: 0.6em 0.6em;
 }
@@ -76,19 +75,35 @@ nav ul li a {
   text-decoration: none;
 }
 nav ul li a:visited {
-  color: #14A76C;
+  color: #FFFFFF;
 }
 nav ul li a:hover {
-  color: #FF652F;
+  color: #D3E3FC;
   cursor: pointer;
 }
 nav ul li a:active {
-  color: #FFE400;
+  color: #272727;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
 }
 
 /* Class selectors */
 .open li {
   display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  nav,
+header,
+main,
+footer {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

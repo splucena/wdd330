@@ -26,9 +26,7 @@
         </p>
         <h5>Manipulating localStorage data using the dot (.) and [] bracket notation</h5>
         <figure>
-            <pre>
-<code>
-//Save and retrieve
+            <pre><code>//Save and retrieve
 localStorage.x = 'value';
 or
 localStorage['x'] = 'value';
@@ -37,14 +35,11 @@ localStorage['x'] = 'value';
 delete localStorage.x;
 or
 delete localStorage['x'];
-</code>
-            </pre>
+</code></pre>
         </figure>
         <h5>Manipulating localStorage data using storage methods</h5>
         <figure>
-            <pre>
-<code>
-// Save item
+            <pre><code>// Save item
 localStorage.setItem('x' , 'value');
 
 // Retrieve Item
@@ -53,32 +48,25 @@ Delete Item
 
 // Remote Item
 localStorage.removeItem('x');
-</code>
-            </pre>
+</code></pre>
         </figure>
         <h5>Length and Clear is the same dot (.), bracket [], and storage methods</h5>
         <figure>
-            <pre>
-<code>
-// Get length of localStorage
+            <pre><code>// Get length of localStorage
 localStorage.length; 
 
 // Clear everything
 localStorage.clear(); 
-</code>
-            </pre>
+</code></pre>
         </figure>
         <h5>Looping through values stored in localStorage</h5>
         <figure>
-            <pre>
-<code>
-for (let x = 0; x &gt; localStorage.length; x++) {
+            <pre><code>for (let x = 0; x &gt; localStorage.length; x++) {
     // logs values from localStorage
     let value = localStorage[localStorage.key(x)];
     console.log(value);
 }
-</code>
-            </pre>
+</code></pre>
         </figure>
         <h5>Master Mobile UX</h5>
         <p>Web developers are encouraged to follow the mobile-first-design thinking pattern. According to research, the
