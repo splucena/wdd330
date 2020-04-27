@@ -725,7 +725,6 @@ const nonDuplicate = [...new Set(arraysWithDuplicates)]; // removes duplicate; c
 > Memory leaks occurs when a program retains references to values that can no longer be accessed in its memory
 
 ```
-
 let array = [1,2,3];
 const strong = new Set().add(array);
 array = null; // remove reference to the original
@@ -736,6 +735,48 @@ The array still exists inside the set and we can get the original value of array
 back using the spread operator:
 array = [...strong][0];
 
-<< [1,2,3]
+>> [1,2,3]
+```
+
+# Maps
+
+```
+romanNumerals.set(1,'I');
+>> Map { 1 => 'I' } // => hash rocket
+
+romanNumerals.set(2,'II').set(3,'III').set(4,'IV').set(5,'V')
+>> Map { 1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V' }
+
+Methods
+
+romanNumerals.get(4);
+>> 'IV'
+
+romanNumerals.has(5);
+>> true
+romanNumerals.has(10);
+>> false
+
+Nested
+
+const heroes = new Map([ ['Clark Kent','Superman'], ['Bruce Wayne', 'Batman']]);
+heroes.size
+>> 2
+
+Removing Entries
+
+heroes.delete('Clark Kent');
+>> true
+heroes.size
+>> 1
+
+heroes.clear();
+heroes.size;
+>> 0
+
+Maps to Arrays
+
+Array.from(romanNumerals)
+>> [ [ 1, 'I' ], [ 2, 'II' ], [ 3, 'III' ], [ 4, 'IV'], [ 5, 'V' ] ]
 
 ```
