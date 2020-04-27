@@ -535,7 +535,6 @@ Case sensitive
 - Values can be compared to see if they are equal, greater than or less than other
   values.
 
-
 ## Arrays, Logic, and Loops
 
 ## Arrays
@@ -547,7 +546,7 @@ An array is an ordered list of values.
 ```
 const myArray = [];
 
-or 
+or
 
 const myArray = new Array();
 
@@ -583,7 +582,7 @@ swapping values
 x
 >> 3
 
-y 
+y
 >> 1
 ```
 
@@ -630,4 +629,113 @@ let arr_slice = [1, 2, 3, 4, 5];
 arr_slice.slice(2, 4); // starts at the third item (index of 2) and finishes at the fourth (the item with index 4 is not included)
 
 >> [ 3, 4 ]
+
+splice()
+
+>> index to start with; how many items; replacement
+arr_slice.splice(3, 1, 6); // removes 4 then inserts 6
+>> [ 1, 2, 3, 6, 5 ]
+```
+
+# Reverse
+
+```
+arr.reverse();
+```
+
+# Sort
+
+```
+arr.sort();
+```
+
+# Finding if a Value is in an Array
+
+```
+arr.indexOf(3); >> 2 // returns negative -1 if not found
+arr.includes(3); >> true
+```
+
+# Multidimensional Arrays
+
+```
+const coordinates = [[1, 2, 3], ['a', 'b']];
+```
+
+# Sets
+
+ES6. Represents a collection of unique values.
+
+```
+const list = new Set();
+list.add(1);
+>> Set { 1 }
+
+list.add(2).add(3).add(4);
+>> SET { 1, 2, 3, 4 }
+
+list.add(1); // ignored
+
+const listNumbers = new Set([1, 1, 1, 1]);
+>> Set { 1 }
+const letters = new Set('hello');
+>> Set { 'h', 'e', 'l', 'o' }
+
+const arrays = new Set().add([1]).add([1]); // allows duplicate, same array, but considered different objects
+>> Set { [1], [1] }
+
+[1] === [1];
+>> false
+
+type coercion is not used
+const mixedTypes = new Set().add(2).add('2');
+>> Set { 2, '2' }
+
+mixedType.size();
+>> 2
+
+mixedType.has(2);
+>> true
+
+Removing value from Set
+mixedTypes.delete(2);
+>> Set { '2' }
+
+Remove all
+mixedTypes.clear();
+
+Converting Set to Array
+const s =  new Set().add(1).add(2);
+
+>> ... or the spread operator
+
+[...s];
+>> [ 1, 2 ]
+
+or
+
+Array.from(s);
+>> [ 1, 2 ]
+
+const nonDuplicate = [...new Set(arraysWithDuplicates)]; // removes duplicate; converts to array
+```
+
+# Memory Leaks
+
+> Memory leaks occurs when a program retains references to values that can no longer be accessed in its memory
+
+```
+
+let array = [1,2,3];
+const strong = new Set().add(array);
+array = null; // remove reference to the original
+strong
+<< Set { [ 1, 2, 3 ] }
+
+The array still exists inside the set and we can get the original value of array
+back using the spread operator:
+array = [...strong][0];
+
+<< [1,2,3]
+
 ```
