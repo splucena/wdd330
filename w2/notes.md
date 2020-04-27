@@ -54,12 +54,12 @@ undefined, NaN, Infinity
 
 ## Primitive Data Types
 
-* Sting
-* Symbol (Introduced in ES6)
-* Number
-* Boolean
-* Undefined
-* Null
+- Sting
+- Symbol (Introduced in ES6)
+- Number
+- Boolean
+- Undefined
+- Null
 
 JavaScript has a special operator called **_typeof_** for finding out the type of a value
 
@@ -121,7 +121,7 @@ Local
 
 ## Naming Constants & Variables
 
-Constants and variables can start with any upper or lower-case letter, and underscore, \_, or dollar character, $. They can also contain numbers, but cannot start with them.
+Constants and variables can start with any upper or lower-case letter, and underscore, \_, or dollar character, \$. They can also contain numbers, but cannot start with them.
 
 ```
 let animal = {name : 'dog'};
@@ -155,11 +155,11 @@ new String('hello');
 
 The backlash is used to escape special characters such as:
 
-* Single quote marks \'
-* Double quote marks \"
-* End of line \n
-* Carriage return \r
-* Tab \t
+- Single quote marks \'
+- Double quote marks \"
+- End of line \n
+- Carriage return \r
+- Tab \t
 
 ## String Properties and Methods
 
@@ -329,4 +329,170 @@ PI.toFixed(3); // only one dot is needed when using constants or variables
 << "2.5"
 ```
 
-Ended @page 78 Arithmetic Operations
+## Arithmetic Operations
+
+> Addition `2 + 1; >> 3`
+
+> Subtraction `2 - 1; >> 1`
+
+> Multiplication `2 * 1; >> 2`
+
+> Division `2 / 2; >> 1`
+
+> Exponentiation `2 ** 3; >> 8`
+
+> Modulo `23 % 6; >> 5`
+
+## Compound Assignment Operator
+
+> +=; -=; *=; /=; %=
+
+```
+let points = 10;
+points += 10
+<< 20
+```
+
+## Incrementing Values
+
+```
+let points = 6;
+
+points++; // will return 6
+
+++points; // will return 7
+```
+
+## Type Coercion
+
+> '2' * 8; // 16 Number
+
+> '2' + '4'; // 24 String
+
+> Number('4'); // 4 Number
+
+## Number to String 
+
+```
+String(3); // '3'
+
+3 +''; // '3'
+
+10..toString(2); // '1010'
+```
+
+## Parsing Numbers
+
+```
+parseInt('1010', 2); // converts binary, back to decimal
+<< 10
+
+const address = '221B Baker Street';
+parseInt(address, 10);
+<< 221
+
+Different to the Number function, which returns NaN:
+Number(address);
+<< NaN
+
+parseInt('2.4', 10); // drops the decimal; not rounded
+<< 2
+```
+
+## Undefined
+ 
+***Undefined*** is the value given to variables what have not been assigned a value. It can also occur if an object's property doesn't exist or a function has a missing parameter.
+
+## Null
+
+***Null means*** "no value".
+
+## Boolean
+
+Only 9 values are always false and these are knows as ***falsy** values
+
+```
+" " // double quoted empty string literal
+' ' // single quoted empty string literal
+`` // emtpy template literal
+0
+-0 // considered different to 0 by Javascript
+NaN
+false
+null
+undefined
+```
+
+## Logical Operators
+
+```
+! (Logical Not)
+!true; // returns false
+
+&& (Logical AND)
+Only evaluates to true if all operands are truthty
+
+|| (Logical OR)
+Only evaluates to false when both operands are falsy, otherwise, true
+```
+
+## Comparison
+
+## Equality
+
+```
+const answer = 5;
+<< 5
+```
+
+## Soft Equality
+
+```
+answer == 5;
+<< true
+
+answer == '5';
+<< true
+```
+
+## Hard Equality
+
+Tests for equality but only returns true if and only if they are of the same data type
+
+```
+answer === 5;
+<< true
+
+answer === '5';
+<< false
+
+Excemption
+
+NaN === NaN;
+<< false
+
+Instead use Number.isNaN(NaN);
+<< true
+```
+
+> A javascript ninja should always use hard equality when testing if two values are equal. Explicitly convert a number represented as string rather than relying on Javascript type coercion.
+
+```
+Number('5') === 5;
+<< true
+```
+
+## Greater Than and Less Than
+
+> There are no "hard" greater-than or equal-to operators, so an alternative way to avoid type coercion is to use a combination of the greater-than operator, logical OR, and a hard equality:
+
+```
+8 >= '8'; // soft greater-than equality
+<< true
+
+8 > 8 || 8 === 8;
+<< true
+
+8 > '8' || 8 === '8'
+<< false
+```
