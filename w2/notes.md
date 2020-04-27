@@ -780,3 +780,115 @@ Array.from(romanNumerals)
 >> [ [ 1, 'I' ], [ 2, 'II' ], [ 3, 'III' ], [ 4, 'IV'], [ 5, 'V' ] ]
 
 ```
+
+# Logic
+
+# if Statements / if / else Statements
+
+```
+if (condition) {
+// code to run if condition is true
+}
+
+if (condition) {
+// code to run if condition is true
+} else {
+// code to run if condition is false
+}
+```
+
+# Ternary Operator
+
+```
+condition ? (//code to run if condition is true) : (//code to run if condition is false)
+
+const n = 5;
+n%2 === 0 ? console.log('n is an even number') : console.log('n is an odd number');
+>> 'n is an odd number'
+```
+
+# Switch
+
+```
+switch (number) {
+    case 4:
+        console.log('You rolled a four');
+        break;
+    case 5:
+        console.log('You rolled a five');
+        break;
+    case 6:
+        console.log('You rolled a six');
+        break;
+    default:
+        console.log('You rolled a number less than four');
+        break;
+}
+```
+
+# Loops
+
+```
+while Loops
+while (condition) {
+// do something
+}
+
+let bottles = 10;
+while (bottles > 0) {
+    // code here
+    bottles--;
+}
+
+or
+
+while (--bottles) {
+    // code here
+}
+
+do ... while Loops
+do {
+    do something
+} while(condition)
+
+For Loops
+
+for (initialization ; condition ; after) { do something }
+
+for(let i=0, max=avengers.length; i < max; i++){
+    console.log(avengers[i]);
+}
+
+for(const value of avengers){
+    console.log(value);
+}
+
+Loop Over Maps
+for(const key of romanNumerals.keys()) {
+    console.log(key);
+}
+
+for(const value of RomanNumerals.values()) {
+    console.log(value);
+}
+
+for(const [key,value] of RomanNumerals.entries()) {
+    console.log(`${key} in Roman numerals is ${value}`);
+}
+
+```
+
+# Summary
+
+- Arrays are an ordered list of values
+- Multidimensional arrays are arrays that contain other arrays
+- Arrays have lots of methods that can be used to manipulate items in the array
+- Sets are new in ES6 and are ordered lists of non-duplicate values
+- Maps are new in ES6 and are ordered lists of key-value pairs
+- We can use an if and else statement to control the flow of code
+- The switch statement can be used instead of multiple if and else statements
+- A while loop and do ... while loop can be used to repeat a block of code
+  while a condition is still true
+- A for loop works in a similar way to a while loop, but has a different syntax
+- A for-of loop can be used to iterate over an array
+- Sets and maps are enumerable, so can also be looped over using a for-of loop

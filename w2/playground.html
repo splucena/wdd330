@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let bottles = 10;
+        while (bottles > 0) {
+            document.write(bottles + '<br />');
+            bottles--;
+        }
+
+        document.write('<br />');
+
+        let can = 11;
+        while (--can) {
+            document.write(can + '<br />');
+        }
+
+        // this will trigger an infinite loop
+        //let plastic = 10;
+        //while (plastic--) {
+        //    document.write(plastic + '<br />');
+        //}
+    </script>
+</body>
+
+</html>
