@@ -534,3 +534,100 @@ Case sensitive
   false.
 - Values can be compared to see if they are equal, greater than or less than other
   values.
+
+
+## Arrays, Logic, and Loops
+
+## Arrays
+
+An array is an ordered list of values.
+
+# Declaration
+
+```
+const myArray = [];
+
+or 
+
+const myArray = new Array();
+
+typof [];
+
+>> 'object'
+```
+
+# Adding Values to Arrays
+
+```
+heroes[0] = 'Spida';
+heroes.push('Dr. Strange');
+
+>> ['Spida' ,'Dr. Strange'];
+```
+
+# Destructuring Array
+
+```
+const [x, y] = [1, 3];
+
+x
+>> 1
+
+y
+>> 3
+
+swapping values
+
+[x, y] = [y, x];
+
+x
+>> 3
+
+y 
+>> 1
+```
+
+# Array Properties and Methods
+
+```
+const myArray = [0, 1, 2];
+
+>> 3
+
+Pop, Push, Shift, Unshift
+
+Pop - remove the last item from an array
+Shift - removes the first item from an array
+Push - appends a new value to the end of an array
+Unshift - appends a new item to the beginning of an array
+```
+
+# Merging arrays
+
+> concat method
+
+```
+let myArray = [1, 2];
+myArray.concat(3);
+myArray.concat([4, 5])
+>> [1, 2, 3, 4, 5]
+```
+
+> join method
+
+```
+default separator is comma (,), but other symbols can be used as well
+
+let myArray = ['one', 'two', 'three']
+myArray.join(' & ');
+>> 'one & two & three'
+```
+
+# Slicing and Splicing
+
+```
+let arr_slice = [1, 2, 3, 4, 5];
+arr_slice.slice(2, 4); // starts at the third item (index of 2) and finishes at the fourth (the item with index 4 is not included)
+
+>> [ 3, 4 ]
+```
