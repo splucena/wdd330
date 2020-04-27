@@ -345,7 +345,7 @@ PI.toFixed(3); // only one dot is needed when using constants or variables
 
 ## Compound Assignment Operator
 
-> +=; -=; *=; /=; %=
+> +=; -=; \*=; /=; %=
 
 ```
 let points = 10;
@@ -365,13 +365,13 @@ points++; // will return 6
 
 ## Type Coercion
 
-> '2' * 8; // 16 Number
+> '2' \* 8; // 16 Number
 
 > '2' + '4'; // 24 String
 
 > Number('4'); // 4 Number
 
-## Number to String 
+## Number to String
 
 ```
 String(3); // '3'
@@ -400,16 +400,16 @@ parseInt('2.4', 10); // drops the decimal; not rounded
 ```
 
 ## Undefined
- 
-***Undefined*** is the value given to variables what have not been assigned a value. It can also occur if an object's property doesn't exist or a function has a missing parameter.
+
+**_Undefined_** is the value given to variables what have not been assigned a value. It can also occur if an object's property doesn't exist or a function has a missing parameter.
 
 ## Null
 
-***Null means*** "no value".
+**_Null means_** "no value".
 
 ## Boolean
 
-Only 9 values are always false and these are knows as ***falsy** values
+Only 9 values are always false and these are knows as **\*falsy** values
 
 ```
 " " // double quoted empty string literal
@@ -496,3 +496,41 @@ Number('5') === 5;
 8 > '8' || 8 === '8'
 << false
 ```
+
+> These operators can also be used with strings
+
+```
+'apples' < 'bananas';
+>> true
+
+Case sensitive
+
+'apples' < 'Bananas'
+>> false
+```
+
+## Summary
+
+- Comments are ignored by the program, but make your program easier to read
+  and understand
+- Data types are the basic building blocks of all JavaScript programs.
+- There are six primitive data types: strings, symbols, numbers, Booleans,
+  undefined and null.
+- Non-primitive data types, such as arrays, functions and objects, all have a type
+  of object .
+- Variables point to values stored in memory and are declared using the const
+  or let keywords.
+- Values are assigned to variables using the = operator.
+- Strings and numbers have various properties and methods that provide
+  information about them.
+- Symbols are unique, immutable values.
+- Boolean values are either true or false .
+- There are only seven values that are false in JavaScript and these are known
+  as falsy values.
+- Data types can be converted into other data types.
+- Type coercion is when JavaScript tries to convert a value into another data
+  type in order to perform an operation.
+- Logical operators can be used to check if compound statements are true or
+  false.
+- Values can be compared to see if they are equal, greater than or less than other
+  values.
