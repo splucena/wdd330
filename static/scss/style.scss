@@ -82,6 +82,8 @@ p {
 @include code-snippet;
 
 nav {
+    background-color: $color-black;
+
     ul {
         list-style: none;
         margin: 0;
@@ -117,8 +119,9 @@ nav {
 }
 
 footer {
-    text-align: center;
+    background-color: $color-blue;
     padding: 1em;
+    text-align: center;
 }
 
 /* Class selectors */

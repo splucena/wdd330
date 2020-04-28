@@ -58,6 +58,9 @@ pre > code {
   word-wrap: normal;
 }
 
+nav {
+  background-color: #272727;
+}
 nav ul {
   list-style: none;
   margin: 0;
@@ -86,8 +89,9 @@ nav ul li a:active {
 }
 
 footer {
-  text-align: center;
+  background-color: #77A6F7;
   padding: 1em;
+  text-align: center;
 }
 
 /* Class selectors */
