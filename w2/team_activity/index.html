@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+
+<body>
+    <div class="team-activity-container">
+        <h3>Activity # 1</h3>
+        <form onsubmit="return false;">
+            <label for="text-entry">Enter Text Here:</label>
+            <input type="text" name="text-entry" id="text-entry">
+            <input type="submit" value="Submit" id="submit">
+        </form>
+        <div id="text-entry-container" class="result-container">
+        </div>
+    </div>
+
+    <div class="team-activity-container">
+        <h3>Activity # 2</h3>
+        <form onsubmit="return false;">
+            <label for="number-1">Number 1:</label>
+            <input type="text" name="number-1" id="number-1">
+            <label for="number-2">Number 2:</label>
+            <input type="text" name="number-2" id="number-2">
+            <div class="operation">
+                <input type="submit" value="+" id="addition-submit">
+                <input type="submit" value="-" id="subtraction-submit">
+                <input type="submit" value="x" id="multiplication-submit">
+                <input type="submit" value="/" id="division-submit">
+            </div>
+        </form>
+        <div id="arithmetic-result" class="result-container">
+        </div>
+    </div>
+
+    <script>
+        // Activity #1
+        function sum(n) {
+            let total = 0;
+            for (let i = 0; i <= n; i++) {
+                total += i;
+            }
+            return total;
+        }
+
+        function displayValue() {
+            const number = document.getElementById('text-entry').value;
+            total = sum(number);
+            document.getElementById('text-entry-container').innerHTML = total;
+        }
+        document.getElementById('submit').addEventListener('click', displayValue);
+
+        // Activity #2
+        function compute(num1, operation, num2) {
+            switch (operation) {
+                case '+':
+                    return Number(num1) + Number(num2);
+                case 'x':
+                    return num1 * num2;
+                case '-':
+                    return num1 - num2;
+                default:
+                    return num1 / num2;
+            }
+        }
+
+        function displayArithmeticOperationValue(e) {
+            let operation = e.target.value;
+            //let operation = '+';
+            let num1 = document.getElementById('number-1').value;
+            let num2 = document.getElementById('number-2').value;
+
+            const result = compute(num1, operation, num2);
+            document.getElementById('arithmetic-result').innerHTML = result;
+        }
+
+        const addButton = document.getElementById('addition-submit');
+        addButton.addEventListener('click', displayArithmeticOperationValue);
+
+        const subtractionButton = document.getElementById('subtraction-submit');
+        subtractionButton.addEventListener('click', displayArithmeticOperationValue);
+
+        const multiplicationButton = document.getElementById('multiplication-submit');
+        multiplicationButton.addEventListener('click', displayArithmeticOperationValue);
+
+        const divisionButton = document.getElementById('division-submit');
+        divisionButton.addEventListener('click', displayArithmeticOperationValue);
+    </script>
+</body>
+
+</html>
