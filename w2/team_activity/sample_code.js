@@ -63,13 +63,53 @@ function compute(num1, operation, num2) {
     }
 }
 
+// using callback to solve arithmetic problems
+let add = (num1, num2) => {
+    return num1 + num2;
+}
+
+let subtract = (num1, num2) => {
+    return num1 - num2;
+}
+
+let multiply = (num1, num2) => {
+    return num1 * num2;
+}
+
+let divide = (num1, num2) => {
+    return num1 / num2;
+}
+
+let computeUsingCallback = (num1, num2, callback) => {
+    return callback(num1, num2);
+}
+
 // display result on the browser
 function displayArithmeticOperationValue(e) {
-    let operation = e.target.value;
+    let calcType = e.target.value;
     let num1 = document.getElementById('number-1').value;
     let num2 = document.getElementById('number-2').value;
 
-    const result = computeExpression(num1, operation, num2);
+    let op = null;
+    switch (calcType) {
+        case '+':
+            op = add;
+            break;
+        case '-':
+            op = subtract;
+            break;
+        case 'x':
+            op = multiply;
+            break;
+        case '/':
+            op = divide;
+            break;
+    }
+    console.log(calcType);
+    console.log(op);
+
+    //const result = computeExpression(num1, operation, num2);
+    const result = computeUsingCallback(parseFloat(num1), parseFloat(num2), op);
     document.getElementById('arithmetic-result').innerHTML = result;
 }
 
