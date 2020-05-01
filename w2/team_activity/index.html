@@ -10,125 +10,42 @@
 </head>
 
 <body>
-    <div class="team-activity-container">
-        <h3>Activity # 1</h3>
-        <form onsubmit="return false;">
-            <label for="text-entry">Enter Text Here:</label>
-            <input type="text" name="text-entry" id="text-entry">
-            <input type="submit" value="Submit" id="submit">
-        </form>
-        <div id="text-entry-container" class="result-container">
-        </div>
-    </div>
-
-    <div class="team-activity-container">
-        <h3>Activity # 2</h3>
-        <form onsubmit="return false;">
-            <label for="number-1">Number 1:</label>
-            <input type="text" name="number-1" id="number-1">
-            <label for="number-2">Number 2:</label>
-            <input type="text" name="number-2" id="number-2">
-            <div class="operation">
-                <input type="submit" value="+" id="addition-submit">
-                <input type="submit" value="-" id="subtraction-submit">
-                <input type="submit" value="x" id="multiplication-submit">
-                <input type="submit" value="/" id="division-submit">
+    <nav>
+        <ul>
+            <li><a href="../index.html">&lt;&lt; Go Back</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="team-activity-container">
+            <h3>Activity # 1</h3>
+            <form onsubmit="return false;">
+                <label for="text-entry">Enter Text Here:</label>
+                <input type="number" name="text-entry" id="text-entry">
+                <input type="submit" value="Submit" id="submit">
+            </form>
+            <div id="text-entry-container" class="result-container">
             </div>
-        </form>
-        <div id="arithmetic-result" class="result-container">
         </div>
-    </div>
 
-    <script>
-        // Activity #1
-        function sum(n) {
-            //console.log(typeof (n));
-            const number1 = parseFloat(n);
-            //console.log(number1);
-            //console.log(typeof number1);
-            console.log(parseFloat('1'));
-            console.log(parseFloat('w'));
-            console.log(NaN === parseFloat('1'));
-
-            if (!isNaN(number1)) {
-                let total = 0;
-                for (let i = 0; i <= n; i++) {
-                    total += i;
-                }
-                return total;
-            } else return 'Enter a valid number.';
-        }
-
-        function displayValue() {
-            const number = document.getElementById('text-entry').value;
-            total = sum(number);
-            document.getElementById('text-entry-container').innerHTML = total;
-        }
-        document.getElementById('submit').addEventListener('click', displayValue);
-
-        // Activity #2
-        // function expression
-        const computeExpression = (num_1, operation, num_2) => {
-            //console.log(parseFloat(num1));
-            //console.log(parseFloat(num2) === NaN);
-            const num1 = parseFloat(num_1);
-            const num2 = parseFloat(num_2);
-
-            if (!isNaN(num1) & !isNaN(num2)) {
-                console.log(1);
-                switch (operation) {
-                    case '+':
-                        return Number(num1) + Number(num2);
-                    case 'x':
-                        return num1 * num2;
-                    case '-':
-                        return num1 - num2;
-                    default:
-                        return num1 / num2;
-                }
-            }
-            console.log(2);
-            return 'Enter a valid number.';
-        }
-
-        // arrow function
-
-
-        function compute(num1, operation, num2) {
-            switch (operation) {
-                case '+':
-                    return Number(num1) + Number(num2);
-                case 'x':
-                    return num1 * num2;
-                case '-':
-                    return num1 - num2;
-                default:
-                    return num1 / num2;
-            }
-        }
-
-        function displayArithmeticOperationValue(e) {
-            let operation = e.target.value;
-            //let operation = '+';
-            let num1 = document.getElementById('number-1').value;
-            let num2 = document.getElementById('number-2').value;
-
-            const result = computeExpression(num1, operation, num2);
-            document.getElementById('arithmetic-result').innerHTML = result;
-        }
-
-        const addButton = document.getElementById('addition-submit');
-        addButton.addEventListener('click', displayArithmeticOperationValue);
-
-        const subtractionButton = document.getElementById('subtraction-submit');
-        subtractionButton.addEventListener('click', displayArithmeticOperationValue);
-
-        const multiplicationButton = document.getElementById('multiplication-submit');
-        multiplicationButton.addEventListener('click', displayArithmeticOperationValue);
-
-        const divisionButton = document.getElementById('division-submit');
-        divisionButton.addEventListener('click', displayArithmeticOperationValue);
-    </script>
+        <div class="team-activity-container">
+            <h3>Activity # 2</h3>
+            <form onsubmit="return false;">
+                <label for="number-1">Number 1:</label>
+                <input type="number" name="number-1" id="number-1">
+                <label for="number-2">Number 2:</label>
+                <input type="number" name="number-2" id="number-2">
+                <div class="operation">
+                    <input type="submit" value="+" id="addition-submit">
+                    <input type="submit" value="-" id="subtraction-submit">
+                    <input type="submit" value="x" id="multiplication-submit">
+                    <input type="submit" value="/" id="division-submit">
+                </div>
+            </form>
+            <div id="arithmetic-result" class="result-container">
+            </div>
+        </div>
+    </main>
+    <script src="sample_code.js"></script>
 </body>
 
 </html>
