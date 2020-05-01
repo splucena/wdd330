@@ -58,8 +58,21 @@ pre > code {
   word-wrap: normal;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 nav {
   background-color: #272727;
+  margin-top: 0;
+  padding-top: 0;
 }
 nav ul {
   list-style: none;
@@ -86,6 +99,11 @@ nav ul li a:hover {
 }
 nav ul li a:active {
   color: #272727;
+}
+
+main {
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 footer {

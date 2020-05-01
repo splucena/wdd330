@@ -21,9 +21,12 @@ $color-blue: #77a6f7;
 $color-black: #272727;
 
 //fonts
-$font-header: OpenSans, sans-serif;
-$font-regular: Raleway, sans-serif;
+$font-header: OpenSans,
+sans-serif;
+$font-regular: Raleway,
+sans-serif;
 $font-code: monospace;
+
 body {
   background-color: $color-green;
   color: $color-white;
@@ -67,7 +70,7 @@ p {
     overflow-x: auto;
   }
 
-  pre > code {
+  pre>code {
     display: block;
     padding: 0.5em;
     word-wrap: normal;
@@ -76,8 +79,21 @@ p {
 
 @include code-snippet;
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 nav {
   background-color: $color-black;
+  margin-top: 0;
+  padding-top: 0;
 
   ul {
     list-style: none;
@@ -113,6 +129,11 @@ nav {
   }
 }
 
+main {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
 footer {
   background-color: $color-blue;
   padding: 1em;
@@ -125,6 +146,7 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
+
   /* For desktop: */
   nav,
   header,
@@ -172,7 +194,7 @@ footer {
     background-color: $color-green;
   }
 
-  > .result-container {
+  >.result-container {
     background-color: $color-white;
     border: 1px solid #ccc;
     color: $color-black;
