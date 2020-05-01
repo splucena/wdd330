@@ -21,8 +21,358 @@
     <header></header>
     <main>
         <section>
-            <h3>Sample Code</h3>
-            <a href="team_activity">Go to Sample Code</a>
+            <h1>Programming Basics</h1>
+            <article>
+                <h3>Primitive Data Types</h3>
+                <ul>
+                    <li>String</li>
+                    <li>Symbol (Introduced in ES6)</li>
+                    <li>Number</li>
+                    <li>Boolean</li>
+                    <li>Undefined</li>
+                    <li>Null</li>
+                </ul>
+
+                <h3>Scope</h3>
+                <p><strong>let</strong> and <strong>const</strong> means they are <strong>block scoped</strong>, meaning
+                    their value only exists inside
+                    the block they are declared in.</p>
+                <p>Any variable declared ouside of a block have a <strong>global</strong> in scope.</p>
+
+                <h3>Template Literals</h3>
+                <p>Uses the backtics, `, to deliminate string.</p>
+                <p>Single and double quote will both work without the need to delimit with \ backslash</p>
+                <figure>
+                    <pre><code>
+`She said, "It's Me!"`            
+        </code></pre>
+                </figure>
+                <h3>Undefined</h3>
+                <p>The value given to variables what have not been assigned a value. It can also occur if an object's
+                    property doesn't exist or a function has a missing parameter.</p>
+                <h3>Null</h3>
+                <p>No value</p>
+                <h3>Soft Equality</h3>
+                <figure>
+                    <pre><code>
+answer == 5;
+>> true
+
+answer == '5';
+>> true                        
+                    </code></pre>
+                </figure>
+                <h3>Hard Equality</h3>
+                <p>Tests for equality but only returns true if and only if they are of the same data type</p>
+                <figure>
+                    <pre><code>
+answer === 5;
+>> true
+
+answer === '5';
+>> false
+
+Excemption
+
+NaN === NaN;
+>> false
+
+Instead use Number.isNaN(NaN);
+>> true
+                    </code></pre>
+                </figure>
+            </article>
+            <h1>Arrays, Logic, and Loops</h1>
+            <article>
+                <h3>Arrays</h3>
+                <p>An array is an ordered list of values.</p>
+                <figure>
+                    <pre><code>
+const myArray = [];
+
+or
+
+const myArray = new Array();
+
+typof [];
+
+>> 'object'                    
+                </code></pre>
+                </figure>
+                <h3>Destructuring Array</h3>
+                <p>Best for swapping values Instead of declaring temporary variables.</p>
+                <figure>
+                    <pre><code>
+const [x, y] = [1, 3];
+
+x
+>> 1
+
+y
+>> 3
+
+swapping values
+
+[x, y] = [y, x];
+
+x
+>> 3
+
+y
+>> 1                    
+                </code></pre>
+                </figure>
+                <h3>Array Properties and Methods</h3>
+                <ul>
+                    <li>Pop - remove the last item from an array</li>
+                    <li>Shift - removes the first item from an array</li>
+                    <li>Push - appends a new value to the end of an array</li>
+                    <li>Unshift - appends a new item to the beginning of an array</li>
+                </ul>
+                <h3>Merging Arrays</h3>
+                <p>Concat method</p>
+                <figure>
+                    <pre><code>
+let myArray = [1, 2];
+myArray.concat(3);
+myArray.concat([4, 5])
+>> [1, 2, 3, 4, 5]
+                </code></pre>
+                </figure>
+                <p>Join method</p>
+                <figure>
+                    <pre><code>
+default separator is comma (,), 
+but other symbols can be used as well
+
+let myArray = ['one', 'two', 'three']
+myArray.join(' & ');
+>> 'one & two & three'                    
+                </code></pre>
+                </figure>
+                <h3>Slicing and Splicing</h3>
+                <figure>
+                    <pre><code>
+let arr_slice = [1, 2, 3, 4, 5];
+arr_slice.slice(2, 4); 
+
+// starts at the third item (index of 2) and finishes 
+// at the fourth (the item with index 4 is not included)
+
+>> [ 3, 4 ]
+
+splice()
+
+// index to start with; how many items; replacement
+
+arr_slice.splice(3, 1, 6); // removes 4 then inserts 6
+>> [ 1, 2, 3, 6, 5 ]
+                </code></pre>
+                </figure>
+                <h3>Sets</h3>
+                <p>ES6. Represents a collection of unique values</p>
+                <figure>
+                    <pre><code>
+const list = new Set();
+list.add(1);
+>> Set { 1 }
+
+list.add(2).add(3).add(4);
+>> SET { 1, 2, 3, 4 }
+
+list.add(1); // ignored
+
+const listNumbers = new Set([1, 1, 1, 1]);
+>> Set { 1 }
+const letters = new Set('hello');
+>> Set { 'h', 'e', 'l', 'o' }
+
+const arrays = new Set().add([1]).add([1]); 
+// allows duplicate, same array, but considered different objects
+>> Set { [1], [1] }
+
+[1] === [1];
+>> false
+
+type coercion is not used
+const mixedTypes = new Set().add(2).add('2');
+>> Set { 2, '2' }
+
+mixedType.size();
+>> 2
+
+mixedType.has(2);
+>> true
+
+Removing value from Set
+mixedTypes.delete(2);
+>> Set { '2' }
+
+Remove all
+mixedTypes.clear();
+
+Converting Set to Array
+const s =  new Set().add(1).add(2);
+
+>> ... or the spread operator
+
+[...s];
+>> [ 1, 2 ]
+
+or
+
+Array.from(s);
+>> [ 1, 2 ]
+
+const nonDuplicate = [...new Set(arraysWithDuplicates)]; // removes duplicate; converts to array
+                </code></pre>
+                </figure>
+                <h3>Maps</h3>
+                <figure>
+                    <pre><code>
+romanNumerals.set(1,'I');
+>> Map { 1 => 'I' } // => hash rocket
+
+romanNumerals.set(2,'II').set(3,'III').set(4,'IV').set(5,'V')
+>> Map { 1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V' }
+
+Methods
+
+romanNumerals.get(4);
+>> 'IV'
+
+romanNumerals.has(5);
+>> true
+romanNumerals.has(10);
+>> false
+
+Nested
+
+const heroes = new Map([ ['Clark Kent','Superman'], ['Bruce Wayne', 'Batman']]);
+heroes.size
+>> 2
+
+Removing Entries
+
+heroes.delete('Clark Kent');
+>> true
+heroes.size
+>> 1
+
+heroes.clear();
+heroes.size;
+>> 0
+
+Maps to Arrays
+
+Array.from(romanNumerals)
+>> [ [ 1, 'I' ], [ 2, 'II' ], [ 3, 'III' ], [ 4, 'IV'], [ 5, 'V' ] ]
+                </code></pre>
+                </figure>
+                <h3>if / else Statements</h3>
+                <figure>
+                    <pre><code>
+if (condition) {
+    // code to run if condition is true
+}
+
+if (condition) {
+    // code to run if condition is true
+} else {
+    // code to run if condition is false
+}
+                </code></pre>
+                </figure>
+                <h3>Ternary Operator</h3>
+                <figure>
+                    <pre><code>
+condition ? (//code to run if condition is true) : (//code to run if condition is false)
+
+const n = 5;
+n%2 === 0 ? console.log('n is an even number') : console.log('n is an odd number');
+>> 'n is an odd number'
+                </code></pre>
+                </figure>
+                <h3>Switch</h3>
+                <figure>
+                    <pre><code>
+switch (number) {
+    case 4:
+        console.log('You rolled a four');
+        break;
+    case 5:
+        console.log('You rolled a five');
+        break;
+    case 6:
+        console.log('You rolled a six');
+        break;
+    default:
+        console.log('You rolled a number less than four');
+        break;
+}
+                </code></pre>
+                </figure>
+                <h3>Loops</h3>
+                <figure>
+                    <pre><code>
+while Loops
+while (condition) {
+    // do something
+}
+
+let bottles = 10;
+while (bottles > 0) {
+    // code here
+    bottles--;
+}
+
+or
+
+while (--bottles) {
+    // code here
+}
+
+do ... while Loops
+do {
+    do something
+} while(condition)
+
+For Loops
+
+for (initialization ; condition ; after) { do something }
+
+for(let i=0, max=avengers.length; i < max; i++){
+    console.log(avengers[i]);
+}
+
+for(const value of avengers){
+    console.log(value);
+}
+
+Loop Over Maps
+for(const key of romanNumerals.keys()) {
+    console.log(key);
+}
+
+for(const value of RomanNumerals.values()) {
+    console.log(value);
+}
+
+for(const [key,value] of RomanNumerals.entries()) {
+    console.log(`${key} in Roman numerals is ${value}`);
+}                    
+                </code></pre>
+                </figure>
+            </article>
+            <h3>Functions</h3>
+            <article>
+                <h3>Playground</h3>
+                <p><a href="playground.html">Go to Playground</a></p>
+            </article>
+            <article>
+                <h3 class="minimal-margin-padding">Team Activity: Sample Code</h3>
+                <p><a href="team_activity" class="minimal-margin-padding">Go to Sample Code</a></p>
+            </article>
         </section>
     </main>
     <footer>

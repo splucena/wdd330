@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Playground</title>
-</head>
-
-<body>
-
-    <script>
-        let bottles = 10;
+let bottles = 10;
         while (bottles > 0) {
             document.write(bottles + '<br />');
             bottles--;
@@ -152,7 +139,3 @@
 
         console.log(improved_mean([2, 5, 7, 11, 4], x => 2 * x));
         console.log(improved_mean([2, 5, 7, 11, 4]));
-    </script>
-</body>
-
-</html>

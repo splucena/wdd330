@@ -31,6 +31,11 @@ p {
   font-family: Raleway, sans-serif;
 }
 
+.minimal-margin-padding {
+  padding: 0;
+  margin: 0.1em;
+}
+
 figure {
   background-color: #d3e3fc;
   border-radius: 4px;
