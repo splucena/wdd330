@@ -54,7 +54,7 @@ const myMaths = {
         if (callback) {
             // this will not work
             //array.map( callback );
-            array = array.map( callback );
+            array = array.map(callback);
         }
 
         const total = array.reduce((a, b) => a + b);
@@ -65,4 +65,12 @@ const myMaths = {
 }
 
 //console.log(myMaths.square(3));
-console.log(myMaths.mean([1, 2, 3], myMaths.square))
+//console.log(myMaths.mean([1, 2, 3], myMaths.square))
+
+// RegExp
+
+const pattern = /[a-zA-Z]+ing$/;
+console.log(pattern.test('joke'));
+console.log(pattern.test('planting'));
+
+console.log(pattern.exec('The joking'));

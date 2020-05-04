@@ -293,4 +293,65 @@ Links
 const pattern = /[a-zA-Z]+ing$/;
 or
 const pattern = new RegExp('[a-zA-Z]+ing$');
+
+
+pattern.test('joke')); >> false
+pattern.test('planting'); >> true
+
+The exec() method works in the same way as the test() method, but instead of return true or false, it returns an array containing the first match found, or null if there aren't any matches.
+
+pattern.exec('joke'); >> null
+
+pattern.exec('joking');
+>> [ 'joking', index: 0, input: 'joking' ]
+
+\^ negates
+/[^A-Z]/ // not capital letters
 ```
+
+## Regular Expression Properties
+
+- The global property makes the pattern return all matches. By default, the
+  pattern only looks for the first occurrence of a match.
+- The ignoreCase property makes the pattern case-insensitive. By default, they
+  are case sensitive.
+- The multiline property makes the pattern multiline. By default, a pattern
+
+The following can be placed after a regular expression literal to change default properties
+
+- g sets the global property to tru
+- i sets the ignoreCase property to true
+- m sets the multiline property to true
+
+## Special Characters
+
+- . matches any character, except line breaks
+- \w matches any word character, and is equivalent to [A-Za-z0-9_]
+- \W matches any non-word character, and is equivalent to [\^A-Za-z0-9_]
+- \d matches any digit character, and is equivalent to [0-9]
+- \D matches any non-digit character, and is equivalent to [^0-9]
+- \s matches any whitespace character, and is equivalent to [ \t\r\n\f]
+- \S matches any non-whitespace character, and is equivalent to [^ \t\r\n\f]
+
+Modifiers
+
+- ? makes the preceding token in the regular expression optional
+- `*` matches one or more occurrences of the preceding token
+- `-` matches one or more occurrences of the preceding token
+- {n} matches n occurrences of the preceding token
+- {n,} matches at least n occurrences of the pattern
+- {,m} matches at most m occurrences of the preceding token
+- {n,m} matches at least n and at most m occurrences of the preceding token
+- ^ marks the position immediately before the first character in the string
+- $ marks the position immediately after the last character in the string
+
+
+# Node Type
+
+| Code | Type |
+|---|---|
+| 1 | element|
+| 2 | attribute |
+| 3 |text |
+| 8 | comment |
+| 9 |body|
