@@ -141,3 +141,44 @@ function improved_mean(array, callback) {
 
 console.log(improved_mean([2, 5, 7, 11, 4], x => 2 * x));
 console.log(improved_mean([2, 5, 7, 11, 4]));
+
+// callback
+console.log(1);
+
+let add = (num1, num2) => {
+    return num1 + num2;
+}
+
+let multiply = (num1, num2) => {
+    return num1 * num2;
+}
+
+function arithmetic_operation(num1, num2, callback) {
+    return callback(num1, num2)
+}
+
+//console.log(arithmetic_operation(1, 2, add));
+//console.log(arithmetic_operation(1, 2, multiply));
+
+let arr = [4, 3, 21, 1, 11, 7, 2, 5];
+
+let sum = 0;
+
+arr.forEach((x, y) => {
+    sum += (x * y)
+});
+console.log(sum);
+
+let sort_array = (x, y) => {
+    console.log(x + ' ' + y);
+    return x * y;
+    /*if (x > y) {
+        return -1;
+    } else {
+        return 1;
+    }*/
+}
+
+console.log(arr.sort(sort_array));
+console.log(arr.reduce(sort_array));
+console.log(arr.forEach(sort_array))

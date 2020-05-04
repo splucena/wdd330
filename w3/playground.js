@@ -1,16 +1,34 @@
-console.log(1);
+// Object literal
 
-let add = (num1, num2) => {
-    return num1 + num2;
-}
+const car = {
+    brand: 'Toyota',
+    model: 'Innova',
+    colors: ['blue', 'yellow', 'black', 'red'],
+    transmission: ['manual', 'automatic'],
+    drive: (x, y, callback) => {
+        if (typeof callback === 'function') {
+            return callback(x, y);
+        }
+        let message = callback;
+        return message + ' Invalid function call.';
+    },
+    transform: (x, y) => {
+        return x * y;
+    },
+    mutate: (x, y) => {
+        return x + y;
+    }
+};
 
-let multiply = (num1, num2) => {
-    return num1 * num2;
-}
+// Practice callback
+console.log(car.drive(3, 4, car.transform));
+console.log(car.drive(4, 4, car.mutate));
+console.log(car.drive(4, 4, 'Testing callback'));
 
-function arithmetic_operation(num1, num2, callback) {
-    return callback(num1, num2)
-}
+const hulk = {
+    ['hulk_' + 'phrase']: 'Hulk smash!'
+};
+console.log(hulk.hulk_phrase);
 
-console.log(arithmetic_operation(1, 2, add));
-console.log(arithmetic_operation(1, 2, multiply));
+hulk.add_property = 'Property added.';
+console.log(hulk);
