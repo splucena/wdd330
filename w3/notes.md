@@ -136,3 +136,161 @@ superheroes.superman.name;
 ```
 
 ## Objects are Copied By Reference
+
+> Objects are assigned by reference. This means that if a variable is assigned to an object that already exists, it will simply point to the exact same space in memory. So any changes made using either reference will affect the same object.
+
+```
+const thor = {
+    name: 'Thor'
+};
+
+const cloneThor = thor;
+cloneThor.name = 'Clor';
+
+thor.name;
+>> 'Clor'
+```
+
+> This doesnt happen when primitive values are used instead of objects
+
+```
+a = 1;
+b = a;
+
+b = 2;
+a
+>> 1 // value of a hasn't changed
+```
+
+## Objects as Parameters to Functions
+
+```
+function greet({greeting,name,age}) {
+    return `${greeting}! My name is ${name} and I am ${age} years old.`;
+}
+
+greet({ greeting: `What's up dude`, age: 10, name: `Bart` });
+>> 'What\'s up dude! My name is Bart and I am 10 years old.'
+
+function greet({greeting='Hello',name,age=18}) {
+    return `${greeting}! My name is ${name} and I am ${age} years old.`;
+}
+
+greet({ name: 'Lisa', age: 8 });
+>> 'Hello! My name is Lisa and I am 8 years old.'
+```
+
+> This technique is referred to as using named parameters and is often used when a function has a large amount of optional parameters
+
+## this
+
+```
+const dice = {
+    sides: 6,
+    roll():  {
+        return Math.floor(this.sides * Math.random()) + 1;
+    },
+    // or
+    roll: function() {
+        return Math.floor(this.sides * Math.random()) + 1;
+    },
+    // but not
+    roll: () => {
+        // this keyword is not accessible
+    }
+}
+```
+
+## Namespacing
+
+> Use object literal pattern
+
+```
+const myMaths = {
+    square(x) {
+        return x * x;
+    },
+    mean(array, callback) {
+        if (callback) {
+            array = array.map( callback );
+        }
+
+        const total = array.reduce((a, b) => a + b);
+        return total / array.length;
+    }
+}
+```
+
+## Built-in Objects
+
+## JSON
+
+> JSON is a string representation of the object literal notation. There are, however, a couple of key differences:
+
+- Property names must be double-quoted
+- Permitted values are double-quoted strings, numbers, true, false, null, arrays, and objects
+- Functions are not permitted values
+
+```
+Sample JSON string representation
+
+const batman = '{"name": "Batman"}';
+
+// parse() method takes a string of data in JSON format and returns a JS object
+JSON.parse(batman);
+>> {name: 'Batman'}
+
+// stringify() method does the opposite, taking a JS object and returning a string of JSON data
+JSON.stringify(batman);
+>> '{"name": "Batman"}'; // functions are ignored
+```
+
+> These issues are also implementation dependent, which means they rely on the
+> JavaScript engine and operating system they are running on rather than the
+> language itself. So you may get slightly different answers using a different web
+> browser on the same OS or using the same web browser on a different OS!
+
+> If you need more precision, you could consider the decimal.js library
+
+## Random Numbers
+
+```
+To generate random numbers between 0 and another number, we can multiply the value by that number
+
+6 * Math.random(); // random numbers between 0 and 6
+
+Math.floor(6 * Math.random()); // 0 - 5  but never 6 because it always rounds down
+```
+
+## Dates
+
+```
+const diwali = new Date(1508367600000);
+diwali.getFullYear(); // instead of diwali.getYear() broken after 2000
+```
+
+> Working with dates and timezones can be tricky. The moment.js library4 gives you
+> a large number of methods that make it easier to work with dates, as well as support
+> for multiple locales.
+
+## RegExp Object
+
+A regular expression (or RegExp, for short) is a pattern that can be used to search
+strings for matches to the pattern. A common use is “find and replace” type
+operations
+
+Links
+
+- http://www.regextester.com
+- https://regex101.com
+- http://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124/
+- http://www.regular-expressions.info/
+
+```
+\\ all words ending in `ing`
+[a-zA-Z]+ing$;
+
+const pattern = /[a-zA-Z]+ing$/;
+or
+const pattern = new RegExp('[a-zA-Z]+ing$');
+```
