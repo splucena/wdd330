@@ -229,17 +229,42 @@
     // 3. Sort the inventors by birthdate, oldest to youngest
     const currentYear = new Date().getFullYear();
     const inventorsSort = inventors.sort((x, y) => {
-      let xAge = x.passed - x.year;
-      let yAge = y.passed - y.year;
-      return yAge - xAge;
+      //let xAge = x.passed - x.year;
+      //let yAge = y.passed - y.year;
+      return y.year - x.year;
     })
     console.log(inventorsSort);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
+    const inventorsLived = inventors.reduce((total, item) => {
+      // total default value is 0
+      let ageLived = item.passed - item.year;
+      return total + ageLived;
+    }, 0); // 0 is the initial value of total
+    console.log(inventorsLived);
+
+    const inventorsLivedCheck = inventors.reduce((total, item) => {
+      return total + item.age;
+    }, 0); // 0 is the intial value of total
+    // return [object object] if not initialized
+    // if it returned an object it is because initial value was not provided
+    // in that case the initial value would be the first element of the array
+    // which is an object {
+    //    first: 'Albert',
+    //    last: 'Einstein',
+    //    year: 1879,
+    //    passed: 1955
+    //  }
+    console.log(inventorsLivedCheck);
 
     // 5. Sort the inventors by years lived
-
+    const inventorsSortYearsLived = inventors.sort((x, y) => {
+      let xAge = x.passed - x.year;
+      let yAge = y.passed - y.year;
+      return yAge - xAge;
+    })
+    console.log(inventorsSortYearsLived);
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
     // goto the link above and open the console. Paste the following two lines in.  That will create a list of links in memory that you can reference through the console. Use that list to finish the problem.
@@ -248,6 +273,10 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const peopleSort = people.sort((x, y) => {
+      return x[0] - y[0];
+    });
+    console.log(peopleSort);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
@@ -267,6 +296,11 @@
       'car',
       'truck'
     ];
+    const countData = data.reduce((x, y) => {
+      x[y] = (x[y] || 0) + 1;
+      return x;
+    }, {})
+    console.log(countData);
   </script>
 
 
