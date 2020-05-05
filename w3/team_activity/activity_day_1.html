@@ -265,6 +265,7 @@
       return yAge - xAge;
     })
     console.log(inventorsSortYearsLived);
+
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
     // goto the link above and open the console. Paste the following two lines in.  That will create a list of links in memory that you can reference through the console. Use that list to finish the problem.
@@ -297,6 +298,12 @@
       'truck'
     ];
     const countData = data.reduce((x, y) => {
+      console.log(x);
+      // x is a map
+      // y becomes the key
+      // initial value of key is 0
+      // when another instance is found add 1 to the value
+      // of x[y]
       x[y] = (x[y] || 0) + 1;
       return x;
     }, {})
