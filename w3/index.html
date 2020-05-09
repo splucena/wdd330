@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Week 2 | Notes</title>
+</head>
+
+<body>
+    <nav>
+        <ul id="menuLink">
+            <li><a href="#" id="menu"><strong>&equiv; Menu</strong></a></li>
+            <li><a href="../index.html">&nbsp;&nbsp;&nbsp;Home</a></li>
+            <li><a href="../w1/index.html">&nbsp;&nbsp;&nbsp;Week 1</a></li>
+            <li><a href="../w2/index.html">&nbsp;&nbsp;&nbsp;Week 2</a></li>
+            <li><a href="index.html">&nbsp;&nbsp;&nbsp;Week 3</a></li>
+        </ul>
+    </nav>
+    <header></header>
+    <main>
+        <section>
+            <h1>Objects</h1>
+            <article>
+                <h3>Object Literals</h3>
+                <ul>
+                    <li>If a property's value is a function, it is known as a method</li>
+                    <li>One way to think of an object is that it's like a dictionary where you look up a property name
+                        and see a value.</li>
+                    <li>Objects are often used to keep any related information and functionality together in the same
+                        place.</li>
+                </ul>
+                <figure>
+                    <pre>
+                        <code>
+const superman = {
+    name: 'Superman',
+    'real name': 'Clark Kent',
+    height: 75,
+    weight: 235,
+    hero: true,
+    villain: false,
+    allies: ['Batman','Supergirl','Superboy'],
+    fly() {
+        return 'Up, up and away!';
+    }
+};
+
+// Empty object
+const spiderman = {} // recommended object literal notation
+
+// Create an object using a constructor function
+const spiderman = new Object(); // not recommended
+
+const name = 'Iron Man';
+const realName = 'Tony Stark';
+
+// long way
+const ironMan = {name: name, realName: realName};
+
+// short way
+const ironMan = {name, realName};                            
+                        </code>
+                    </pre>
+                </figure>
+
+                <h3>Accessing Properties</h3>
+                <figure>
+                    <pre><code>
+// dot notation
+superman.name; // much more common
+
+// bracket notation
+superman['name']; // can access nonstandard property and methods names like 'real name'
+
+// accessing a property that doesn't exist will return undefined
+        </code></pre>
+                </figure>
+
+                <h3>Computed Properties</h3>
+                <figure>
+                    <pre><code>
+const hulk = {['Hulk' + 'Phrase': 'Hulk smash!']};
+hulk.HulkPhrase; // Hulk smash!
+                    </code></pre>
+                </figure>
+
+                <h3>Checking if Properties or Methods Exist</h3>
+                <figure>
+                    <pre><code>
+'city' in superman;
+or
+superman.city !== undefined; // wiil return true even if the property has been inherited
+or
+superman.hasOwnProperty('city'); // will return any property that belong to the particular object
+                    </code></pre>
+                </figure>
+
+                <h3>Finding all the Properties of an Object</h3>
+                <figure>
+                    <pre><code>
+for (const key in superman) {
+    console.log(key + ': ' + superman[key]);
+}
+
+// Make sure that only an object's own properties and methods are returned
+for (const key in superman) {
+    if (superman.hasOwnProperty(key)) {
+        console.log(key + ': ' + superman[key]);
+    }
+}
+
+// Object.keys() method will return an array of all the keys of an object
+// Object.values() method will return an array of all values of an object
+for(const key of Object.keys(superman)) {
+    console.log(key);
+}
+                    </code></pre>
+                </figure>
+
+                <h3>Adding / Changing / Removing Properties</h3>
+                <figure>
+                    <pre><code>
+superman.city = 'Metropolis';
+>> 'Metropolis'
+
+superman['real name'] = 'Kal-El'; // 'Clark Kent' before
+>> 'Kal-El'
+
+delete superman.fly
+>> true
+                    </code></pre>
+                </figure>
+
+                <h3>Nested Objects</h3>
+                <figure>
+                    <pre>
+                        <code>
+const superheroes = {
+    superman: {
+        name: 'Clark Kent',
+        powers: [],
+        fly: () = > {
+            return 'Fly';
+        }
+    },
+    batman: {
+        name: 'Bruce Wayne',
+    }
+}
+
+// Nested objects can be accessed by referencing each property name in order or using either the dot or bracket notation
+
+superheroes.superman.name;
+>> 'Clark Kent'                            
+                        </code>
+                    </pre>
+                </figure>
+            </article>
+
+            <h1></h1>
+            <article>
+                <h3></h3>
+                <figure>
+                    <pre><code>
+               
+                </code></pre>
+                </figure>
+        </section>
+    </main>
+    <footer>
+        &copy; 2020 | Portfolio | Sumilang Plucena
+    </footer>
+    <script src="../static/js/toggleMenu.js"></script>
+</body>
+
+</html>
