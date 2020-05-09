@@ -17,10 +17,30 @@
     </nav>
     <main>
         <section>
-
+            <div class="team-activity-container">
+                <label for="inputBox">Enter space separated numbers:</label>
+                <input type="text" id="inputBox">
+                <p>Select array function</p>
+                <ul>
+                    <li><input type="radio" id="sort_asc" name="arrayFunction" value="sort_asc">
+                        <label for="sort_asc">Sort ascending</label></li>
+                    <li><input type="radio" id="sort_desc" name="arrayFunction" value="sort_desc">
+                        <label for="sort_desc">Sort descending</label></li>
+                    <li><input type="radio" id="reduce" name="arrayFunction" value="reduce">
+                        <label for="reduce">Reduce</label></li>
+                    <li><input type="radio" id="map" name="arrayFunction" value="map">
+                        <label for="">Map multiply each element by 2</label></li>
+                    <li><input type="radio" id="filter_even" name="arrayFunction" value="filter_even">
+                        <label for="filter_even">Filter even numbers</label></li>
+                    <li><input type="radio" id="filter_odd" name="arrayFunction" value="filter_odd">
+                        <label for="filter_odd">Filter odd numbers</label></li>
+                </ul>
+                <input type="submit" id="submit" name="submit" value="Submit">
+                <div id="output"></div>
+            </div>
         </section>
     </main>
-    <script src="sample_code.js"></script>
+    <script src="array_functions.js"></script>
 </body>
 
 </html>

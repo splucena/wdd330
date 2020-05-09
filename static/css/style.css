@@ -141,8 +141,12 @@ footer {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+.team-activity-container ul {
+  list-style: none;
+}
 .team-activity-container input[type=text],
-.team-activity-container input[type=number] {
+.team-activity-container input[type=number],
+.team-activity-container input[type=output] {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
