@@ -144,6 +144,9 @@ footer {
 .team-activity-container ul {
   list-style: none;
 }
+.team-activity-container ul li {
+  padding: 0.3em;
+}
 .team-activity-container input[type=text],
 .team-activity-container input[type=number],
 .team-activity-container input[type=output] {
