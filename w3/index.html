@@ -133,7 +133,6 @@ delete superman.fly
 >> true
                     </code></pre>
                 </figure>
-
                 <h3>Nested Objects</h3>
                 <figure>
                     <pre>
@@ -158,16 +157,81 @@ superheroes.superman.name;
                         </code>
                     </pre>
                 </figure>
-            </article>
 
-            <h1></h1>
-            <article>
-                <h3></h3>
+                <h3>Namespacing</h3>
+                <p>Use object literal pattern</p>
                 <figure>
                     <pre><code>
-               
+const myMaths = {
+    square(x) {
+        return x * x;
+    },
+    mean(array, callback) {
+        if (callback) {
+            array = array.map( callback );
+        }
+
+        const total = array.reduce((a, b) => a + b);
+        return total / array.length;
+    }
+}
+                    </code></pre>
+                </figure>
+                <h3>this keyword</h3>
+                <figure>
+                    <pre><code>
+const dice = {
+    sides: 6,
+    roll():  {
+        return Math.floor(this.sides * Math.random()) + 1;
+    },
+    // or
+    roll: function() {
+        return Math.floor(this.sides * Math.random()) + 1;
+    },
+    // but not
+    roll: () => {
+        // this keyword is not accessible
+    }
+}
+                    </code></pre>
+                </figure>
+            </article>
+
+            <h1>Built-in Objects</h1>
+            <article>
+                <h3>JSON</h3>
+                <p>JSON is a string representation of the object literal notation. There are, however, a couple of key
+                    differences</p>
+                <ul>
+                    <li>Property names must be double-quoted</li>
+                    <li>Permitted values are double-quoted strings, numbers, true, false, null, arrays, and objects</li>
+                    <li>Functions are not permitted values</li>
+                </ul>
+                <figure>
+                    <pre><code>
+Sample JSON string representation
+
+const batman = '{"name": "Batman"}';
+
+// parse() method takes a string of data in JSON format and returns a JS object
+JSON.parse(batman);
+>> {name: 'Batman'}
+
+// stringify() method does the opposite, taking a JS object and returning a string of JSON data
+JSON.stringify(batman);
+>> '{"name": "Batman"}'; // functions are ignored               
                 </code></pre>
                 </figure>
+            </article>
+
+            <h1>Team Activity</h1>
+            <article>
+                <article>
+                    <h3 class="minimal-margin-padding">Team Activity: Sample Code</h3>
+                    <p><a href="team_activity" class="minimal-margin-padding">Go to Sample Code</a></p>
+                </article>
+            </article>
         </section>
     </main>
     <footer>
