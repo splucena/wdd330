@@ -19,7 +19,7 @@
         <section>
             <div class="team-activity-container">
                 <label for="inputBox">Enter space separated numbers:</label>
-                <input type="text" id="inputBox">
+                <input type="text" id="inputBox" pattern="^[0-9 ]+$" required>
                 <p>Select array function</p>
                 <ul>
                     <li><input type="radio" id="sort_asc" name="arrayFunction" value="sort_asc">

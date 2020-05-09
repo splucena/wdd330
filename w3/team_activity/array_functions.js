@@ -64,6 +64,9 @@ let display = () => {
         appendToUl(ul, numbersOdd);
     }
     // Append result to output
+    ul.style.margin = '0';
+    ul.style.padding = '0';
+    output.style.textAlign = 'center';
     output.appendChild(ul);
 }
 

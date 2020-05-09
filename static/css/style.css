@@ -167,6 +167,7 @@ footer {
   padding: 14px 20px;
   text-align: center;
   width: 100%;
+  margin-bottom: 8px;
 }
 .team-activity-container input[type=submit]:hover {
   background-color: #00887a;
