@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        main {
+            margin: 5em;
+        }
+
+        section {
+            margin: 0 auto;
+            width: 300px;
+        }
+
+        section>.board-container {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+
+        }
+
+        section>.board-container div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+        }
+
+        .border-top-bottom {
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+
+        .border-left-right {
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+        }
+
+        .border-all {
+            border: solid 1px #000;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section>
+            <div id="result"></div>
+            <div class="board-container">
+                <div id="cell-one" data-value="0"></div>
+                <div id="cell-two" data-value="1" class="border-left-right"></div>
+                <div id="cell-three" data-value="2"></div>
+                <div id="cell-four" data-value="3" class="border-top-bottom"></div>
+                <div id="cell-five" data-value="4" class="border-all"></div>
+                <div id="cell-six" data-value="5" class="border-top-bottom"></div>
+                <div id="cell-seven" data-value="6"></div>
+                <div id="cell-eight" data-value="7" class="border-left-right"></div>
+                <div id="cell-nine" data-value="8"></div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const board = document.querySelector('.board-container');
+
+        board.addEventListener('click', touchend, false);
+
+        let moves = ['', '', '', '', '', '', '', '', ''];
+        let counter = 0;
+
+        function checkWinner(moves) {
+            const winningMoves = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6],
+            ];
+
+            let results = [];
+
+            for (move of winningMoves) {
+                let makeSet = new Set([moves[move[0]], moves[move[1]], moves[move[2]]]);
+                results.push(makeSet);
+            }
+            console.log(results);
+            let x = null;
+
+            for (result of results) {
+                let result_set = result.values();
+                let result_set_1 = result_set.next().value;
+                if (result.size === 1 && result_set_1 !== '') {
+                    x = result_set_1;
+                }
+            }
+
+            return x ? [true, x] : [false];
+        }
+
+        function markCell(id, mark) {
+            document.getElementById(id).innerHTML = mark;
+            let movesIndex = document.getElementById(id).getAttribute('data-value');
+            moves[movesIndex] = mark;
+
+            return moves;
+        }
+
+        function checkCellMark(id) {
+            const cellMarked = document.getElementById(id).innerHTML;
+            return cellMarked === '' ? true : false;
+        }
+
+        const gameResult = document.querySelector('#result');
+
+        function touchend(event) {
+            event.preventDefault;
+            let clickedCell = event.target.id;
+            let message = '';
+
+            if (checkCellMark(clickedCell)) {
+                if (counter % 2 === 0) {
+                    mark = 'X';
+                } else {
+                    mark = 'O'
+                }
+                let moves = markCell(clickedCell, mark);
+                let hasWinner = checkWinner(moves);
+                if (hasWinner[0]) {
+                    message = `Player ${hasWinner[1]} wins!`;
+                }
+                counter += 1;
+            } else {
+                alert('Choose another cell.');
+            }
+
+            if (counter === 9) {
+                message = 'It\'s a tie!';
+            }
+
+            gameResult.innerHTML = message;
+        }
+    </script>
+</body>
+
+</html>
