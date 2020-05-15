@@ -41,9 +41,8 @@
             margin: 0 auto;
             width: 100%;
             text-align: center;
-            font-size: 2em;
+            font-size: 1.5em;
             padding: 1em;
-            margin-bottom: 1em;
         }
 
         .reset {
@@ -192,7 +191,7 @@
                 alert('Choose another cell.');
             }
 
-            if (counter === 9) {
+            if (counter === 9 && message === '&nbsp;') {
                 message = 'It\'s a tie!';
             }
 
