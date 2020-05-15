@@ -6,24 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
     <style>
-        main {
-            margin: 5em;
-        }
-
-        section {
+        .board-container {
             margin: 0 auto;
-            width: 300px;
-        }
-
-        section>.board-container {
             display: grid;
-            grid-template-columns: repeat(3, 100px);
+            grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 100px);
 
         }
 
-        section>.board-container div {
+        .board-container div {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -43,30 +36,64 @@
         .border-all {
             border: solid 1px #000;
         }
+
+        .result {
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+            padding: 1em;
+            margin-bottom: 1em;
+        }
+
+        .reset {
+            width: 100%;
+            padding: 0.5em;
+            margin-top: 1em;
+            font-size: 1.5em;
+        }
+
+        .disable-click {
+            pointer-events: none;
+        }
     </style>
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">&lt;&lt; Go Back</a></li>
+        </ul>
+    </nav>
     <main>
         <section>
-            <div id="result"></div>
-            <div class="board-container">
-                <div id="cell-one" data-value="0"></div>
-                <div id="cell-two" data-value="1" class="border-left-right"></div>
-                <div id="cell-three" data-value="2"></div>
-                <div id="cell-four" data-value="3" class="border-top-bottom"></div>
-                <div id="cell-five" data-value="4" class="border-all"></div>
-                <div id="cell-six" data-value="5" class="border-top-bottom"></div>
-                <div id="cell-seven" data-value="6"></div>
-                <div id="cell-eight" data-value="7" class="border-left-right"></div>
-                <div id="cell-nine" data-value="8"></div>
+            <div class="team-activity-container">
+                <div class="result">&nbsp;</div>
+                <div class="board-container">
+                    <div id="cell-one" data-value="0"></div>
+                    <div id="cell-two" data-value="1" class="border-left-right"></div>
+                    <div id="cell-three" data-value="2"></div>
+                    <div id="cell-four" data-value="3" class="border-top-bottom"></div>
+                    <div id="cell-five" data-value="4" class="border-all"></div>
+                    <div id="cell-six" data-value="5" class="border-top-bottom"></div>
+                    <div id="cell-seven" data-value="6"></div>
+                    <div id="cell-eight" data-value="7" class="border-left-right"></div>
+                    <div id="cell-nine" data-value="8"></div>
+                </div>
+                <input type="submit" value="Reset" class="reset">
             </div>
         </section>
     </main>
     <script>
         const board = document.querySelector('.board-container');
-
         board.addEventListener('click', touchend, false);
+
+        // reset
+        const resetBoard = document.querySelector('.reset');
+        resetBoard.addEventListener('click', reset, false);
+
+        // result
+        let gameResult = document.querySelector('.result');
 
         let moves = ['', '', '', '', '', '', '', '', ''];
         let counter = 0;
@@ -84,19 +111,19 @@
             ];
 
             let results = [];
-
-            for (move of winningMoves) {
-                let makeSet = new Set([moves[move[0]], moves[move[1]], moves[move[2]]]);
-                results.push(makeSet);
-            }
-            console.log(results);
             let x = null;
+            for (move of winningMoves) {
+                let a = moves[move[0]];
+                let b = moves[move[1]];
+                let c = moves[move[2]];
 
-            for (result of results) {
-                let result_set = result.values();
-                let result_set_1 = result_set.next().value;
-                if (result.size === 1 && result_set_1 !== '') {
-                    x = result_set_1;
+                if (a === '' || b === '' || c === '') {
+                    continue
+                }
+
+                if (a === b && b === c) {
+                    x = a;
+                    break;
                 }
             }
 
@@ -116,12 +143,36 @@
             return cellMarked === '' ? true : false;
         }
 
-        const gameResult = document.querySelector('#result');
+        function enableDisableBoard(answer) {
+            let cells = Array.from(board.children);
+            if (answer) {
+                cells.forEach(element => {
+                    element.classList.add('disable-click');
+                });
+            } else {
+                cells.forEach(element => {
+                    element.classList.remove('disable-click');
+                });
+            }
+        }
+
+        function reset() {
+            // convert HTMLCollection to array
+            let cells = Array.from(board.children);
+
+            cells.forEach(element => {
+                element.innerHTML = '';
+            });
+            moves = ['', '', '', '', '', '', '', '', ''];
+            counter = 0;
+            gameResult.innerHTML = '&nbsp';
+            enableDisableBoard(false);
+        }
 
         function touchend(event) {
             event.preventDefault;
             let clickedCell = event.target.id;
-            let message = '';
+            let message = '&nbsp';
 
             if (checkCellMark(clickedCell)) {
                 if (counter % 2 === 0) {
@@ -133,6 +184,8 @@
                 let hasWinner = checkWinner(moves);
                 if (hasWinner[0]) {
                     message = `Player ${hasWinner[1]} wins!`;
+                    enableDisableBoard(true);
+                    //reset();
                 }
                 counter += 1;
             } else {
