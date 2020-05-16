@@ -30,12 +30,41 @@
                 <h3>Encapsulation</h3>
                 <p>This involves keeping all programming logic inside an object and methods available to implement
                     functionality, without the outisde world needing to know how it's done.</p>
-                <h3>Ploymorphism</h3>
+                <h3>Polymorphism</h3>
                 <p>This means various objects can share the same method, but also have the ability to override shared
                     methods with a more specific implementation.</p>
+                <figure>
+                    <pre>
+                        <code>
+[1, 2, 3].toString(); // '1, 2, 3'
+2..toString(); // '2'
+                        </code>
+                    </pre>
+                </figure>
+                <p>Polymorphism means objects are able to override methods with a more specific implementation.</p>
                 <h3>Inheritance</h3>
                 <p>This means we can an object that already exist and inherit all its properties and methods. We can
                     improve on its functionality by adding new properties and methods.</p>
+                <figure>
+                    <pre>
+                        <code>
+class Monkey {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+// Inherit Monkey
+class MonkeyKing extends Monkey {
+    constructor(name) {
+        super(name);
+        this.weapon = 'hands';
+    }
+    attack() { return `Feel the power of my ${this.weapon}`; }
+}
+                        </code>
+                    </pre>
+                </figure>
                 <h3>ES6 Class Declaration</h3>
                 <p>ES6 introduced the new class declaration syntax that does exactly the same things as a constructor
                     function.</p>
