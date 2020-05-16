@@ -33,6 +33,72 @@
                 <h3>Ploymorphism</h3>
                 <p>This means various objects can share the same method, but also have the ability to override shared
                     methods with a more specific implementation.</p>
+                <h3>Inheritance</h3>
+                <p>This means we can an object that already exist and inherit all its properties and methods. We can
+                    improve on its functionality by adding new properties and methods.</p>
+                <h3>ES6 Class Declaration</h3>
+                <p>ES6 introduced the new class declaration syntax that does exactly the same things as a constructor
+                    function.</p>
+                <figure>
+                    <pre>
+                        <code>
+class Dice {
+    constructor(sides=6) {
+        this.sides = sides;
+    }
+
+    roll() {
+        return Math.floor(this.sides * Math.random() + 1);
+    }
+}
+
+// create an instance of Dice
+const dice = new Dice(10);
+dice.sides; // 10
+dice.roll(); // random number
+                        </code>
+                    </pre>
+                </figure>
+                <h3>Static Methods</h3>
+                <p>A static method is called by the class directly rather than by instances of the class. Also called
+                    class methods in other programming languages.</p>
+                <figure>
+                    <pre>
+                        <code>
+class Dice {
+    .
+    .
+    .
+    static description() {
+        return 'This is a static method';
+    }
+}
+
+// implementation
+Dice.description(); // This is a static method
+
+dice.description(); // TypeError: dice.description() is not a function
+                        </code>
+                    </pre>
+                </figure>
+                <h3>Public and Private Methods</h3>
+                <p>By defaulat, an object's method are public in JavaScript.</p>
+                <p>We can use the concept of variable scope to keep some properties and methods private inside a class
+                    definition</p>
+                <figure>
+                    <pre>
+                        <code>
+class Turtle {
+    constructor(name, color) {
+        this.name = name;
+        let _color = color; // private variable only accessible within the class        
+        this.setColor = color => { return _color = color; }
+        this.getColor = () => _color;
+    }
+}
+                        </code>
+                    </pre>
+                </figure>
                 <!--<figure>
                     <pre>
                         <code>
