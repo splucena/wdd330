@@ -21,6 +21,24 @@
     li {
         border: solid 1px darkgray;
     }
+
+    >.todo-item {
+        padding: 1em;
+        display: grid;
+        grid-template-columns: 10% 80% 10%;
+
+        button {
+            background: transparent;
+            background-color: transparent;
+            border: none;
+        }
+
+        input[type=checkbox] {
+            border: none;
+            border: solid 1px darkgray;
+            font-size: large;
+        }
+    }
 }
 
 .todo-control {

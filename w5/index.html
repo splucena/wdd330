@@ -94,12 +94,22 @@
 
         todoListStorage.forEach(todoItem => {
             const li = document.createElement('li');
-            //li.className('todo-item');
-            li.innerHTML = todoItem['content'];
+            li.classList.add('todo-item');
+            const checkBox = document.createElement('input');
+            checkBox.setAttribute('type', 'checkbox');
+            li.appendChild(checkBox);
+            const div = document.createElement('div');
+            console.log(todoItem['content']);
+            div.innerHTML = todoItem['content'];
+            li.appendChild(div);
+            const btnCompleted = document.createElement('button');
+            btnCompleted.innerHTML = 'X';
+            li.appendChild(btnCompleted);
+            //li.innerHTML = todoItem['content'];
             todoList.insertBefore(li, todoList.childNodes[0]);
         });
 
-        console.log(JSON.stringify(window.localStorage.getItem('todos')));
+        //console.log(JSON.stringify(window.localStorage.getItem('todos')));
     </script>
     <footer>
         &copy; 2020 | Portfolio | Sumilang Plucena

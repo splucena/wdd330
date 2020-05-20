@@ -21,6 +21,21 @@
 .todo-list li {
   border: solid 1px darkgray;
 }
+.todo-list > .todo-item {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+}
+.todo-list > .todo-item button {
+  background: transparent;
+  background-color: transparent;
+  border: none;
+}
+.todo-list > .todo-item input[type=checkbox] {
+  border: none;
+  border: solid 1px darkgray;
+  font-size: large;
+}
 
 .todo-control {
   display: grid;
