@@ -133,15 +133,14 @@
         console.log(index, todoItem["content"]);
         div.innerHTML = todoItem["content"];
         li.appendChild(div);
-        const btnCompleted = document.createElement("button");
-        btnCompleted.innerHTML = "X";
-        btnCompleted.setAttribute("id", `btn-${index}`);
-        btnCompleted.addEventListener("click", function () {
-          console.log(1);
+        const removeTodoItem = document.createElement("button");
+        removeTodoItem.innerHTML = "X";
+        removeTodoItem.setAttribute("id", `btn-${index}`);
+        removeTodoItem.addEventListener("click", function () {
           todoListStorage.splice(index, 1);
           localStorage.setItem("todos", JSON.stringify(todoListStorage));
         });
-        li.appendChild(btnCompleted);
+        li.appendChild(removeTodoItem);
 
         checkBox.addEventListener('change', function () {
           let todoItem = document.querySelector(`#div-${index}`);
@@ -149,10 +148,14 @@
             todoItem
               .classList
               .add('horizontal-line');
+            todoListStorage[index]['completed'] = true;
+            localStorage.setItem("todos", JSON.stringify(todoListStorage));
           } else {
             todoItem
               .classList
               .remove('horizontal-line');
+            todoListStorage[index]['completed'] = false;
+            localStorage.setItem("todos", JSON.stringify(todoListStorage));
           }
         });
         todoList.insertBefore(li, todoList.childNodes[index]);
