@@ -14,12 +14,13 @@
 }
 
 .todo-list {
+  border: solid 1px darkgray;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.todo-list li {
-  border: solid 1px darkgray;
+.todo-list li:not(:last-child) {
+  border-bottom: 1px solid darkgray;
 }
 .todo-list > .todo-item {
   padding: 1em;
@@ -55,7 +56,18 @@
 }
 
 .horizontal-line {
-  text-decoration: line-through;
+  position: relative;
+}
+
+.horizontal-line:after {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 1px;
+  background: darkgray;
+  content: "";
+  width: 100%;
+  display: block;
 }
 
 .btn {

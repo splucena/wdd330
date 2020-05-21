@@ -150,13 +150,11 @@
               .classList
               .add('horizontal-line');
           } else {
-            console.log('remove class');
             todoItem
               .classList
               .remove('horizontal-line');
           }
         });
-        //li.innerHTML = todoItem['content'];
         todoList.insertBefore(li, todoList.childNodes[index]);
 
         // task left
