@@ -1,68 +1,88 @@
 .todo-container {
-    background-color: #FFF;
-    color: #000;
-    display: grid;
-    grid-template-columns: auto;
-    grid-row-gap: 1em;
-    margin: 1em;
-    padding: 1em;
+  background-color: #fff;
+  color: #000;
+  display: grid;
+  grid-template-columns: auto;
+  grid-row-gap: 1em;
+  margin: 1em;
+  padding: 1em;
 }
 
 .todo-list {
+  border: solid 1px darkgray;
+  width: 100%;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
     border: solid 1px darkgray;
-    width: 100%;
-}
+  }
 
-.todo-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-        border: solid 1px darkgray;
-    }
-
-    >.todo-item {
-        padding: 1em;
-        display: grid;
-        grid-template-columns: 10% 80% 10%;
-
-        button {
-            background: transparent;
-            background-color: transparent;
-            border: none;
-        }
-
-        input[type=checkbox] {
-            border: none;
-            border: solid 1px darkgray;
-            font-size: large;
-        }
-    }
-}
-
-.todo-control {
+  > .todo-item {
+    padding: 1em;
     display: grid;
-    grid-template-columns: 80% 20%;
-    grid-column-gap: 0.2em;
+    grid-template-columns: 10% 80% 10%;
+
+    button {
+      background: transparent;
+      background-color: transparent;
+      border: none;
+    }
+
+    input[type="checkbox"] {
+      border: none;
+      border: solid 1px darkgray;
+      font-size: large;
+    }
+  }
+}
+
+.todo-filter {
+  padding: 1em;
+  > .todo-filter {
+    padding: 1em;
+  }
+}
+
+.font-small {
+  font-size: small;
+}
+
+.todo-control > form {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-column-gap: 0.2em;
+}
+
+.horizontal-line {
+  text-decoration: line-through;
 }
 
 .btn {
-    background: transparent;
-    background-color: transparent;
-    border: solid 1px darkgray;
-    font-size: medium;
+  background: transparent;
+  background-color: transparent;
+  border: solid 1px darkgray;
+  cursor: pointer;
 }
 
 .todo-create,
 .todo-btn {
-    padding: 1em;
+  padding: 1em;
 }
 
 .todo-filter-btn {
-    padding: 0.2em;
+  border: none;
+  padding: 0.5em;
 }
 
-.todo-btn {
-    cursor: pointer;
+.border-all {
+  border: solid 1px darkgray;
 }
+
+//.todo-btn {
+//  cursor: pointer;
+//}
