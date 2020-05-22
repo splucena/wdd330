@@ -58,7 +58,7 @@ main h1 {
   font-size: small;
 }
 
-.todo-control > form {
+.todo-control {
   display: grid;
   grid-template-columns: 95% auto;
   grid-column-gap: 0.2em;

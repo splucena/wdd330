@@ -25,71 +25,44 @@ import {
 //console.log(newTodoList);
 
 export default class Todos {
-    createTodosStorage(name, value) {
-        utilCreateLocalStorage(name, value)
+    constructor(todoList = null) {
+        this.todoList = todoList;
+
+        document.querySelector('#todo-btn-create').addEventListener('click', e => {
+            this.addTodo();
+        });
+        this.renderTodoList(this.getTodos('todos'), '#todo-list');
     }
 
-    addTodo(content, completed) {
-        return new Todo(content, completed);
+    addTodo() {
+        let todoContent = document.querySelector('#todo-input-create').value;
+        let todoItem = new Todo(todoContent);
+        this.saveTodo(todoItem, "todos");
     }
 
     renderTodoList(list, element) {
         const todoList = document.querySelector(element);
-        list.forEach((todoItem, index) => {
-            const li = document.createElement("li");
-            li
-                .classList
-                .add("todo-item");
-            const checkBox = document.createElement("input");
-            checkBox.setAttribute("type", "checkbox");
-            checkBox.setAttribute("id", `chk-${index}`);
+        todoList.innerHTML = '';
 
-            li.appendChild(checkBox);
-            const div = document.createElement("div");
-            div.setAttribute("id", `div-${index}`);
-            console.log(index, todoItem["content"]);
-            div.innerHTML = todoItem["content"];
-            li.appendChild(div);
-            const removeTodoItem = document.createElement("button");
-            //removeTodoItem.innerHTML = "X";
-            removeTodoItem.classList.add('todo-remove-item');
-            removeTodoItem.setAttribute("id", `btn-${index}`);
-            removeTodoItem.addEventListener("click", function () {
-                list.splice(index, 1);
-                localStorage.setItem("todos", JSON.stringify(list));
-            });
-            li.appendChild(removeTodoItem);
+        list.forEach((element, index) => {
+            let todoItem = document.createElement('li');
+            todoItem.classList.add('todo-item');
 
-            checkBox.addEventListener('change', function () {
-                let todoItem = document.querySelector(`#div-${index}`);
-                if (this.checked) {
-                    //todoItem
-                    //    .classList
-                    //    .add('horizontal-line');
-                    //list[index]['completed'] = true;
-                    localStorage.setItem("todos", JSON.stringify(list));
-                } else {
-                    //todoItem
-                    //    .classList
-                    //    .remove('horizontal-line');
-                    //list[index]['completed'] = false;
-                    localStorage.setItem("todos", JSON.stringify(list));
-                }
-                //checkBox.classList.toggle('horizontal-line');
-                todoItem.classList.toggle('horizontal-line');
-            });
-            todoList.insertBefore(li, todoList.childNodes[index]);
-
-            // task left
-            let todo_task_left = document.querySelector("#todo-task-left");
-            todo_task_left.innerHTML = index + 1 + " task left";
-            //https://gomakethings.com/how-to-update-localstorage-with-vanilla-javascript/
-            //https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
-            //http://archive.oreilly.com/oreillyschool/courses/javascript2/TodoAppWithLocalStorage.html
+            let markItem = document.createElement('input');
+            markItem.setAttribute('type', 'checkbox');
+            let itemContent = document.createElement('div');
+            itemContent.innerHTML = element['content'];
+            todoItem.appendChild(markItem);
+            todoItem.appendChild(itemContent);
+            todoList.appendChild(todoItem);
         });
     }
 
-    saveTodo(task, key) {}
+    saveTodo(task, key) {
+        utilCreateLocalStorage(key, task);
+        const list = this.getTodos(key);
+        this.renderTodoList(list, '#todo-list');
+    }
 
     getTodos(key) {
         return utilGetLocalStorage(key);

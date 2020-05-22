@@ -1,5 +1,13 @@
 export function utilCreateLocalStorage(name, value) {
-    return localStorage.setItem(name, JSON.stringify(value));
+    let todos;
+    if (localStorage.getItem("todos") === null) {
+        todos = [];
+    } else {
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+
+    todos.push(value);
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 export function utilGetLocalStorage(name) {

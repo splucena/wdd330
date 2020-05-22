@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="../../static/css/style.css" />
+    <link rel="stylesheet" href="../../static/css/style.css"/>
     <link rel="stylesheet" href="../../static/css/todo.css">
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-        <section>
-            <h1>Todos</h1>
-            <div class="todo-container" id="todo-container">
-                <div class="todo-list-container">
-                    <ul id="todo-list" class="todo-list">
-                        <li class="todo-filter" id="todo-filter">
-                            <span class="todo-task-left font-small" id="todo-task-left">tasks left</span>
-                            <button class="btn todo-filter-btn font-small border-all">
-                                All
-                            </button>
-                            <button class="btn todo-filter-btn font-small">Active</button>
-                            <button class="btn todo-filter-btn font-small">
-                                Completed
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-                <div class="todo-control" id="todo-control">
-                    <form action="">
-                        <input type="text" class="todo-create" id="todo-input-create" />
-                        <button class="btn todo-btn" id="todo-btn-create">+</button>
-                    </form>
-                </div>
+      <section>
+        <h1>Todos</h1>
+        <div class="todo-container" id="todo-container">
+          <div class="todo-list-container">
+            <ul id="todo-list" class="todo-list"></ul>
+            <div class="todo-filter" id="todo-filter">
+              <span class="todo-task-left font-small" id="todo-task-left">tasks left</span>
+              <button class="btn todo-filter-btn font-small border-all">
+                All
+              </button>
+              <button class="btn todo-filter-btn font-small">Active</button>
+              <button class="btn todo-filter-btn font-small">
+                Completed
+              </button>
             </div>
-        </section>
+          </div>
+          <div class="todo-control" id="todo-control">
+            <input type="text" class="todo-create" id="todo-input-create"/>
+            <button class="btn todo-btn" id="todo-btn-create">+</button>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="main.js" type="module"></script>
-</body>
+  </body>
 
 </html>
