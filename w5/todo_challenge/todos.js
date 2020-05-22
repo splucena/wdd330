@@ -25,8 +25,8 @@ import {
 //console.log(newTodoList);
 
 export default class Todos {
-    constructor(todoList = null) {
-        this.todoList = todoList;
+    constructor() {
+        this.todoList = null;
 
         document.querySelector('#todo-btn-create').addEventListener('click', e => {
             this.addTodo();
@@ -37,10 +37,11 @@ export default class Todos {
     addTodo() {
         let todoContent = document.querySelector('#todo-input-create').value;
         let todoItem = new Todo(todoContent);
-        this.saveTodo(todoItem, "todos");
+        this.saveTodo(todoItem, 'todos');
     }
 
     renderTodoList(list, element) {
+        console.log(list);
         const todoList = document.querySelector(element);
         todoList.innerHTML = '';
 
@@ -52,24 +53,35 @@ export default class Todos {
             markItem.setAttribute('type', 'checkbox');
             let itemContent = document.createElement('div');
             itemContent.innerHTML = element['content'];
+            const removeTodoItem = document.createElement("button");
+            removeTodoItem.classList.add('todo-remove-item');
+            //removeTodoItem.setAttribute("id", `btn-${index}`);
+
             todoItem.appendChild(markItem);
             todoItem.appendChild(itemContent);
+            todoItem.appendChild(removeTodoItem);
             todoList.appendChild(todoItem);
         });
     }
 
     saveTodo(task, key) {
         utilCreateLocalStorage(key, task);
-        const list = this.getTodos(key);
-        this.renderTodoList(list, '#todo-list');
+        this.getTodos(key);
+        //this.renderTodoList(list, '#todo-list');
+        this.listTodos();
     }
 
     getTodos(key) {
-        return utilGetLocalStorage(key);
+        if (this.todoList === null) {
+            this.todoList = utilGetLocalStorage(key);
+        }
+        this.todoList = utilGetLocalStorage(key);
+        return this.todoList;
     }
 
-    listTodos(name) {
-        //return utilGetLocalStorage(name);
+    listTodos() {
+        console.log('listTodos');
+        this.renderTodoList(this.todoList, '#todo-list')
     }
 
     completeTodo() {}
