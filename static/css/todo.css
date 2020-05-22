@@ -1,26 +1,31 @@
-.todo-container {
-  background-color: #fff;
-  color: #000;
-  display: grid;
-  grid-template-columns: auto;
-  grid-row-gap: 1em;
-  margin: 1em;
+main > section {
+  background-color: #fffcff;
+  background-size: 100%;
+  background-image: repeating-linear-gradient(0deg, #e9e9e9, #e9e9e9 1px, transparent 1px, transparent 20px), repeating-linear-gradient(-90deg, #e9e9e9, #e9e9e9 1px, transparent 1px, transparent 20px);
+  padding: 1em;
+}
+main h1 {
+  text-align: center;
   padding: 1em;
 }
 
-.todo-list {
-  border: solid 1px darkgray;
-  width: 100%;
+.todo-container {
+  color: #101010;
+  display: grid;
+  grid-template-columns: auto;
+  grid-row-gap: 1em;
 }
 
 .todo-list {
-  border: solid 1px darkgray;
+  background-color: #fffcff;
+  border: solid 2px #939393;
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 .todo-list li:not(:last-child) {
-  border-bottom: 1px solid darkgray;
+  border-bottom: solid 2px #939393;
 }
 .todo-list > .todo-item {
   padding: 1em;
@@ -34,7 +39,7 @@
 }
 .todo-list > .todo-item input[type=checkbox] {
   border: none;
-  border: solid 1px darkgray;
+  border: solid 2px #939393;
   font-size: large;
 }
 
@@ -51,7 +56,7 @@
 
 .todo-control > form {
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 95% auto;
   grid-column-gap: 0.2em;
 }
 
@@ -64,7 +69,7 @@
   left: 0;
   top: 50%;
   height: 1px;
-  background: darkgray;
+  background: #939393;
   content: "";
   width: 100%;
   display: block;
@@ -73,13 +78,47 @@
 .btn {
   background: transparent;
   background-color: transparent;
-  border: solid 1px darkgray;
+  border: solid 2px #939393;
   cursor: pointer;
+}
+
+.todo-create {
+  border: transparent;
+  background: transparent;
+  background-color: transparent;
+  border: solid 2px #939393;
 }
 
 .todo-create,
 .todo-btn {
   padding: 1em;
+  position: relative;
+}
+
+.todo-btn::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: #272727;
+  height: 4px;
+  margin-top: -2px;
+  top: 50%;
+  left: 4px;
+  right: 4px;
+  z-index: 10;
+}
+
+.todo-btn::before {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: #272727;
+  width: 4px;
+  margin-left: -2px;
+  left: 50%;
+  top: 4px;
+  bottom: 4px;
+  z-index: 11;
 }
 
 .todo-filter-btn {
@@ -88,7 +127,7 @@
 }
 
 .border-all {
-  border: solid 1px darkgray;
+  border: solid 2px #939393;
 }
 
 /*# sourceMappingURL=todo.css.map */
