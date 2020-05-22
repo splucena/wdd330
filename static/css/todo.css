@@ -42,8 +42,9 @@ main h1 {
 }
 .todo-list > .todo-item input[type=checkbox] {
   border: none;
-  border: solid 2px #939393;
   font-size: large;
+  opacity: 0;
+  border: solid 2px #939393;
 }
 
 .todo-filter {

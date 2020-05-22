@@ -80,8 +80,10 @@ main {
 
     input[type="checkbox"] {
       border: none;
-      border: solid $border-size $border-color;
+      
       font-size: large;
+      opacity: 0;
+      border: solid $border-size $border-color;
     }
   }
 }
