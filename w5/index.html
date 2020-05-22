@@ -1,181 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="stylesheet" href="../static/css/style.css"/>
-    <link rel="stylesheet" href="../static/css/todo.css"/>
-    <title>Challenge One | ToDo</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="../static/css/style.css" />
+  <link rel="stylesheet" href="../static/css/todo.css" />
+  <title>Challenge One | ToDo</title>
+</head>
 
-  <body>
-    <nav>
-      <ul id="menuLink">
-        <li>
-          <a href="#" id="menu">
-            <strong>&equiv; Menu</strong>
-          </a>
-        </li>
-        <li>
-          <a href="../index.html">&nbsp;&nbsp;&nbsp;Home</a>
-        </li>
-        <li>
-          <a href="../w1/index.html">&nbsp;&nbsp;&nbsp;Week 1</a>
-        </li>
-        <li>
-          <a href="../w2/index.html">&nbsp;&nbsp;&nbsp;Week 2</a>
-        </li>
-        <li>
-          <a href="../w3/index.html">&nbsp;&nbsp;&nbsp;Week 3</a>
-        </li>
-        <li>
-          <a href="index.html">&nbsp;&nbsp;&nbsp;Week 4</a>
-        </li>
-        <li>
-          <a href="index.html">&nbsp;&nbsp;&nbsp;ToDo</a>
-        </li>
-      </ul>
-    </nav>
-    <header></header>
-    <main>
-      <section>
-        <h3>Todos</h3>
-        <div class="todo-container" id="todo-container">
-          <div class="todo-list-container">
-            <ul id="todo-list" class="todo-list">
-              <li class="todo-filter" id="todo-filter">
-                <span class="todo-task-left font-small" id="todo-task-left">tasks left</span>
-                <button class="btn todo-filter-btn font-small border-all">
-                  All
-                </button>
-                <button class="btn todo-filter-btn font-small">Active</button>
-                <button class="btn todo-filter-btn font-small">
-                  Completed
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div class="todo-control" id="todo-control">
-            <form action="">
-              <input type="text" class="todo-create" id="todo-input-create"/>
-              <button class="btn todo-btn" id="todo-btn-create">+</button>
-            </form>
-          </div>
+<body>
+  <nav>
+    <ul id="menuLink">
+      <li>
+        <a href="#" id="menu">
+          <strong>&equiv; Menu</strong>
+        </a>
+      </li>
+      <li>
+        <a href="../index.html">&nbsp;&nbsp;&nbsp;Home</a>
+      </li>
+      <li>
+        <a href="../w1/index.html">&nbsp;&nbsp;&nbsp;Week 1</a>
+      </li>
+      <li>
+        <a href="../w2/index.html">&nbsp;&nbsp;&nbsp;Week 2</a>
+      </li>
+      <li>
+        <a href="../w3/index.html">&nbsp;&nbsp;&nbsp;Week 3</a>
+      </li>
+      <li>
+        <a href="index.html">&nbsp;&nbsp;&nbsp;Week 4</a>
+      </li>
+      <li>
+        <a href="index.html">&nbsp;&nbsp;&nbsp;ToDo</a>
+      </li>
+    </ul>
+  </nav>
+  <header></header>
+  <main>
+    <section>
+      <h3>Todos</h3>
+      <div class="todo-container" id="todo-container">
+        <div class="todo-list-container">
+          <ul id="todo-list" class="todo-list">
+            <li class="todo-filter" id="todo-filter">
+              <span class="todo-task-left font-small" id="todo-task-left">tasks left</span>
+              <button class="btn todo-filter-btn font-small border-all">
+                All
+              </button>
+              <button class="btn todo-filter-btn font-small">Active</button>
+              <button class="btn todo-filter-btn font-small">
+                Completed
+              </button>
+            </li>
+          </ul>
         </div>
-      </section>
-    </main>
-    <script>
-      class Todo {
-        constructor(id, content, completed = false) {
-          this.id = id;
-          this.content = content;
-          this.completed = completed;
-        }
-
-        create() {
-          let todo = {
-            id: this.id,
-            content: this.content,
-            completed: this.completed
-          };
-
-          let todos;
-          if (localStorage.getItem("todos") === null) {
-            todos = [];
-          } else {
-            todos = JSON.parse(localStorage.getItem("todos"));
-          }
-
-          todos.push(todo);
-          localStorage.setItem("todos", JSON.stringify(todos));
-        }
+        <div class="todo-control" id="todo-control">
+          <form action="">
+            <input type="text" class="todo-create" id="todo-input-create" />
+            <button class="btn todo-btn" id="todo-btn-create">+</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    class Todo {
+      constructor(id, content, completed = false) {
+        this.id = id;
+        this.content = content;
+        this.completed = completed;
       }
 
-      function createTodoItem() {
-        let currentTimeStamp = new Date();
-        let todoItem = document
-          .querySelector("#todo-input-create")
-          .value;
+      create() {
+        let todo = {
+          id: this.id,
+          content: this.content,
+          completed: this.completed
+        };
 
-        const todo = new Todo(currentTimeStamp, todoItem);
-        todo.create();
-      }
-
-      const createTodo = document.querySelector("#todo-btn-create");
-      createTodo.addEventListener("click", createTodoItem, false);
-
-      class ToDos {
-        constructor(todos) {
-          this.todos = todos;
+        let todos;
+        if (localStorage.getItem("todos") === null) {
+          todos = [];
+        } else {
+          todos = JSON.parse(localStorage.getItem("todos"));
         }
+
+        todos.push(todo);
+        localStorage.setItem("todos", JSON.stringify(todos));
       }
+    }
 
-      // display active todos
+    function createTodoItem() {
+      let currentTimeStamp = new Date();
+      let todoItem = document
+        .querySelector("#todo-input-create")
+        .value;
 
-      function removeItem() {}
+      const todo = new Todo(currentTimeStamp, todoItem);
+      todo.create();
+    }
 
-      // display todo list
-      const todoListStorage = JSON.parse(localStorage.getItem("todos"));
-      const todoList = document.querySelector("#todo-list");
+    const createTodo = document.querySelector("#todo-btn-create");
+    createTodo.addEventListener("click", createTodoItem, false);
 
-      todoListStorage.forEach((todoItem, index) => {
-        const li = document.createElement("li");
-        li
-          .classList
-          .add("todo-item");
-        const checkBox = document.createElement("input");
-        checkBox.setAttribute("type", "checkbox");
-        checkBox.setAttribute("id", `chk-${index}`);
+    class ToDos {
+      constructor(todos) {
+        this.todos = todos;
+      }
+    }
 
-        li.appendChild(checkBox);
-        const div = document.createElement("div");
-        div.setAttribute("id", `div-${index}`);
-        console.log(index, todoItem["content"]);
-        div.innerHTML = todoItem["content"];
-        li.appendChild(div);
-        const removeTodoItem = document.createElement("button");
-        removeTodoItem.innerHTML = "X";
-        removeTodoItem.setAttribute("id", `btn-${index}`);
-        removeTodoItem.addEventListener("click", function () {
-          todoListStorage.splice(index, 1);
-          localStorage.setItem("todos", JSON.stringify(todoListStorage));
-        });
-        li.appendChild(removeTodoItem);
+    // display active todos
 
-        checkBox.addEventListener('change', function () {
-          let todoItem = document.querySelector(`#div-${index}`);
-          if (this.checked) {
-            todoItem
-              .classList
-              .add('horizontal-line');
-            todoListStorage[index]['completed'] = true;
-            localStorage.setItem("todos", JSON.stringify(todoListStorage));
-          } else {
-            todoItem
-              .classList
-              .remove('horizontal-line');
-            todoListStorage[index]['completed'] = false;
-            localStorage.setItem("todos", JSON.stringify(todoListStorage));
-          }
-        });
-        todoList.insertBefore(li, todoList.childNodes[index]);
+    function removeItem() {}
 
-        // task left
-        let todo_task_left = document.querySelector("#todo-task-left");
-        todo_task_left.innerHTML = index + 1 + " task left";
-        //https://gomakethings.com/how-to-update-localstorage-with-vanilla-javascript/
-        //https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
-        //http://archive.oreilly.com/oreillyschool/courses/javascript2/TodoAppWithLocalStorage.html
+    // display todo list
+    const todoListStorage = JSON.parse(localStorage.getItem("todos"));
+    const todoList = document.querySelector("#todo-list");
+
+    todoListStorage.forEach((todoItem, index) => {
+      const li = document.createElement("li");
+      li
+        .classList
+        .add("todo-item");
+      const checkBox = document.createElement("input");
+      checkBox.setAttribute("type", "checkbox");
+      checkBox.setAttribute("id", `chk-${index}`);
+
+      li.appendChild(checkBox);
+      const div = document.createElement("div");
+      div.setAttribute("id", `div-${index}`);
+      console.log(index, todoItem["content"]);
+      div.innerHTML = todoItem["content"];
+      li.appendChild(div);
+      const removeTodoItem = document.createElement("button");
+      //removeTodoItem.innerHTML = "X";
+      removeTodoItem.classList.add('todo-remove-item');
+      removeTodoItem.setAttribute("id", `btn-${index}`);
+      removeTodoItem.addEventListener("click", function () {
+        todoListStorage.splice(index, 1);
+        localStorage.setItem("todos", JSON.stringify(todoListStorage));
       });
+      li.appendChild(removeTodoItem);
 
-      //console.log(JSON.stringify(window.localStorage.getItem('todos')));
-    </script>
-    <footer>
-      &copy; 2020 | Portfolio | Sumilang Plucena
-    </footer>
-    <script src="../static/js/toggleMenu.js"></script>
-  </body>
+      checkBox.addEventListener('change', function () {
+        let todoItem = document.querySelector(`#div-${index}`);
+        if (this.checked) {
+          todoItem
+            .classList
+            .add('horizontal-line');
+          todoListStorage[index]['completed'] = true;
+          localStorage.setItem("todos", JSON.stringify(todoListStorage));
+        } else {
+          todoItem
+            .classList
+            .remove('horizontal-line');
+          todoListStorage[index]['completed'] = false;
+          localStorage.setItem("todos", JSON.stringify(todoListStorage));
+        }
+      });
+      todoList.insertBefore(li, todoList.childNodes[index]);
+
+      // task left
+      let todo_task_left = document.querySelector("#todo-task-left");
+      todo_task_left.innerHTML = index + 1 + " task left";
+      //https://gomakethings.com/how-to-update-localstorage-with-vanilla-javascript/
+      //https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
+      //http://archive.oreilly.com/oreillyschool/courses/javascript2/TodoAppWithLocalStorage.html
+    });
+
+    //console.log(JSON.stringify(window.localStorage.getItem('todos')));
+  </script>
+  <footer>
+    &copy; 2020 | Portfolio | Sumilang Plucena
+  </footer>
+  <script src="../static/js/toggleMenu.js"></script>
+</body>
 
 </html>

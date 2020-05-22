@@ -56,13 +56,26 @@ main {
 
   > .todo-item {
     padding: 1em;
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
+    display: flex;
+    flex: 10% auto 10%;
+    align-items: center;
+    text-align: left;
+    //grid-template-columns: 10% auto 40px;
+    //top: 50%;
+    //justify-items: center;
+    //align-items: center;
+
+    :first-child {
+      width: 5%;
+    }
+    :nth-child(2) {
+      width: 90%;
+    }
 
     button {
-      background: transparent;
-      background-color: transparent;
-      border: none;
+      //background: transparent;
+      //background-color: transparent;
+      //border: none;
     }
 
     input[type="checkbox"] {
@@ -99,7 +112,7 @@ main {
   position: absolute;
   left: 0;
   top: 50%;
-  height: 1px;
+  height: 2px;
   background: $border-color;
   content: "";
   width: 100%;
@@ -111,6 +124,41 @@ main {
   background-color: transparent;
   border: solid $border-size $border-color;
   cursor: pointer;
+}
+
+.todo-remove-item {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.todo-remove-item::after,
+.todo-remove-item::before {
+  background-color: $icon-color;
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 4px;
+  top: 16px;
+}
+
+.todo-remove-item::after {
+  left: 4px;
+  right: 4px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.todo-remove-item::before {
+  right: 4px;
+  left: 4px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .todo-create {

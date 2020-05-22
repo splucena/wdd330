@@ -29,13 +29,16 @@ main h1 {
 }
 .todo-list > .todo-item {
   padding: 1em;
-  display: grid;
-  grid-template-columns: 10% 80% 10%;
+  display: flex;
+  flex: 10% auto 10%;
+  align-items: center;
+  text-align: left;
 }
-.todo-list > .todo-item button {
-  background: transparent;
-  background-color: transparent;
-  border: none;
+.todo-list > .todo-item :first-child {
+  width: 5%;
+}
+.todo-list > .todo-item :nth-child(2) {
+  width: 90%;
 }
 .todo-list > .todo-item input[type=checkbox] {
   border: none;
@@ -68,7 +71,7 @@ main h1 {
   position: absolute;
   left: 0;
   top: 50%;
-  height: 1px;
+  height: 2px;
   background: #939393;
   content: "";
   width: 100%;
@@ -80,6 +83,41 @@ main h1 {
   background-color: transparent;
   border: solid 2px #939393;
   cursor: pointer;
+}
+
+.todo-remove-item {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.todo-remove-item::after,
+.todo-remove-item::before {
+  background-color: #272727;
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 4px;
+  top: 16px;
+}
+
+.todo-remove-item::after {
+  left: 4px;
+  right: 4px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.todo-remove-item::before {
+  right: 4px;
+  left: 4px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .todo-create {
