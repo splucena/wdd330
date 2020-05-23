@@ -2,181 +2,108 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="../static/css/style.css" />
-  <link rel="stylesheet" href="../static/css/todo.css" />
-  <title>Challenge One | ToDo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Week 3 | Notes</title>
 </head>
 
 <body>
-  <nav>
-    <ul id="menuLink">
-      <li>
-        <a href="#" id="menu">
-          <strong>&equiv; Menu</strong>
-        </a>
-      </li>
-      <li>
-        <a href="../index.html">&nbsp;&nbsp;&nbsp;Home</a>
-      </li>
-      <li>
-        <a href="../w1/index.html">&nbsp;&nbsp;&nbsp;Week 1</a>
-      </li>
-      <li>
-        <a href="../w2/index.html">&nbsp;&nbsp;&nbsp;Week 2</a>
-      </li>
-      <li>
-        <a href="../w3/index.html">&nbsp;&nbsp;&nbsp;Week 3</a>
-      </li>
-      <li>
-        <a href="index.html">&nbsp;&nbsp;&nbsp;Week 4</a>
-      </li>
-      <li>
-        <a href="index.html">&nbsp;&nbsp;&nbsp;ToDo</a>
-      </li>
-    </ul>
-  </nav>
-  <header></header>
-  <main>
-    <section>
-      <h3>Todos</h3>
-      <div class="todo-container" id="todo-container">
-        <div class="todo-list-container">
-          <ul id="todo-list" class="todo-list">
-            <li class="todo-filter" id="todo-filter">
-              <span class="todo-task-left font-small" id="todo-task-left">tasks left</span>
-              <button class="btn todo-filter-btn font-small border-all">
-                All
-              </button>
-              <button class="btn todo-filter-btn font-small">Active</button>
-              <button class="btn todo-filter-btn font-small">
-                Completed
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div class="todo-control" id="todo-control">
-          <form action="">
-            <input type="text" class="todo-create" id="todo-input-create" />
-            <button class="btn todo-btn" id="todo-btn-create">+</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-  <script>
-    class Todo {
-      constructor(id, content, completed = false) {
-        this.id = id;
-        this.content = content;
-        this.completed = completed;
-      }
-
-      create() {
-        let todo = {
-          id: this.id,
-          content: this.content,
-          completed: this.completed
-        };
-
-        let todos;
-        if (localStorage.getItem("todos") === null) {
-          todos = [];
-        } else {
-          todos = JSON.parse(localStorage.getItem("todos"));
-        }
-
-        todos.push(todo);
-        localStorage.setItem("todos", JSON.stringify(todos));
-      }
-    }
-
-    function createTodoItem() {
-      let currentTimeStamp = new Date();
-      let todoItem = document
-        .querySelector("#todo-input-create")
-        .value;
-
-      const todo = new Todo(currentTimeStamp, todoItem);
-      todo.create();
-    }
-
-    const createTodo = document.querySelector("#todo-btn-create");
-    createTodo.addEventListener("click", createTodoItem, false);
-
-    class ToDos {
-      constructor(todos) {
-        this.todos = todos;
-      }
-    }
-
-    // display active todos
-
-    function removeItem() {}
-
-    // display todo list
-    const todoListStorage = JSON.parse(localStorage.getItem("todos"));
-    const todoList = document.querySelector("#todo-list");
-
-    todoListStorage.forEach((todoItem, index) => {
-      const li = document.createElement("li");
-      li
-        .classList
-        .add("todo-item");
-      const checkBox = document.createElement("input");
-      checkBox.setAttribute("type", "checkbox");
-      checkBox.setAttribute("id", `chk-${index}`);
-
-      li.appendChild(checkBox);
-      const div = document.createElement("div");
-      div.setAttribute("id", `div-${index}`);
-      console.log(index, todoItem["content"]);
-      div.innerHTML = todoItem["content"];
-      li.appendChild(div);
-      const removeTodoItem = document.createElement("button");
-      //removeTodoItem.innerHTML = "X";
-      removeTodoItem.classList.add('todo-remove-item');
-      removeTodoItem.setAttribute("id", `btn-${index}`);
-      removeTodoItem.addEventListener("click", function () {
-        todoListStorage.splice(index, 1);
-        localStorage.setItem("todos", JSON.stringify(todoListStorage));
-      });
-      li.appendChild(removeTodoItem);
-
-      checkBox.addEventListener('change', function () {
-        let todoItem = document.querySelector(`#div-${index}`);
-        if (this.checked) {
-          todoItem
-            .classList
-            .add('horizontal-line');
-          todoListStorage[index]['completed'] = true;
-          localStorage.setItem("todos", JSON.stringify(todoListStorage));
-        } else {
-          todoItem
-            .classList
-            .remove('horizontal-line');
-          todoListStorage[index]['completed'] = false;
-          localStorage.setItem("todos", JSON.stringify(todoListStorage));
-        }
-      });
-      todoList.insertBefore(li, todoList.childNodes[index]);
-
-      // task left
-      let todo_task_left = document.querySelector("#todo-task-left");
-      todo_task_left.innerHTML = index + 1 + " task left";
-      //https://gomakethings.com/how-to-update-localstorage-with-vanilla-javascript/
-      //https://medium.com/better-programming/how-to-use-local-storage-with-javascript-9598834c8b72
-      //http://archive.oreilly.com/oreillyschool/courses/javascript2/TodoAppWithLocalStorage.html
-    });
-
-    //console.log(JSON.stringify(window.localStorage.getItem('todos')));
-  </script>
-  <footer>
-    &copy; 2020 | Portfolio | Sumilang Plucena
-  </footer>
-  <script src="../static/js/toggleMenu.js"></script>
+    <nav>
+        <ul id="menuLink">
+            <li><a href="#" id="menu"><strong>&equiv; Menu</strong></a></li>
+            <li><a href="../index.html">&nbsp;&nbsp;&nbsp;Home</a></li>
+            <li><a href="../w1/index.html">&nbsp;&nbsp;&nbsp;Week 1</a></li>
+            <li><a href="../w2/index.html">&nbsp;&nbsp;&nbsp;Week 2</a></li>
+            <li><a href="../w3/index.html">&nbsp;&nbsp;&nbsp;Week 3</a></li>
+            <li><a href="../w4/index.html">&nbsp;&nbsp;&nbsp;Week 4</a></li>
+            <li><a href="index.html">&nbsp;&nbsp;&nbsp;Week 5</a></li>
+        </ul>
+    </nav>
+    <header></header>
+    <main>
+        <section>
+            <h1>Testing And Debugging</h1>
+            <article>
+                <h3>Errors, Exceptions, and Warnings</h3>
+                <p>Errors are caused when something goes wrong in a program and are usually caused by the following:</p>
+                <ul>
+                    <li>System error - problem with the system or external device with which the program is interacting
+                    </li>
+                    <li>Programmer error - incorrect syntax or faulty logic</li>
+                    <li>User error - incorrect data</li>
+                </ul>
+                <h3>Exceptions</h3>
+                <p>An error that produces a return value that can be used by the programmer to deal with the error</p>
+                <figure>
+                    <pre>
+                        <code>
+unicorn();
+>> ReferenceError: unicorn not defined // exception                            
+                        </code>
+                    </pre>
+                </figure>
+                <h3>Stack Traces</h3>
+                <p>An exception will also produce a stack trace which a sequence of functions or method calls that can
+                    lead to where the error occurred.</p>
+                <h3>Warnings</h3>
+                <p>Errors that doesn't cause the program to crash but may cause the program to run incorrectly.</p>
+                <h3>Throwing Exceptions</h3>
+                <p>Programmers can also throw exception instead of JavaScript throwing it automatically in the program
+                </p>
+                <figure>
+                    <pre>
+                            <code>
+if (number &lt; 0) {
+    throw new RangeError('Should be greater than zero.');
+}        
+                            </code>
+                        </pre>
+                </figure>
+                <h3>Exception Handling</h3>
+                <figure>
+                    <pre>
+                            <code>
+let answer;                                
+try {
+    answer = ParseInt('zero');
+} catch(error) {
+    answer = 0;
+} finally {
+    return answer;
+}
+                            </code>
+                        </pre>
+                </figure>
+                <h3>Test-driven Development</h3>
+                <p>The process of writing tests before any actual code.</p>
+                <ol>
+                    <li>Write tests (that initially fail)</li>
+                    <li>Write code to pass the tests</li>
+                    <li>Refactor the code</li>
+                    <li>Test refactored code</li>
+                    <li>Write more tests for new features</li>
+                </ol>
+                <h3>Testing Frameworks</h3>
+                <p>Provides a structure to write and run tests like Jest.</p>
+                <!--<figure>
+                    <pre>
+                        <code>
+                        </code>
+                    </pre>
+                </figure>-->
+            </article>
+            <article>
+                <h3>Team Activity: TicTacToe</h3>
+                <p><a href="team_activity" class="minimal-margin-padding">Go to Sample Code</a></p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        &copy; 2020 | Portfolio | Sumilang Plucena
+    </footer>
+    <script src="../static/js/toggleMenu.js"></script>
 </body>
 
 </html>
