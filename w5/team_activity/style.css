@@ -1,0 +1,57 @@
+section {
+  color: #272727;
+  margin: 0 auto;
+  margin: 1em;
+}
+section h1 {
+  background-color: #7d7d7d;
+  border: solid 1px #272727;
+  padding: 1em;
+  text-align: center;
+}
+section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+section ul li.full-hike {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+section ul li.full-hike img {
+  width: 100px;
+  height: 100px;
+}
+section ul li.one-hike {
+  display: grid;
+  grid-template-columns: repeat(2, fr);
+}
+section ul li.one-hike h2 {
+  background-color: #D4D4D4;
+  border: solid 1px #272727;
+  grid-column: 1/3;
+  padding: 0.5em;
+  text-align: center;
+}
+section ul li.one-hike .image {
+  grid-column: 1/2;
+  margin-left: 1em;
+  width: 70%;
+}
+section ul li.one-hike .image > img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  /* remove extra space below image */
+}
+section ul li.one-hike .details {
+  grid-column: 2/3;
+  margin-right: 1em;
+  width: 30%;
+}
+section ul li.one-hike .details > div > h3:first-child {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
