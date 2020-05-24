@@ -49,7 +49,11 @@ export default class TodoModel {
         return JSON.parse(localStorage.getItem(key));
     }
 
-    getTodoCount(key) {
-        return this.getAllTodos(key).length;
+    getTodoCount(key, completed) {
+        let todoCount = this.getAllTodos(key);
+        if (completed !== null) {
+            todoCount = todoCount.filter(todo => todo.completed === completed);
+        }
+        return todoCount.length;
     }
 }

@@ -7,17 +7,42 @@ export default class TodoController {
         this.todoView = new TodoView();
         this.todoModel = new TodoModel();
         this.key = 'todos';
+        //this.filterStatus = 'all';
 
         this.addTodoEvent();
-        this.parentEvent();
+        this.todoListEvent();
         //this.parentEvent(parentElement);
+        this.filterAllTodos();
+        this.filterActiveTodos();
+        this.filterCompletedTodos();
     }
 
-    showAllTodos() {
+    showAllTodos(completed = null) {
         //const todoModel = new TodoModel();
         const todoList = this.todoModel.getAllTodos(this.key);
-        this.todoView.renderTodoList(todoList, this.parentElement);
-        this.todoView.renderTodoCount(this.key, '#todoCount');
+        this.todoView.renderTodoList(todoList, this.parentElement, completed);
+        this.todoView.renderTodoCount(this.key, '#todoCount', completed);
+    }
+
+    filterAllTodos() {
+        document.querySelector('#filterAllTodos').addEventListener('click', (e) => {
+            this.showAllTodos();
+            //this.filterStatus = 'all';
+        })
+    }
+
+    filterActiveTodos() {
+        document.querySelector('#filterActiveTodos').addEventListener('click', (e) => {
+            this.showAllTodos(false);
+            //this.filterStatus = 'active';
+        })
+    }
+
+    filterCompletedTodos() {
+        document.querySelector('#filterCompletedTodos').addEventListener('click', (e) => {
+            this.showAllTodos(true);
+            //this.filterStatus = 'completed';
+        })
     }
 
     addTodoEvent() {
@@ -35,12 +60,11 @@ export default class TodoController {
         })
     }
 
-    parentEvent() {
+    todoListEvent() {
         this.parentElement.addEventListener('click', (e) => {
             e.preventDefault;
             const clickedElementId = e.target.id;
             const clickedElementType = e.target.type;
-            //console.log(clickedElementType);
             if (clickedElementType === 'checkbox') {
                 const contentDiv = document.querySelector(`#contentDiv-${clickedElementId}`);
                 // underline div
@@ -48,7 +72,6 @@ export default class TodoController {
                 this.todoModel.setTodoComplete(clickedElementId, this.key, e.target.checked);
                 // update completed to true
             } else { // submit
-                console.log(clickedElementType);
                 this.todoModel.removeTodoItem(clickedElementId, this.key);
                 this.showAllTodos();
             }
