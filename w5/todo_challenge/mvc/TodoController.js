@@ -15,7 +15,7 @@ export default class TodoController {
 
     showAllTodos() {
         //const todoModel = new TodoModel();
-        const todoList = this.todoModel.getAllTodos();
+        const todoList = this.todoModel.getAllTodos(this.key);
         this.todoView.renderTodoList(todoList, this.parentElement);
     }
 
@@ -47,6 +47,8 @@ export default class TodoController {
                 // update completed to true
             } else { // submit
                 console.log(clickedElementType);
+                this.todoModel.removeTodoItem(clickedElementId, this.key);
+                this.showAllTodos();
             }
         }, false)
     }

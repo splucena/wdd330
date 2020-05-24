@@ -22,12 +22,16 @@ export default class TodoModel {
     }
 
     setTodoComplete(id, key, value) {
-        let todos = this.getAllTodos();
+        let todos = this.getAllTodos(key);
         let index = todos.findIndex(todo => todo.id === Number(id));
-        console.log(typeof id);
-        console.log(todos);
-        console.log(index);
         todos[index].completed = value;
+        localStorage.setItem(key, JSON.stringify(todos));
+    }
+
+    removeTodoItem(id, key) {
+        let todos = this.getAllTodos(key);
+        let index = todos.findIndex(todo => todo.id === Number(id));
+        todos.splice(index, 1);
         localStorage.setItem(key, JSON.stringify(todos));
     }
 
@@ -37,7 +41,7 @@ export default class TodoModel {
         //todos
     }
 
-    getAllTodos() {
-        return JSON.parse(localStorage.getItem('todos'));
+    getAllTodos(key) {
+        return JSON.parse(localStorage.getItem(key));
     }
 }
