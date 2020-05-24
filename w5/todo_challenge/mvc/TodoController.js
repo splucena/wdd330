@@ -6,6 +6,7 @@ export default class TodoController {
         this.parentElement = document.querySelector(parentElement);
         this.todoView = new TodoView();
         this.todoModel = new TodoModel();
+        this.key = 'todos';
 
         this.addTodoEvent();
         this.parentEvent();
@@ -35,8 +36,18 @@ export default class TodoController {
     parentEvent() {
         this.parentElement.addEventListener('click', (e) => {
             e.preventDefault;
-            const clickedElement = e.target.id;
-            console.log(clickedElement);
+            const clickedElementId = e.target.id;
+            const clickedElementType = e.target.type;
+            //console.log(clickedElementType);
+            if (clickedElementType === 'checkbox') {
+                const contentDiv = document.querySelector(`#contentDiv-${clickedElementId}`);
+                // underline div
+                contentDiv.classList.toggle('red');
+                this.todoModel.setTodoComplete(clickedElementId, this.key, e.target.checked);
+                // update completed to true
+            } else { // submit
+                console.log(clickedElementType);
+            }
         }, false)
     }
 }
