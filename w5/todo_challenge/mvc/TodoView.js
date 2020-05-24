@@ -17,37 +17,30 @@ export default class TodoView {
     }
 
     renderTodoItem(todo, completed = null) {
-        //console.log(todo);
-        const todoItem = document.createElement('li');
-        const chkBox = document.createElement('input');
-        chkBox.setAttribute('type', 'checkbox');
-        chkBox.setAttribute('id', `${todo.id}`);
-        chkBox.checked = todo.completed;
 
-        const contentDiv = document.createElement('div');
-        contentDiv.setAttribute('id', `contentDiv-${todo.id}`)
-        contentDiv.innerHTML = todo.content;
-        if (todo.completed) {
-            contentDiv.classList.add('red');
-        }
-        const removeButton = document.createElement('button');
-        removeButton.setAttribute('id', `${todo.id}`);
-        removeButton.innerHTML = 'x';
+        if (completed === null || (completed && todo.completed) || (!completed && !todo.completed)) {
+            const todoItem = document.createElement('li');
+            todoItem.classList.add('todo-item');
+            const chkBox = document.createElement('input');
+            chkBox.setAttribute('type', 'checkbox');
+            chkBox.setAttribute('id', `${todo.id}`);
+            chkBox.checked = todo.completed;
 
-        todoItem.appendChild(chkBox);
-        todoItem.appendChild(contentDiv);
-        todoItem.appendChild(removeButton);
-        todoItem.setAttribute('data-name', todo.id);
+            const contentDiv = document.createElement('div');
+            contentDiv.setAttribute('id', `contentDiv-${todo.id}`)
+            contentDiv.innerHTML = todo.content;
+            if (todo.completed) {
+                contentDiv.classList.add('horizontal-line');
+            }
+            const removeButton = document.createElement('button');
+            removeButton.setAttribute('id', `${todo.id}`);
+            removeButton.classList.add('todo-remove-item');
+            //removeButton.innerHTML = 'x';
 
-        // send back elements to controller to attach a listener
-        //return [chkBox, removeButton];
-        if (completed === null) {
-            return todoItem;
-        }
-        if (completed && todo.completed) {
-            return todoItem;
-        }
-        if (!completed && !todo.completed) {
+            todoItem.appendChild(chkBox);
+            todoItem.appendChild(contentDiv);
+            todoItem.appendChild(removeButton);
+            todoItem.setAttribute('data-name', todo.id);
             return todoItem;
         }
 

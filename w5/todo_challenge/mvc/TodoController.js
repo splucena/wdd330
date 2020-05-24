@@ -11,10 +11,17 @@ export default class TodoController {
 
         this.addTodoEvent();
         this.todoListEvent();
+
+        // filter buttons
+        this.filterAll = document.querySelector('#filterAllTodos');
+        this.filterActive = document.querySelector('#filterActiveTodos');
+        this.filterCompleted = document.querySelector('#filterCompletedTodos');
+
         //this.parentEvent(parentElement);
         this.filterAllTodos();
         this.filterActiveTodos();
         this.filterCompletedTodos();
+
     }
 
     showAllTodos(completed = null) {
@@ -22,26 +29,41 @@ export default class TodoController {
         const todoList = this.todoModel.getAllTodos(this.key);
         this.todoView.renderTodoList(todoList, this.parentElement, completed);
         this.todoView.renderTodoCount(this.key, '#todoCount', completed);
+        if (completed === null) {
+            this.filterAll.classList.add('border-all');
+            this.filterActive.classList.remove('border-all');
+            this.filterCompleted.classList.remove('border-all');
+        }
     }
 
     filterAllTodos() {
-        document.querySelector('#filterAllTodos').addEventListener('click', (e) => {
+        const all = this.filterAll;
+
+        all.addEventListener('click', (e) => {
             this.showAllTodos();
-            //this.filterStatus = 'all';
+            this.filterActive.classList.remove('border-all');
+            this.filterCompleted.classList.remove('border-all');
         })
     }
 
     filterActiveTodos() {
-        document.querySelector('#filterActiveTodos').addEventListener('click', (e) => {
+        const active = this.filterActive;
+
+        active.addEventListener('click', (e) => {
             this.showAllTodos(false);
-            //this.filterStatus = 'active';
+            active.classList.add('border-all');
+            this.filterAll.classList.remove('border-all');
+            this.filterCompleted.classList.remove('border-all');
         })
     }
 
     filterCompletedTodos() {
-        document.querySelector('#filterCompletedTodos').addEventListener('click', (e) => {
+        const completed = this.filterCompleted;
+        completed.addEventListener('click', (e) => {
             this.showAllTodos(true);
-            //this.filterStatus = 'completed';
+            completed.classList.add('border-all');
+            this.filterAll.classList.remove('border-all');
+            this.filterActive.classList.remove('border-all');
         })
     }
 
@@ -68,10 +90,10 @@ export default class TodoController {
             if (clickedElementType === 'checkbox') {
                 const contentDiv = document.querySelector(`#contentDiv-${clickedElementId}`);
                 // underline div
-                contentDiv.classList.toggle('red');
+                contentDiv.classList.toggle('horizontal-line');
                 this.todoModel.setTodoComplete(clickedElementId, this.key, e.target.checked);
                 // update completed to true
-            } else { // submit
+            } else if (clickedElementType === 'submit') { // submit
                 this.todoModel.removeTodoItem(clickedElementId, this.key);
                 this.showAllTodos();
             }

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+    <link rel="stylesheet" href="../../../static/css/todos.css">
     <style>
         .red {
             color: red;
@@ -17,17 +19,17 @@
     <main>
         <h1>Todos</h1>
         <div>
-            <ul id="todoList"></ul>
-            <div>
-                <span id="todoCount">tasks left</span>
-                <button id="filterAllTodos">All</button>
-                <button id="filterActiveTodos">Active</button>
-                <button id="filterCompletedTodos">Completed</button>
+            <ul id="todoList" class="todo-list"></ul>
+            <div class="todo-filter">
+                <span id="todoCount" class="todo-task-left font-small">tasks left</span>
+                <button id="filterAllTodos" class="btn todo-filter-btn">All</button>
+                <button id="filterActiveTodos" class="btn todo-filter-btn">Active</button>
+                <button id="filterCompletedTodos" class="btn todo-filter-btn">Completed</button>
             </div>
         </div>
-        <div>
-            <input type="text" id="todoContent">
-            <button id="addTodo">+</button>
+        <div class="todo-control">
+            <input type="text" id="todoContent" class="todo-create">
+            <button id="addTodo" class="btn todo-btn">+</button>
         </div>
     </main>
     <script src="app.js" type="module"></script>

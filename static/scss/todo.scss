@@ -52,7 +52,6 @@ main {
   }
 
   >.todo-item {
-    padding: 1em;
     display: flex;
     flex: 10% auto 10%;
     align-items: center;
@@ -70,12 +69,6 @@ main {
       width: 90%;
     }
 
-    button {
-      //background: transparent;
-      //background-color: transparent;
-      //border: none;
-    }
-
     input[type="checkbox"] {
       border: none;
 
@@ -88,10 +81,7 @@ main {
 
 .todo-filter {
   padding: 1em;
-
-  >.todo-filter {
-    padding: 1em;
-  }
+  border: solid $border-size $border-color;
 }
 
 .font-small {
