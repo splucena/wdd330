@@ -17,7 +17,8 @@ export default class TodoView {
         const todoItem = document.createElement('li');
         const chkBox = document.createElement('input');
         chkBox.setAttribute('type', 'checkbox');
-        chkBox.setAttribute('id', `${todo.id}`)
+        chkBox.setAttribute('id', `${todo.id}`);
+        chkBox.checked = todo.completed;
 
         const contentDiv = document.createElement('div');
         contentDiv.setAttribute('id', `contentDiv-${todo.id}`)

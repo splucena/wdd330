@@ -11,37 +11,41 @@ export default class TodoModel {
         if (localStorage.getItem(key) === null) {
             todos = [];
         } else {
-            todos = JSON.parse(localStorage.getItem(key));
+            todos = this.getAllTodos(key);
         }
         todos.push({
             'id': this.id,
             'content': this.content,
             'completed': this.completed
         });
-        localStorage.setItem(key, JSON.stringify(todos));
+        // save changes to local storage
+        this.setLocalStorage(key, todos);
     }
 
     setTodoComplete(id, key, value) {
         let todos = this.getAllTodos(key);
         let index = todos.findIndex(todo => todo.id === Number(id));
         todos[index].completed = value;
-        localStorage.setItem(key, JSON.stringify(todos));
+        // save changes to local storage
+        this.setLocalStorage(key, todos);
     }
 
     removeTodoItem(id, key) {
         let todos = this.getAllTodos(key);
         let index = todos.findIndex(todo => todo.id === Number(id));
         todos.splice(index, 1);
-        localStorage.setItem(key, JSON.stringify(todos));
+        // save changes to local storage
+        this.setLocalStorage(key, todos);
     }
 
-    getLocalStorageTodo(id) {
-        //const todos = this.getAllTodos();
-        //let todo = todos.find(todo => todo.id === id);
-        //todos
+    setLocalStorage(key, todos) {
+        return localStorage.setItem(key, JSON.stringify(todos));
     }
 
     getAllTodos(key) {
+        if (JSON.parse(localStorage.getItem(key) === null)) {
+            return [];
+        }
         return JSON.parse(localStorage.getItem(key));
     }
 }

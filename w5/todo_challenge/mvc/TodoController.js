@@ -23,8 +23,9 @@ export default class TodoController {
         document.querySelector('#addTodo').addEventListener('click', (e) => {
             const content = document.querySelector('#todoContent');
             if (content === '') {
-                alert('Invalid input.')
+                alert('Please enter a todo task.');
             } else {
+                this.todoModel.id = Date.now();
                 this.todoModel.content = content.value;
                 this.todoModel.addTodo('todos');
                 content.value = '';
