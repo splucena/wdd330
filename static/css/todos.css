@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 main {
   background-color: #fffcff;
   background-size: 100%;
@@ -7,6 +13,7 @@ main {
   display: grid;
   grid-template-columns: auto;
   grid-row-gap: 1em;
+  width: 100%;
 }
 main h1 {
   margin: 0;
@@ -47,9 +54,8 @@ main h1 {
   border-left: solid 2px #939393;
   border-right: solid 2px #939393;
   border-bottom: solid 2px #939393;
-  font-size: large;
   padding: 0.5em;
-  padding-left: 2em;
+  padding-left: 2rem;
 }
 
 .font-small {
@@ -58,8 +64,9 @@ main h1 {
 
 .todo-control {
   display: grid;
-  grid-template-columns: 95% auto;
+  grid-template-columns: 1fr auto;
   grid-column-gap: 0.2em;
+  width: 100%;
 }
 
 .horizontal-line {
@@ -161,6 +168,7 @@ main h1 {
 .todo-filter-btn {
   border: none;
   padding: 0.5em;
+  font-size: medium;
 }
 
 .border-all {
