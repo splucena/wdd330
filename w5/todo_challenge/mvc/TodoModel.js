@@ -48,4 +48,8 @@ export default class TodoModel {
         }
         return JSON.parse(localStorage.getItem(key));
     }
+
+    getTodoCount(key) {
+        return this.getAllTodos(key).length;
+    }
 }

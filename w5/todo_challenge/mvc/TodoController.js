@@ -17,6 +17,7 @@ export default class TodoController {
         //const todoModel = new TodoModel();
         const todoList = this.todoModel.getAllTodos(this.key);
         this.todoView.renderTodoList(todoList, this.parentElement);
+        this.todoView.renderTodoCount(this.key, '#todoCount');
     }
 
     addTodoEvent() {

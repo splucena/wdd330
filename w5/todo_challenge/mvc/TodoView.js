@@ -1,3 +1,4 @@
+import TodoModel from './TodoModel.js';
 export default class TodoView {
     constructor() {}
 
@@ -35,5 +36,11 @@ export default class TodoView {
         // send back elements to controller to attach a listener
         //return [chkBox, removeButton];
         return todoItem;
+    }
+
+    renderTodoCount(key, element) {
+        const todoCount = new TodoModel().getTodoCount(key);
+        const todoCountElement = document.querySelector(element);
+        todoCountElement.innerHTML = `${todoCount} tasks left`;
     }
 }
