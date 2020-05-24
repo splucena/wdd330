@@ -42,20 +42,24 @@ main h1 {
 }
 .todo-list > .todo-item :first-child {
   width: 5%;
+  margin: 5px;
 }
 .todo-list > .todo-item :nth-child(2) {
   width: 90%;
+  margin: 5px;
 }
 .todo-list > .todo-item input[type=checkbox] {
   font-size: large;
 }
 
 .todo-filter {
+  background-color: #fffcff;
   border-left: solid 2px #939393;
   border-right: solid 2px #939393;
   border-bottom: solid 2px #939393;
-  padding: 0.5em;
-  padding-left: 2rem;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  padding-left: 1em;
 }
 
 .font-small {

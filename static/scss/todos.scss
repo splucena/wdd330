@@ -69,10 +69,12 @@ main {
 
         :first-child {
             width: 5%;
+            margin: 5px;
         }
 
         :nth-child(2) {
             width: 90%;
+            margin: 5px;
         }
 
         input[type="checkbox"] {
@@ -82,11 +84,14 @@ main {
 }
 
 .todo-filter {
+    background-color: $background-color;
     border-left: solid $border-size $border-color;
     border-right: solid $border-size $border-color;
     border-bottom: solid $border-size $border-color;
-    padding: 0.5em;
-    padding-left: 2rem;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    padding-left: 1em;
+    //padding-left: 2rem;
 }
 
 .font-small {
