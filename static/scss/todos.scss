@@ -8,7 +8,6 @@ $border-size: 2px;
 
 main {
     background-color: $background-color;
-    background-size: 100%;
     background-image: repeating-linear-gradient(0deg,
             $grid-color,
             $grid-color 1px,
@@ -19,19 +18,19 @@ main {
             $grid-color 1px,
             transparent 1px,
             transparent 20px);
-    padding: 1em;
+    background-size: 100%;
     color: $text-color;
     display: grid;
-    grid-template-columns: auto;
     grid-row-gap: 1em;
+    grid-template-columns: auto;
+    padding: 1em;
     width: 100%;
 
-
     h1 {
+        font-size: 3em;
         margin: 0;
         padding: 0;
         text-align: center;
-        font-size: 3em;
     }
 }
 
@@ -43,32 +42,25 @@ main {
     padding: 0;
     width: 100%;
 
-    //li {
-    //  border: solid 1px darkgray;
-    //}
     li:not(:last-child) {
         border-bottom: solid $border-size $border-color;
     }
 
     >.todo-item {
-        padding: 0.5em;
+        align-items: center;
         display: flex;
         flex: 30px auto 10%;
-        align-items: center;
+        padding: 0.5em;
         text-align: left;
-        //grid-template-columns: 10% auto 40px;
-        //top: 50%;
-        //justify-items: center;
-        //align-items: center;
 
         label:first-child {
-            width: 30px;
             margin: 5px;
+            width: 30px;
         }
 
         div:nth-child(2) {
-            width: 90%;
             margin: 5px;
+            width: 90%;
         }
 
         input[type="checkbox"] {
@@ -79,13 +71,12 @@ main {
 
 .todo-filter {
     background-color: $background-color;
+    border-bottom: solid $border-size $border-color;
     border-left: solid $border-size $border-color;
     border-right: solid $border-size $border-color;
-    border-bottom: solid $border-size $border-color;
-    padding-top: 0.3em;
     padding-bottom: 0.3em;
     padding-left: 1em;
-    //padding-left: 2rem;
+    padding-top: 0.3em;
 }
 
 .font-small {
@@ -100,19 +91,18 @@ main {
 }
 
 .horizontal-line {
-    //text-decoration: line-through;
     position: relative;
 }
 
 .horizontal-line:after {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    height: 2px;
     background: $border-color;
     content: "";
-    width: 100%;
     display: block;
+    left: 0;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
 }
 
 .btn {
@@ -123,22 +113,22 @@ main {
 }
 
 .todo-remove-item {
-    width: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
     height: 30px;
     position: relative;
-    cursor: pointer;
-    border: none;
-    background: transparent;
+    width: 30px;
 }
 
 .todo-remove-item::after,
 .todo-remove-item::before {
     background-color: $icon-color;
     content: "";
-    position: absolute;
-    width: 26px;
     height: 4px;
+    position: absolute;
     top: 16px;
+    width: 26px;
 }
 
 .todo-remove-item::after {
@@ -150,20 +140,20 @@ main {
 }
 
 .todo-remove-item::before {
-    right: 4px;
     left: 4px;
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
+    right: 4px;
     transform: rotate(-45deg);
 }
 
 .todo-create {
-    border: transparent;
     background: transparent;
     background-color: transparent;
+    border: transparent;
     border: solid $border-size $border-color;
-    min-width: 45px;
     font-size: medium;
+    min-width: 45px;
 }
 
 .todo-create,
@@ -172,36 +162,36 @@ main {
     position: relative;
 }
 
-.todo-btn::after {
-    content: "";
-    position: absolute;
-    display: block;
+.todo-btn::after,
+.todo-btn::before {
     background-color: $icon-color;
+    content: "";
+    display: block;
+    position: absolute;
+}
+
+.todo-btn::after {
     height: 4px;
+    left: 8px;
     margin-top: -2px; // height / 2
     top: 50%;
-    left: 8px;
     right: 8px;
     z-index: 10;
 }
 
 .todo-btn::before {
-    content: "";
-    position: absolute;
-    display: block;
-    background-color: $icon-color;
-    width: 4px;
-    margin-left: -2px; // width / 2
-    left: 50%;
-    top: 8px;
     bottom: 8px;
+    left: 50%;
+    margin-left: -2px; // width / 2
+    top: 8px;
+    width: 4px;
     z-index: 11;
 }
 
 .todo-filter-btn {
     border: none;
-    padding: 0.5em;
     font-size: medium;
+    padding: 0.5em;
 }
 
 .border-all {
@@ -211,38 +201,38 @@ main {
 // custom checkbox
 /* Customize the label (the container) */
 .container {
-    display: block;
-    position: relative;
+    border: solid $border-size $border-color;
     cursor: pointer;
+    display: block;
+    height: 32px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
-    border: solid $border-size $border-color;
     min-width: 32px;
+    position: relative;
+    user-select: none;
     width: 32px;
-    height: 32px;
     z-index: 98;
 }
 
 /* Hide the browser's default checkbox */
 .container input {
-    position: absolute;
-    opacity: 0;
     cursor: pointer;
     height: 0;
+    position: absolute;
+    opacity: 0;
     width: 0;
 }
 
 .checkmark {
+    border: solid 1px $border-color;
     display: block;
+    height: 24px;
+    left: 2px;
+    min-width: 24px;
     position: relative;
     top: 2px;
-    left: 2px;
-    border: solid 1px $border-color;
-    min-width: 24px;
     width: 24px;
-    height: 24px;
     z-index: 99;
 }
 
@@ -253,27 +243,23 @@ main {
 
 .checkmark::after,
 .checkmark::before {
-    background-color: $border-color;
+    background-color: $border-color; // very important gets the element displayed
     content: "";
-    position: relative;
-    min-width: 32px;
-    width: 32px;
     height: 1px;
+    min-width: 32px;
+    position: relative;
+    width: 32px;
 }
 
 .checkmark::after {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    transform: rotate(45deg);
     left: -5px;
-    z-index: 100;
     top: -22px;
+    transform: rotate(45deg);
+    z-index: 100;
 }
 
 .checkmark::before {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    transform: rotate(-45deg);
     right: 5px;
     top: -4px;
+    transform: rotate(-45deg);
 }
