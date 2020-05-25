@@ -32,7 +32,12 @@ export default class TodoView {
             label.appendChild(chkBox)
 
             const span = document.createElement('span');
-            span.classList.add('checkmark');
+            span.setAttribute('id', `span-${todo.id}`);
+
+            if (todo.completed) {
+                span.classList.add('checkmark');
+            }
+            //span.classList.add('checkmark');
             label.appendChild(span);
 
             const contentDiv = document.createElement('div');

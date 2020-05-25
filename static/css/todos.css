@@ -188,10 +188,11 @@ main h1 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: solid 1px red;
-  min-width: 30px;
-  width: 30px;
-  height: 30px;
+  border: solid 2px #939393;
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  z-index: 98;
 }
 
 /* Hide the browser's default checkbox */
@@ -204,13 +205,47 @@ main h1 {
 }
 
 .checkmark {
-  position: absolute;
+  display: block;
+  position: relative;
   top: 2px;
   left: 2px;
-  border: solid 1px blue;
+  border: solid 1px #939393;
   min-width: 24px;
   width: 24px;
   height: 24px;
+  z-index: 99;
+}
+
+.container input:checked ~ .checkmark::after,
+.container input:checked ~ .checkmark::before {
+  display: inline-block;
+}
+
+.checkmark::after,
+.checkmark::before {
+  background-color: #939393;
+  content: "";
+  position: relative;
+  min-width: 32px;
+  width: 32px;
+  height: 1px;
+}
+
+.checkmark::after {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+  left: -5px;
+  z-index: 100;
+  top: -22px;
+}
+
+.checkmark::before {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  right: 5px;
+  top: -4px;
 }
 
 /*# sourceMappingURL=todos.css.map */
