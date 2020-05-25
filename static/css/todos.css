@@ -1,9 +1,3 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
 main {
   background-color: #fffcff;
   background-size: 100%;
@@ -68,7 +62,7 @@ main h1 {
 
 .todo-control {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 45px;
   grid-column-gap: 0.2em;
   width: 100%;
 }
@@ -135,11 +129,13 @@ main h1 {
   background: transparent;
   background-color: transparent;
   border: solid 2px #939393;
+  min-width: 45px;
+  font-size: medium;
 }
 
 .todo-create,
 .todo-btn {
-  padding: 1em;
+  padding: 0.8em;
   position: relative;
 }
 

@@ -6,12 +6,6 @@ $background-color: #fffcff;
 $grid-color: #e9e9e9;
 $border-size: 2px;
 
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-}
-
 main {
     background-color: $background-color;
     background-size: 100%;
@@ -100,7 +94,7 @@ main {
 
 .todo-control {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 45px;
     grid-column-gap: 0.2em;
     width: 100%;
 }
@@ -168,11 +162,13 @@ main {
     background: transparent;
     background-color: transparent;
     border: solid $border-size $border-color;
+    min-width: 45px;
+    font-size: medium;
 }
 
 .todo-create,
 .todo-btn {
-    padding: 1em;
+    padding: 0.8em;
     position: relative;
 }
 
@@ -217,10 +213,7 @@ main {
 .container {
     display: block;
     position: relative;
-    //padding-left: 35px;
-    //margin-bottom: 12px;
     cursor: pointer;
-    //font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -262,7 +255,6 @@ main {
 .checkmark::before {
     background-color: $border-color;
     content: "";
-    //display: inline-block;
     position: relative;
     min-width: 32px;
     width: 32px;
