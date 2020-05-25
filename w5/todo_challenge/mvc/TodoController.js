@@ -93,10 +93,12 @@ export default class TodoController {
                 contentDiv.classList.toggle('horizontal-line');
                 this.todoModel.setTodoComplete(clickedElementId, this.key, e.target.checked);
                 // update completed to true
+                console.log(1);
             } else if (clickedElementType === 'submit') { // submit
                 this.todoModel.removeTodoItem(clickedElementId, this.key);
                 this.showAllTodos();
             }
+            console.log(clickedElementType);
         }, false)
     }
 }

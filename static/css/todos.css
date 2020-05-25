@@ -36,15 +36,15 @@ main h1 {
 .todo-list > .todo-item {
   padding: 0.5em;
   display: flex;
-  flex: 10% auto 10%;
+  flex: 30px auto 10%;
   align-items: center;
   text-align: left;
 }
-.todo-list > .todo-item :first-child {
-  width: 5%;
+.todo-list > .todo-item label:first-child {
+  width: 30px;
   margin: 5px;
 }
-.todo-list > .todo-item :nth-child(2) {
+.todo-list > .todo-item div:nth-child(2) {
   width: 90%;
   margin: 5px;
 }
@@ -177,6 +177,40 @@ main h1 {
 
 .border-all {
   border: solid 2px #939393;
+}
+
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: solid 1px red;
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border: solid 1px blue;
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 /*# sourceMappingURL=todos.css.map */

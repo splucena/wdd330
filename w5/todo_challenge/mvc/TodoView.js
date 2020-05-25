@@ -21,10 +21,19 @@ export default class TodoView {
         if (completed === null || (completed && todo.completed) || (!completed && !todo.completed)) {
             const todoItem = document.createElement('li');
             todoItem.classList.add('todo-item');
+            // create label
+            const label = document.createElement('label');
+            label.classList.add('container')
+
             const chkBox = document.createElement('input');
             chkBox.setAttribute('type', 'checkbox');
             chkBox.setAttribute('id', `${todo.id}`);
             chkBox.checked = todo.completed;
+            label.appendChild(chkBox)
+
+            const span = document.createElement('span');
+            span.classList.add('checkmark');
+            label.appendChild(span);
 
             const contentDiv = document.createElement('div');
             contentDiv.setAttribute('id', `contentDiv-${todo.id}`)
@@ -37,7 +46,8 @@ export default class TodoView {
             removeButton.classList.add('todo-remove-item');
             //removeButton.innerHTML = 'x';
 
-            todoItem.appendChild(chkBox);
+            //todoItem.appendChild(chkBox);
+            todoItem.appendChild(label);
             todoItem.appendChild(contentDiv);
             todoItem.appendChild(removeButton);
             todoItem.setAttribute('data-name', todo.id);
