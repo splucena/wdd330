@@ -263,3 +263,13 @@ main {
     top: -4px;
     transform: rotate(-45deg);
 }
+
+@media only screen and (min-width: 768px) {
+
+    /* For desktop: */
+
+    main {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
