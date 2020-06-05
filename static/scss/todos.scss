@@ -7,269 +7,272 @@ $grid-color: #e9e9e9;
 $border-size: 2px;
 
 main {
-    background-color: $background-color;
-    background-image: repeating-linear-gradient(0deg,
-            $grid-color,
-            $grid-color 1px,
-            transparent 1px,
-            transparent 20px),
-        repeating-linear-gradient(-90deg,
-            $grid-color,
-            $grid-color 1px,
-            transparent 1px,
-            transparent 20px);
-    background-size: 100%;
-    color: $text-color;
-    display: grid;
-    grid-row-gap: 1em;
-    grid-template-columns: auto;
-    padding: 1em;
-    width: 100%;
+  background-color: $background-color;
+  background-image: repeating-linear-gradient(
+      0deg,
+      $grid-color,
+      $grid-color 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      -90deg,
+      $grid-color,
+      $grid-color 1px,
+      transparent 1px,
+      transparent 20px
+    );
+  background-size: 100%;
+  color: $text-color;
+  display: grid;
+  grid-row-gap: 1em;
+  grid-template-columns: auto;
+  padding: 1em;
+  width: 100%;
 
-    h1 {
-        font-size: 3em;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
+  h1 {
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
 }
 
 .todo-list {
-    background-color: $background-color;
-    border: solid $border-size $border-color;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  background-color: $background-color;
+  border: solid $border-size $border-color;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 
-    li:not(:last-child) {
-        border-bottom: solid $border-size $border-color;
+  li:not(:last-child) {
+    border-bottom: solid $border-size $border-color;
+  }
+
+  > .todo-item {
+    align-items: center;
+    display: flex;
+    flex: 30px auto 10%;
+    padding: 0.5em;
+    text-align: left;
+
+    label:first-child {
+      margin: 5px;
+      width: 30px;
     }
 
-    >.todo-item {
-        align-items: center;
-        display: flex;
-        flex: 30px auto 10%;
-        padding: 0.5em;
-        text-align: left;
-
-        label:first-child {
-            margin: 5px;
-            width: 30px;
-        }
-
-        div:nth-child(2) {
-            margin: 5px;
-            width: 90%;
-        }
-
-        input[type="checkbox"] {
-            font-size: large;
-        }
+    div:nth-child(2) {
+      margin: 5px;
+      width: 90%;
     }
+
+    input[type="checkbox"] {
+      font-size: large;
+    }
+  }
 }
 
 .todo-filter {
-    background-color: $background-color;
-    border-bottom: solid $border-size $border-color;
-    border-left: solid $border-size $border-color;
-    border-right: solid $border-size $border-color;
-    padding-bottom: 0.3em;
-    padding-left: 1em;
-    padding-top: 0.3em;
+  background-color: $background-color;
+  border-bottom: solid $border-size $border-color;
+  border-left: solid $border-size $border-color;
+  border-right: solid $border-size $border-color;
+  padding-bottom: 0.3em;
+  padding-left: 1em;
+  padding-top: 0.3em;
 }
 
 .font-small {
-    font-size: small;
+  font-size: small;
 }
 
 .todo-control {
-    display: grid;
-    grid-template-columns: 1fr 45px;
-    grid-column-gap: 0.2em;
-    width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 45px;
+  grid-column-gap: 0.2em;
+  width: 100%;
 }
 
 .horizontal-line {
-    position: relative;
+  position: relative;
 }
 
 .horizontal-line:after {
-    background: $border-color;
-    content: "";
-    display: block;
-    left: 0;
-    height: 2px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
+  background: $border-color;
+  content: "";
+  display: block;
+  left: 0;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
 }
 
 .btn {
-    background: transparent;
-    background-color: transparent;
-    border: solid $border-size $border-color;
-    cursor: pointer;
+  background: transparent;
+  background-color: transparent;
+  border: solid $border-size $border-color;
+  cursor: pointer;
 }
 
 .todo-remove-item {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    height: 30px;
-    position: relative;
-    width: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  position: relative;
+  width: 30px;
 }
 
 .todo-remove-item::after,
 .todo-remove-item::before {
-    background-color: $icon-color;
-    content: "";
-    height: 4px;
-    position: absolute;
-    top: 16px;
-    width: 26px;
+  background-color: $icon-color;
+  content: "";
+  height: 4px;
+  position: absolute;
+  top: 16px;
+  width: 26px;
 }
 
 .todo-remove-item::after {
-    left: 4px;
-    right: 4px;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    transform: rotate(45deg);
+  left: 4px;
+  right: 4px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .todo-remove-item::before {
-    left: 4px;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    right: 4px;
-    transform: rotate(-45deg);
+  left: 4px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  right: 4px;
+  transform: rotate(-45deg);
 }
 
 .todo-create {
-    background: transparent;
-    background-color: transparent;
-    border: transparent;
-    border: solid $border-size $border-color;
-    font-size: medium;
-    min-width: 45px;
+  background: transparent;
+  background-color: transparent;
+  border: transparent;
+  border: solid $border-size $border-color;
+  font-size: medium;
+  min-width: 45px;
 }
 
 .todo-create,
 .todo-btn {
-    padding: 0.8em;
-    position: relative;
+  padding: 0.8em;
+  position: relative;
 }
 
 .todo-btn::after,
 .todo-btn::before {
-    background-color: $icon-color;
-    content: "";
-    display: block;
-    position: absolute;
+  background-color: $icon-color;
+  content: "";
+  display: block;
+  position: absolute;
 }
 
 .todo-btn::after {
-    height: 4px;
-    left: 8px;
-    margin-top: -2px; // height / 2
-    top: 50%;
-    right: 8px;
-    z-index: 10;
+  height: 4px;
+  left: 8px;
+  margin-top: -2px; // height / 2
+  top: 50%;
+  right: 8px;
+  z-index: 10;
 }
 
 .todo-btn::before {
-    bottom: 8px;
-    left: 50%;
-    margin-left: -2px; // width / 2
-    top: 8px;
-    width: 4px;
-    z-index: 11;
+  bottom: 8px;
+  left: 50%;
+  margin-left: -2px; // width / 2
+  top: 8px;
+  width: 4px;
+  z-index: 11;
 }
 
 .todo-filter-btn {
-    border: none;
-    font-size: medium;
-    padding: 0.5em;
+  border: none;
+  font-size: medium;
+  padding: 0.5em;
 }
 
 .border-all {
-    border: solid $border-size $border-color;
+  border: solid $border-size $border-color;
 }
 
 // custom checkbox
 /* Customize the label (the container) */
 .container {
-    border: solid $border-size $border-color;
-    cursor: pointer;
-    display: block;
-    height: 32px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    min-width: 32px;
-    position: relative;
-    user-select: none;
-    width: 32px;
-    z-index: 98;
+  border: solid $border-size $border-color;
+  cursor: pointer;
+  display: block;
+  height: 32px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  min-width: 32px;
+  position: relative;
+  user-select: none;
+  width: 32px;
+  z-index: 98;
 }
 
 /* Hide the browser's default checkbox */
 .container input {
-    cursor: pointer;
-    height: 0;
-    position: absolute;
-    opacity: 0;
-    width: 0;
+  cursor: pointer;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
 }
 
 .checkmark {
-    border: solid 1px $border-color;
-    display: block;
-    height: 24px;
-    left: 2px;
-    min-width: 24px;
-    position: relative;
-    top: 2px;
-    width: 24px;
-    z-index: 99;
+  border: solid 1px $border-color;
+  display: block;
+  height: 24px;
+  left: 2px;
+  min-width: 24px;
+  position: relative;
+  top: 2px;
+  width: 24px;
+  z-index: 99;
 }
 
-.container input:checked~.checkmark::after,
-.container input:checked~.checkmark::before {
-    display: inline-block;
+.container input:checked ~ .checkmark::after,
+.container input:checked ~ .checkmark::before {
+  display: inline-block;
 }
 
 .checkmark::after,
 .checkmark::before {
-    background-color: $border-color; // very important gets the element displayed
-    content: "";
-    height: 1px;
-    min-width: 32px;
-    position: relative;
-    width: 32px;
+  background-color: $border-color; // very important gets the element displayed
+  content: "";
+  height: 1px;
+  min-width: 32px;
+  position: relative;
+  width: 32px;
 }
 
 .checkmark::after {
-    left: -5px;
-    top: -22px;
-    transform: rotate(45deg);
-    z-index: 100;
+  left: -5px;
+  top: -22px;
+  transform: rotate(45deg);
+  z-index: 100;
 }
 
 .checkmark::before {
-    right: 5px;
-    top: -4px;
-    transform: rotate(-45deg);
+  right: 5px;
+  top: -4px;
+  transform: rotate(-45deg);
 }
 
 @media only screen and (min-width: 768px) {
+  /* For desktop: */
 
-    /* For desktop: */
-
-    main {
-        width: 80%;
-        margin: 0 auto;
-    }
+  main {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
