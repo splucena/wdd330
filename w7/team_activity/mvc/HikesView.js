@@ -82,6 +82,6 @@ export default class HikesView {
         parentElement.appendChild(item);
 
         // send the button back to controller to attach a listener            
-        return [backButton];
+        return backButton;
     }
 }

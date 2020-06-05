@@ -1,5 +1,5 @@
 class CommentModel {
-    constructor(hikeId, content, type = 'hike') {
+    constructor(hikeId = null, content = '', type = 'hike') {
         this.hikeId = hikeId;
         this.content = content;
         this.date = new Date();
@@ -41,18 +41,13 @@ class CommentView {
 }
 
 export default class Comment {
-    constructor(hikeId, content, commentElementId) {
-        this.commentElementId = commentElementId;
-        this.hikeId = hikeId;
-        this.content = content;
-        this.model = new CommentModel(this.hikeId, this.content);
+    constructor() {
+        this.model = new CommentModel();
         this.view = new CommentView();
     }
     addCommentListener(hikeId) {
         document.querySelector('#add-comment').ontouchend = () => {
             const content = document.querySelector('#comment-entry').value;
-            console.log(content);
-            console.log(hikeId);
             this.model.addComment(hikeId, content);
         }
     }

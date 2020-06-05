@@ -10,7 +10,7 @@ export default class HikesController {
         // this is how our controller will know about the model and view...we add them right into the class as members.
         this.hikeModel = new HikeModel();
         this.hikesView = new HikesView(parentId);
-        this.comment = new Comment(1, '');
+        this.comment = new Comment(); // instantiate new comment
     }
 
     showHikeList() {
@@ -18,7 +18,6 @@ export default class HikesController {
         // the list of hikes will come from the model
         const hikeList = this.hikeModel.getAllHikes();
         const commentList = this.comment.getCommentList();
-        console.log(commentList);
         // send all hikes to the view to be displayed
         this.hikesView.renderHikeList(hikeList, commentList, this.parentElement);
         // add listener to each hike element on the view
@@ -36,6 +35,7 @@ export default class HikesController {
             this.showHikeList();
         }
         const commentBlock = document.querySelector("#comments");
+        // display comment form
         this.comment.displayCommentView(commentBlock);
         // Attach comment to a specific hike
         this.comment.addCommentListener(hike.hikeId);
