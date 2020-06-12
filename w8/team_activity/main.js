@@ -14,16 +14,19 @@ let fetchStarwars = (url = 'https://swapi.dev/api/people/') => fetch(url)
             li.addEventListener('click', () => {
                 const films = element['films'];
                 const starships = element['starships'];
-                //console.log(films);
-                console.log(starships);
 
+                // toggle starships
+                li.classList.toggle('show');
+
+                // display starships
                 if (starships.length > 0) {
                     const div = document.createElement('div');
+                    div.classList.add('starships');
                     const h4 = document.createElement('h4');
                     h4.innerHTML = 'Starships';
                     div.appendChild(h4);
                     const hasDiv = li.querySelector('div');
-                    div.classList.add('starships');
+
                     if (hasDiv == null) {
                         starships.forEach((starship) => {
                             // fetch starship                    
@@ -43,10 +46,10 @@ let fetchStarwars = (url = 'https://swapi.dev/api/people/') => fetch(url)
                     const hasP = li.querySelector('p');
                     if (hasP == null) {
                         p.innerHTML = `Sorry, no starship for ${element['name']}.`;
+                        p.classList.add('danger');
                         li.appendChild(p);
                     }
                 }
-
             });
             ul.appendChild(li);
         });
@@ -60,6 +63,7 @@ let fetchStarwars = (url = 'https://swapi.dev/api/people/') => fetch(url)
         const prev = document.createElement('button');
         prev.innerHTML = 'Prev';
 
+        // Call the same function to display new set of data
         if (data['next']) {
             next.addEventListener('click', () => {
                 fetchStarwars(data['next']);
@@ -75,7 +79,7 @@ let fetchStarwars = (url = 'https://swapi.dev/api/people/') => fetch(url)
         controls.appendChild(prev);
         controls.appendChild(next);
 
-        // pagination
+        // Pagination
         const pages = document.querySelector('#pages');
         pages.innerHTML = '';
         let pageCount = Math.floor((data['count'] / 10) + 1);

@@ -67,3 +67,14 @@
         }
     }
 }
+
+.danger {
+    color: red;
+}
+
+li.show>div,
+li.show>p {
+    color: red;
+    visibility: hidden;
+    display: none;
+}

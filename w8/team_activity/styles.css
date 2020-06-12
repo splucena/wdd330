@@ -53,4 +53,15 @@
   padding: 5px;
 }
 
+.danger {
+  color: red;
+}
+
+li.show > div,
+li.show > p {
+  color: red;
+  visibility: hidden;
+  display: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
