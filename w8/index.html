@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Week 7 | Notes</title>
+</head>
+
+<body>
+    <nav>
+        <ul id="menuLink">
+            <li><a href="#" id="menu"><strong>&equiv; Menu</strong></a></li>
+            <li><a href="../index.html">&nbsp;&nbsp;&nbsp;Home</a></li>
+            <li><a href="../w1/index.html">&nbsp;&nbsp;&nbsp;Week 1</a></li>
+            <li><a href="../w2/index.html">&nbsp;&nbsp;&nbsp;Week 2</a></li>
+            <li><a href="../w3/index.html">&nbsp;&nbsp;&nbsp;Week 3</a></li>
+            <li><a href="../w4/index.html">&nbsp;&nbsp;&nbsp;Week 4</a></li>
+            <li><a href="../w5/">&nbsp;&nbsp;&nbsp;Week 5</a></li>
+            <li><a href="../w6/">&nbsp;&nbsp;&nbsp;Challenge One: ToDo</a></li>
+            <li><a href="../w7/">&nbsp;&nbsp;&nbsp;Week 7</a></li>
+            <li><a href="../w8/">&nbsp;&nbsp;&nbsp;Week 8</a></li>
+        </ul>
+    </nav>
+    <header></header>
+    <main>
+        <section>
+            <h1>Further Functions</h1>
+            <p>Functions are first-class objects in JavaScript meaning they can be passed around in the same way as
+                every
+                other value. They can have their own methods and properties, they can accept methods as parameters and
+                they can
+                be returned by other functions</p>
+            <article>
+                <h3>Function Properties and Methods</h3>
+                <figure>
+                    <pre>
+                        <code>
+function sqaure(x) {
+  return x * x;
+}              
+
+square.length;             
+>> 1 - accepts one parameter
+                        </code>
+                    </pre>
+                </figure>
+                <h3>Call and Apply Methods</h3>
+                <p>The call() methods can be used to set the value of this inside a function to an object that is
+                    provided by
+                    the first argument.</p>
+                <figure>
+                    <pre>
+                            <code>
+function sayHello() {
+  return `Hello, my name is ${this.name}`;
+}        
+
+const kent = {name: 'Clark'};
+sayHello.call(kent);
+>> 'Hello, my name is Kent';
+                            </code>
+                        </pre>
+                </figure>
+                <p>The apply() method works in the same way, except the arguments of the function are provided as an
+                    array, even
+                    when there is only one argument.</p>
+                <figure>
+                    <pre>
+                            <code>
+square.call(null, 4);
+square.apply(null, [4]);
+                            </code>
+                        </pre>
+                </figure>
+                <h3>Memoization</h3>
+                <figure>
+                    <pre>
+              <code>
+function square(x) {
+  square.cache = squre.cache || {};
+  if (!sqaure.cache[x]) { // checks whether the argument is already stored in the cache
+    square.cache[x] = x*x; // saves result in the cache
+  }
+
+  return square.cache[x];
+}
+
+square(3);
+>> 9
+square(-11);
+>> 121
+square.cache;
+>> {'3': 9, '-11': 121}
+              </code>
+          </pre>
+                </figure>
+                <h3>Temporary Variables</h3>
+                <p>There is no way to remove a variable from a scope once it's declared. To make a variable temporary
+                    place it
+                    inside an IIFE (Immediately Invoked Function Expression)</p>
+                <figure>
+                    <pre>
+                <code>
+let a = 1;
+letb = 2;
+(() => {
+  const temp = a;
+  a = b;
+  b = temp;
+})();
+
+a;
+>> 2
+b;
+>> 1
+temp;
+>> Error: "temp is not defined"
+                </code>
+            </pre>
+                </figure>
+                <h3>Functions that Define and Rewrite Themselves</h3>
+                <p>JavaScript allows its method to redifine itself by assigning an anonymouse function to a variable
+                    that has
+                    the same name as the function</p>
+                <figure>
+                    <pre>
+                <code>                 
+function party() {
+  console.log('Hello');
+  party = function() { // anonymous function
+    console.log('world!');
+  }
+}
+First call
+party();
+>> 'Hello'
+Succeeding calls will display the anonymous function
+party();
+>> 'world'!
+party();
+>> 'world'!
+                </code>
+            </pre>
+                </figure>
+                <h3>Recursive Functions</h3>
+                <p>Functions that invokes itself until certain condition is met. It's a useful tool to use when an
+                    iterative
+                    process is involved.</p>
+                <figure>
+                    <pre>
+                <code>
+function factorial(n) {
+  if (n === 0) {
+    return 1;
+  } else {
+    retrn n * factorial(n - 1);
+  }
+}                  
+                </code>
+            </pre>
+                </figure>
+                <h3>Promises</h3>
+                <p>A promise represents the future result of an asynchronous operation.</p>
+                <ul>
+                    <li>Resolved - the asynchronous operation was completed successfully</li>
+                    <li>Rejected - the asynchronous operation didn’t work as expected, wasn’t
+                        successfully completed or resulted in an error.</li>
+                </ul>
+                <p>Both of these outcomes will return any relevant data, and you can take the appropriate action based
+                    on the
+                    outcome of the promise</p>
+                <figure>
+                    <pre>
+                  <code>
+const promise = new Promise( (reject, resolve) => {
+  // initialization code goes header
+  if (success) {
+    resolve(value);
+  } else {
+    reject(error);
+  }
+})                    
+                  </code>
+              </pre>
+                </figure>
+                <h3>Functions That Returns Functions</h3>
+                <figure>
+                    <pre>
+                <code>
+function returnHello() {
+  console.log('returnHello() called');
+  return function() {
+    console.log('Hello world');
+  }
+}
+Assign function to a variable to invoke the returned function
+const hello = returnHello();
+hello();
+>> 'Hello world'                  
+                </code>
+            </pre>
+                </figure>
+                <h3>Closures</h3>
+                <p>A closure gives you access to an outer function's scope from an inner function. Closures are created
+                    every
+                    time a function is created, at function creation time</p>
+                <figure>
+                    <pre>
+                  <code>
+function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  }
+}
+var add1 = makeAdder(1);
+var add2 = makeAdder(2);
+console.log(add1(1)); // 2
+console.log(add2(2)); // 4                    
+                  </code>
+              </pre>
+                </figure>
+                <h3>Currying</h3>
+                <p>A function is said to be curried when not all arguments have been supplied to the function, so it
+                    returns
+                    another function that retains the arguments already provided, and expets the remaining arguments
+                    that were
+                    omitted when the original function was called. A final result is only returned once all the expected
+                    arguments
+                    have eventually been provided.</p>
+                <figure>
+                    <pre>
+                  <code>
+function multiplier(x,y) {
+  if (y === undefined) {
+    return function(z) {
+      return x * z;
+    }
+  } else {
+    return x * y;
+  }
+}                    
+                  </code>
+              </pre>
+                </figure>
+                <!--<figure>
+                    <pre>
+                        <code>
+                        </code>
+                    </pre>
+                </figure>-->
+            </article>
+            <article>
+                <h3>Team Activity: Star Wars API</h3>
+                <p><a href="team_activity/index.html" class="minimal-margin-padding">Go to Sample Code</a></p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        &copy; 2020 | Portfolio | Sumilang Plucena
+    </footer>
+    <script src="../static/js/toggleMenu.js"></script>
+</body>
+
+</html>
