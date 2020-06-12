@@ -29,6 +29,8 @@ let fetchStarwars = (url = 'https://swapi.dev/api/people/') => fetch(url)
 
                     if (hasDiv == null) {
                         starships.forEach((starship) => {
+
+                            starship = starship.slice(4, starship.length);
                             // fetch starship                    
                             fetch(starship)
                                 .then(response => response.json())
