@@ -1,0 +1,56 @@
+.people {
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 1em;
+}
+.people h1 {
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.people section {
+  display: grid;
+  grid-template-columns: auto;
+  grid-row-gap: 1em;
+}
+.people section ul {
+  display: grid;
+  grid-template-columns: 1;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.people section ul li:first-child {
+  border-top: 1px solid #FFF;
+}
+.people section ul li {
+  border-bottom: 1px solid #FFF;
+  padding: 0.5em;
+}
+.people section ul li .starships h4 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.people section ul li .starships p {
+  padding: 0;
+  margin: 0;
+  padding-left: 1em;
+}
+.people section .pages {
+  display: flex;
+  width: 100%;
+}
+.people section .pages button {
+  width: 100%;
+  padding: 5px;
+}
+.people section .controls {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.people section .controls button {
+  padding: 5px;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -10,7 +10,44 @@ let fetchStarwars = (url = 'https://swapi.dev/api/people/') => fetch(url)
         const results = data['results'];
         results.forEach(element => {
             const li = document.createElement('li');
-            li.innerHTML = element['name'];
+            li.innerHTML = `Name: ${element['name']}`;
+            li.addEventListener('click', () => {
+                const films = element['films'];
+                const starships = element['starships'];
+                //console.log(films);
+                console.log(starships);
+
+                if (starships.length > 0) {
+                    const div = document.createElement('div');
+                    const h4 = document.createElement('h4');
+                    h4.innerHTML = 'Starships';
+                    div.appendChild(h4);
+                    const hasDiv = li.querySelector('div');
+                    div.classList.add('starships');
+                    if (hasDiv == null) {
+                        starships.forEach((starship) => {
+                            // fetch starship                    
+                            fetch(starship)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const p = document.createElement('p');
+                                    p.innerHTML = '';
+                                    p.innerHTML = data['name'];
+                                    div.appendChild(p)
+                                    li.appendChild(div);
+                                }).then()
+                        })
+                    }
+                } else {
+                    const p = document.createElement('p');
+                    const hasP = li.querySelector('p');
+                    if (hasP == null) {
+                        p.innerHTML = `Sorry, no starship for ${element['name']}.`;
+                        li.appendChild(p);
+                    }
+                }
+
+            });
             ul.appendChild(li);
         });
         peopleList.appendChild(ul);
