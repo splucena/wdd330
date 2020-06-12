@@ -32,7 +32,7 @@ let fetchStarwars = (url = 'https://swapi.dev/api/people/') => fetch(url)
 
                             starship = starship.slice(4, starship.length);
                             // fetch starship                    
-                            fetch(starship)
+                            fetch(`https${starship}`)
                                 .then(response => response.json())
                                 .then(data => {
                                     const p = document.createElement('p');
