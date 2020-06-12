@@ -66,13 +66,17 @@ let fetchStarwars = (url = 'https://swapi.dev/api/people/') => fetch(url)
         // Call the same function to display new set of data
         if (data['next']) {
             next.addEventListener('click', () => {
-                fetchStarwars(data['next']);
+                let next = data['next']
+                next = next.slice(4, next.length);
+                fetchStarwars(`https${next}`);
             })
         }
 
         if (data['previous']) {
             prev.addEventListener('click', () => {
-                fetchStarwars(data['previous']);
+                let previous = data['previous']
+                previous = previous.slice(4, previous.length);
+                fetchStarwars(`https${previous}`);
             })
         }
 
