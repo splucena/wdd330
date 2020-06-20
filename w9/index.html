@@ -248,6 +248,130 @@ setTimeout(person.introduce, 50);
       <p></p>
       <article>
         <h3>The data - Attribute</h3>
+        <p>The data - attribute is a way of embedding data in a web pages using custom attributes that are ignored by
+          the
+          browser. They are private to a page their sole purpose is to be used by a JavaScript program.</p>
+        <ul>
+          <li>Start with data-</li>
+          <li>Contain only lowercase letters, numbers, hyphens, dots, colons or underscore</li>
+          <li>Includde an optional string value</li>
+        </ul>
+        <figure>
+          <pre>
+                <code>
+<div id='hero' data-powers='flight superSpeed'>
+  Superman
+</div>    
+
+const s = document.getElementById('hero');
+const p = s.dataset.powers;
+>> 'flight superSpeed'
+
+// older browser support
+const powers = s.getAttribute('data-powers');
+
+const maxLength = Number(element.dataset.maxLength);
+                </code>
+            </pre>
+        </figure>
+        <h3>HTML Web Storage</h3>
+        <p>The Web Storage API provides a key-value store on the client's computer that is similar to using cookies but
+          has fewer restrictions, more storage capacity, and is generally easier to use.
+        </p>
+        <p>Web Storage API has some crucial difference with cookies</p>
+        <ul>
+          <li>Information stored is not shared with the server on every request</li>
+          <li>Information is available in multiple windows of the browser (if the domain is the same.)</li>
+          <li>Storage capacity limit is much larger tht the 4KB limit for cookies.</li>
+          <li>Does not automatically expire.</li>
+        </ul>
+        <figure>
+          <pre>
+                <code>
+// save JavaScript object in local storage
+localStorage.setItem('superman', JSON.stringify(hero));
+
+// retrieve as JavaScript object 
+s = JSON.parse(localStorage.getItem('superman'));
+                </code>
+            </pre>
+        </figure>
+        <h3>Geolocation</h3>
+        <p>The Geolocation API is used to obtain the geographical position of the device.
+          This means it can be used to find the user’s exact location, then link to nearby
+          places or measure the speed at which the user is moving. This information can
+          then be used to filter data based on the user’s location or speed and direction of
+          travel.</p>
+        <figure>
+          <pre>
+                  <code>
+navigator.geolocation.getCurrentPosition(youAreHere);
+
+function youAreHere(position) {
+  console.log(`${position.coords.latitute} ${position.coords.longitude}`);
+}
+                  </code>
+              </pre>
+        </figure>
+        <h3>Web Workers</h3>
+        <p>Web workers allow processes to be run in the background, adding support for concurrency in JavaScript.</p>
+        <figure>
+          <pre>
+                <code>
+const worker = new Worker('task.js');                  
+                </code>
+            </pre>
+        </figure>
+        <h3>Websockets</h3>
+        <p>Websocket is a new protocol that allows two-way communication with a server –
+          also known as push messaging. This means that a connection is kept open and
+          responses are ‘pushed’ to the client as soon as they are received.</p>
+        <h3>Web Socket Code Sample</h3>
+        <form action="#">
+          <label for='message'>Enter a Message:</label>
+          <input type='text' name='message'>
+          <button type='submit'>Submit</button>
+        </form>
+        <div id="output"></div>
+        <script>
+          const URL = 'wss://echo.websocket.org/';
+          outputDiv = document.getElementById('output');
+          form = document.forms[0];
+          connection = new WebSocket(URL);
+
+          connection.addEventListener('open', () => {
+            output('CONNECTED');
+          }, false);
+
+          function output(message) {
+            const para = document.createElement('p');
+            para.innerHTML = message;
+            outputDiv.appendChild(para);
+          }
+
+          form.addEventListener('submit', message, false);
+
+          function message(event) {
+            event.preventDefault();
+            const text = form.message.value;
+            output(`SENT: ${text}`);
+            connection.send(text);
+          }
+
+          connection.addEventListener('message', (event) => {
+            output(`RESPONSE: ${event.data}`);
+          }, false);
+
+          connection.addEventListener('close', () => {
+            output('DISCONNECTED');
+          }, false);
+
+          connection.addEventListener('error', (event) => {
+            output(`<span style='color: red;'>ERROR: ${event.data}</span>`);
+          }, false);
+        </script>
+        <h3>Notifications</h3>
+        <p></p>
         <!--<figure>
                     <pre>
                         <code>
@@ -265,6 +389,13 @@ setTimeout(person.introduce, 50);
     &copy; 2020 | Portfolio | Sumilang Plucena
   </footer>
   <script src="../static/js/toggleMenu.js"></script>
+  <script>
+    navigator.geolocation.getCurrentPosition(getLocation);
+
+    function getLocation(p) {
+      console.log(`${p.coords.latitude} ${p.coords.longitude}`);
+    }
+  </script>
 </body>
 
 </html>
