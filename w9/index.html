@@ -371,7 +371,50 @@ const worker = new Worker('task.js');
           }, false);
         </script>
         <h3>Notifications</h3>
-        <p></p>
+        <p>The Notification API allows you to show messages using the system’s
+          notifications.</p>
+        <script>
+          if (window.Notification) {
+            Notification.requestPermission()
+              .then((p) => {
+                if (Notification.permission === 'granted') {
+                  /*const notif = new Notification('Hello JavaScript Ninja!', {
+                    body: 'JavaScript Notification',
+                    icon: 'html-5.png'
+                  });
+                  notif.addEventListener('click', () => {
+                    window.open('https://sitepoint.com')
+                  }, false);
+                  notif.close();*/
+                }
+              })
+          }
+        </script>
+        <h3>Multimedia</h3>
+        <p>Before HTML5, it was notoriously difficult to display audio and video in
+          browsers, and plugins such as Flash often had to be used. HTML5 introduced the
+          <audio> and <video> tags used to insert audio and video clips into a web page. It
+              also introduced a Media API for controlling the playback of the clips using
+              JavaScript.</p>
+        <h3>Other APIs</h3>
+        <p>The list of APIs is constantly growing, and includes APIs for accessing a device’s
+          camera, uploading files, accessing the battery status, handling push notifications,
+          building drag-and-drop functionality, creating 3D effects with WebGL, and many
+          more! A comprehensive list of HTML5 APIs can be found at the Mozilla
+          Developer Network</p>
+        <h3>Drawing with Canvas</h3>
+        <p>The canvas element was introduced to allow graphics to be drawn onto a web
+          page in real time using JavaScript. A canvas element is a rectangular element on
+          the web page. It has a coordinate system that starts at (0,0) in the top-left corner.
+          To add a canvas element to a page, the canvas tag is used specifying a height
+          and width .</p>
+        <h3>Shims and Polyfills</h3>
+        <p>The main difference
+          between them is that a shim is a piece of code that adds some missing
+          functionality to a browser, although the implementation method may differ
+          slightly from the standard API. A polyfill is a shim that achieves the same
+          functionality, while also using the API commands that would be used if the
+          feature was supported natively.</p>
         <!--<figure>
                     <pre>
                         <code>
@@ -381,7 +424,7 @@ const worker = new Worker('task.js');
       </article>
       <article>
         <h3>Team Activity: Hikes with Comments</h3>
-        <p><a href="team_activity/mvc/index.html" class="minimal-margin-padding">Go to Sample Code</a></p>
+        <p><a href="team_activity/index-START.html" class="minimal-margin-padding">Go to Sample Code</a></p>
       </article>
     </section>
   </main>

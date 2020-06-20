@@ -4,70 +4,104 @@
 <head>
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="../../static/css/style.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <nav>
+    <ul>
+      <li><a href="../index.html">&lt;&lt; Go Back</a></li>
+    </ul>
+  </nav>
+  <main>
 
+    <div class="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">clap</span>
+      </div>
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+        <span class="sound">hihat</span>
+      </div>
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">kick</span>
+      </div>
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">openhat</span>
+      </div>
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">boom</span>
+      </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">ride</span>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">snare</span>
+      </div>
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">tom</span>
+      </div>
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">tink</span>
+      </div>
+    </div>
 
-  <div class="keys">
-    <div data-key="65" class="key">
-      <kbd>A</kbd>
-      <span class="sound">clap</span>
-    </div>
-    <div data-key="83" class="key">
-      <kbd>S</kbd>
-      <span class="sound">hihat</span>
-    </div>
-    <div data-key="68" class="key">
-      <kbd>D</kbd>
-      <span class="sound">kick</span>
-    </div>
-    <div data-key="70" class="key">
-      <kbd>F</kbd>
-      <span class="sound">openhat</span>
-    </div>
-    <div data-key="71" class="key">
-      <kbd>G</kbd>
-      <span class="sound">boom</span>
-    </div>
-    <div data-key="72" class="key">
-      <kbd>H</kbd>
-      <span class="sound">ride</span>
-    </div>
-    <div data-key="74" class="key">
-      <kbd>J</kbd>
-      <span class="sound">snare</span>
-    </div>
-    <div data-key="75" class="key">
-      <kbd>K</kbd>
-      <span class="sound">tom</span>
-    </div>
-    <div data-key="76" class="key">
-      <kbd>L</kbd>
-      <span class="sound">tink</span>
-    </div>
-  </div>
-
-  <audio id="clap" data-key="65" src="sounds/clap.wav"></audio>
-  <audio id="hihat" data-key="83" src="sounds/hihat.wav"></audio>
-  <audio id="kick" data-key="68" src="sounds/kick.wav"></audio>
-  <audio id="openhat" data-key="70" src="sounds/openhat.wav"></audio>
-  <audio id="boom" data-key="71" src="sounds/boom.wav"></audio>
-  <audio id="ride" data-key="72" src="sounds/ride.wav"></audio>
-  <audio id="snare" data-key="74" src="sounds/snare.wav"></audio>
-  <audio id="tom" data-key="75" src="sounds/tom.wav"></audio>
-  <audio id="tink" data-key="76" src="sounds/tink.wav"></audio>
-
+    <audio id="clap" data-key="65" src="sounds/clap.wav"></audio>
+    <audio id="hihat" data-key="83" src="sounds/hihat.wav"></audio>
+    <audio id="kick" data-key="68" src="sounds/kick.wav"></audio>
+    <audio id="openhat" data-key="70" src="sounds/openhat.wav"></audio>
+    <audio id="boom" data-key="71" src="sounds/boom.wav"></audio>
+    <audio id="ride" data-key="72" src="sounds/ride.wav"></audio>
+    <audio id="snare" data-key="74" src="sounds/snare.wav"></audio>
+    <audio id="tom" data-key="75" src="sounds/tom.wav"></audio>
+    <audio id="tink" data-key="76" src="sounds/tink.wav"></audio>
+  </main>
   <script>
     function removeTransition(e) {
       if (e.propertyName !== 'transform') return;
       e.target.classList.remove('playing');
     }
 
+    let keyMap = {
+      'A': 0,
+      'S': 0,
+      'D': 0,
+      'F': 0,
+      'G': 0,
+      'H': 0,
+      'J': 0,
+      'K': 0,
+      'L': 0
+    };
+
     function playSound(e) {
       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
       const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+      var rect = key.getBoundingClientRect();
+
+      const charCode = String.fromCharCode(e.keyCode);
+
+      if (keyMap[charCode] < 10) {
+        const keyStyle = key.currentStyle || window.getComputedStyle(key);
+        const keyMarginTop = keyStyle.marginTop;
+        key.style.marginTop = `${parseInt(keyMarginTop.slice(0, -2)) + 10}px`;
+        keyMap[charCode] = keyMap[charCode] + 1;
+      } else {
+        key.style.marginTop = '10px';
+        keyMap[charCode] = 0;
+      }
+
+
+
       if (!audio) return;
 
       key.classList.add('playing');
