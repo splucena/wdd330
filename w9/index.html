@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Week 7 | Notes</title>
+</head>
+
+<body>
+  <nav>
+    <ul id="menuLink">
+      <li><a href="#" id="menu"><strong>&equiv; Menu</strong></a></li>
+      <li><a href="../index.html">&nbsp;&nbsp;&nbsp;Home</a></li>
+      <li><a href="../w1/index.html">&nbsp;&nbsp;&nbsp;Week 1</a></li>
+      <li><a href="../w2/index.html">&nbsp;&nbsp;&nbsp;Week 2</a></li>
+      <li><a href="../w3/index.html">&nbsp;&nbsp;&nbsp;Week 3</a></li>
+      <li><a href="../w4/index.html">&nbsp;&nbsp;&nbsp;Week 4</a></li>
+      <li><a href="../w5/">&nbsp;&nbsp;&nbsp;Week 5</a></li>
+      <li><a href="../w6/">&nbsp;&nbsp;&nbsp;Challenge One: ToDo</a></li>
+      <li><a href="../w7/">&nbsp;&nbsp;&nbsp;Week 7</a></li>
+      <li><a href="../w8/">&nbsp;&nbsp;&nbsp;Week 8</a></li>
+      <li><a href="../w9/">&nbsp;&nbsp;&nbsp;Week 9</a></li>
+    </ul>
+  </nav>
+  <header></header>
+  <main>
+    <section>
+      <h1>The Window Object</h1>
+      <p>In a browser environment the global object is the window object. Any variables and functions created in the
+        global scope are properties and methods of the window object.</p>
+      <article>
+        <h3>The Browser Object Model</h3>
+        <p>Collection of properties and methods that contain information about the browser and the computer screen.
+          There is no official standard for the BOM, however properties and methods supported by all major browsers are
+          set to be the de facto standard.</p>
+        <figure>
+          <pre>
+                <code>
+// from within the global scope
+const global = this;                  
+                </code>
+            </pre>
+        </figure>
+        <h1>Going Global</h1>
+        <p>Global variables are actual properties of the window object.</p>
+        <figure>
+          <pre>
+                <code>
+x = 6; // global variable created
+>> 6            
+
+window.x // same variable can be accessed as a property of the window object 
+>> 6
+
+// both variables are the same
+window.x === x; 
+>> true
+                </code>
+            </pre>
+        </figure>
+        <h3>Browser Information</h3>
+        <p>The window object has a navigator property that returns a reference to the Navigator object. The Navigator
+          object contains information bout the browser. Its userAgent property will return information about the browser
+          and operating system being used.</p>
+        <figure>
+          <pre>
+                  <code>
+window.navigator.userAgent;
+>> "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) 
+AppleWebKit/602.4.8 (KHTML, like Gecko) Version/10.0.3
+Safari/602.4.8"   
+                  </code>
+              </pre>
+        </figure>
+        <h3>Location</h3>
+        <p>The window.location property is an object that contains information about the URL of the current page.</p>
+        <figure>
+          <pre>
+                <code>
+// returns the full URL as a string
+window.location.href;
+
+// returns a string describing the protocol used
+window.location.protocol;
+>> "https:" // Note that there is a colon (:) at the end
+
+// returns string describing the domain of the current URL and port number
+window.location.host;
+>> "www.sitepoint.com" // ommits port if port 80 is used
+
+// returns a string describing the domain of the current URL
+window.locacation.hostname; // port excluded
+
+// returns a string describing the port number; will return empty
+if not explicitly stated in the URL
+
+window.location.port;
+
+// returns a string of the path that follows the domain
+window.location.pathname;
+>> "/premium/books/js-novice-to-ninja"
+
+// returns a string that starts with "?" followed by the query string
+parameter. It returns empty if there are no query string parameters.
+
+window.location.search;
+>> "?q=Id=1"
+
+// returns a string that starts with a "#" followed by fragment identifier;
+returns empty string if there is no fragment identifier.
+
+window.location.hash;
+
+// returns a string that shows the protocol and domain where the current page originated.
+This property is read-only. 
+
+window.location.origin;
+>> "https://www.sitepoint.com"
+
+Other methods:
+1. reload() - can be used to force reload the current page.
+2. assign() - can be used to load another resource from a URL.
+3. replace() - almost the same as the assign() method, except the
+current page will not be stored in the session history.
+4. toString() - returns a string containing the whole URL.
+                </code>
+            </pre>
+        </figure>
+        <h3>The Browser History</h3>
+        <p>The window.history property can be used to access information about the previously visited pages in the
+          current browser session.</p>
+        <figure>
+          <pre>
+                  <code>
+window.history.go(1); // goes forward 1 pages
+window.history.go(0); // reloads current page
+window.history.go(-1); // goes back 1 page
+                  </code>
+              </pre>
+        </figure>
+        <h3>Screen Information</h3>
+        <p>The window.screen object contains information about the screen the browser is displayed on.</p>
+        <figure>
+          <pre>
+                <code>
+window.screen.height;
+window.screen.width;
+
+// find the height and width of the screen excluding any operating system menus.
+window.screen.availWidth;
+window.screen.availHeight;
+
+// find the color depth of the user's monitor
+window.screen.colorDepth;
+                </code>
+            </pre>
+        </figure>
+        <h3>The Document Object</h3>
+        <p>Each window object contains a document object. This object has properties and methods that deal witht eh page
+          that has been loaded into the window.</p>
+        <p>The write() method simply writes a string of text to the page.</p>
+        <h3>Cookies</h3>
+        <p>Cookies are small files that are saved locally on a user’s computer. They were
+          invented by Netscape as a way of getting round HTTP being a stateless protocol.
+          This means that a browser does not remember anything from one request to
+          another.</p>
+        <p>A restriction of cookies is that they can only be read by a web page from the same
+          domain that set them. This is to stop sites being able to access information about
+          users, such as other sites they have visited. Cookies are also limited to storing up
+          to 4KB of data, although 20 cookies are allowed per domain, which can add up to
+          quite a lot of data.</p>
+        <figure>
+          <pre>
+                  <code>
+// creating cookie              
+document.cookie = 'name=Sponge';
+>> "name=Sponge"
+
+// changing cookie value
+document.cookie = 'name=Patrick';
+>> "name=Patrick"
+
+// reading cookies
+document.cookie;
+>> "name=Patrick"
+
+// break cookie string into an array
+
+const cookies = document.cookie.split("; ");
+for (crumb in cookies) {
+  const [key, value] = crumb.split("=");
+  console.log(`The value of ${key} is ${value}`);
+}
+
+>> The value of name is Patrick
+
+// cookie expiry dates
+// cookies are session cookies by default, it is deleted once
+a browser session is finished.
+
+// persist cookies
+const expiryDate = new Date();
+const tomorrow = expiryDate.getTime() + 1000 * 60 * 60 * 24;
+expiryDate.setTime(tomorrow);
+document.cookie = `name=Batman; expires=${expiryDate.toUTCString()}`;
+
+// set path
+document.cookie = 'name=Batman; path=/'
+
+// secure cookies
+document.cookie = 'name=Batman; secure';
+
+// delete cookies by setting the expiry date
+document.cookie = 'name=Batman; expires=Thu, 01 Jan 1970 00:00:01 GMT';
+                  </code>
+              </pre>
+        </figure>
+        <h3>Using the his Keyword</h3>
+        <p>Be careful when using a method that uses the this keyword with either of these
+          timing methods. The binding of this is set to the window object, rather than the
+          method's object.</p>
+        <figure>
+          <pre>
+                  <code>
+const person = {
+  name: 'Superman',
+  introduce() {
+  console.log(`Hi, I'm ${this.name}`);
+  }
+};
+
+setTimeout(person.introduce, 50);
+>> Hi, I'm                    
+                  </code>
+              </pre>
+        </figure>
+        <!--<figure>
+                    <pre>
+                        <code>
+                        </code>
+                    </pre>
+                </figure>-->
+      </article>
+      <h1>HTML5 APIs</h1>
+      <p></p>
+      <article>
+        <h3>The data - Attribute</h3>
+        <!--<figure>
+                    <pre>
+                        <code>
+                        </code>
+                    </pre>
+                </figure>-->
+      </article>
+      <article>
+        <h3>Team Activity: Hikes with Comments</h3>
+        <p><a href="team_activity/mvc/index.html" class="minimal-margin-padding">Go to Sample Code</a></p>
+      </article>
+    </section>
+  </main>
+  <footer>
+    &copy; 2020 | Portfolio | Sumilang Plucena
+  </footer>
+  <script src="../static/js/toggleMenu.js"></script>
+</body>
+
+</html>
