@@ -60,6 +60,12 @@ export default class QuakesController {
                 this.getQuakeDetails(e.target.dataset.id);
             }
         });
+
+        this.parentElement.addEventListener('click', e => {
+            if (e.target.dataset.id) {
+                this.getQuakeDetails(e.target.dataset.id);
+            }
+        });
         //console.log(1);
     }
     async getQuakeDetails(quakeId) {
@@ -68,6 +74,10 @@ export default class QuakesController {
         //console.log(quake);
         const back = this.quakesView.renderQuake(quake, this.parentElement);
         back.addEventListener('touchend', e => {
+            this.getQuakesByRadius();
+        })
+
+        back.addEventListener('click', e => {
             this.getQuakesByRadius();
         })
     }

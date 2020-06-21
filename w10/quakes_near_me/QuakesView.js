@@ -14,9 +14,9 @@ class QuakesView {
 
         listElement.innerHTML = quakeList.features
             .map(quake => {
-                return `<li data-id=${quake.id}>${
+                return `<li data-id=${quake.id}><span data-id=${quake.id}>${
           quake.properties.title
-        } <div>${new Date(quake.properties.time)}</div></li>`;
+        }</span><div>${new Date(quake.properties.time)}</div></li>`;
             })
             .join('');
     }
@@ -27,12 +27,13 @@ class QuakesView {
         element.innerHTML = quakeProperties
             .map(item => {
                 if (item[0] === 'time' || item[0] === 'updated') {
-                    return `<li>${item[0]}: ${new Date(item[1])}</li>`;
-                } else return `<li>${item[0]}: ${item[1]}</li>`;
+                    return `<li><span class="title">${item[0]}:</span> ${new Date(item[1])}</li>`;
+                } else return `<li><span class="title">${item[0]}:</span> ${item[1]}</li>`;
             })
             .join('');
         const button = document.createElement('button');
         button.innerHTML = 'Back';
+        button.classList.add('btn');
         //element.appendChild(button);
         element.insertBefore(button, element.childNodes[0]);
 

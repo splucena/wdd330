@@ -1,0 +1,38 @@
+main>h1 {
+    width: 100%;
+    text-align: center;
+}
+
+main>ul {
+    list-style-type: none;
+}
+
+main>ul li {
+    padding: 1em;
+    border-top: 1px solid #FFF;
+}
+
+main>ul li> :first-child {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+main>ul li> :last-child {
+    color: #272727;
+}
+
+main>ul li:last-child {
+    border-bottom: 1px solid #FFF;
+}
+
+.btn {
+    margin: 1em;
+    padding: 1em;
+    font-size: 14px;
+}
+
+main>ul li>span.title {
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #FFF;
+}
