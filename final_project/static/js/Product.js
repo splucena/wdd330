@@ -12,6 +12,7 @@ export default class Product {
         // usda
         this.baseURL = 'https://api.nal.usda.gov/fdc/v1/';
         this._products = [];
+        this._productSearchResult = [];
     }
 
     async getProducts() {
@@ -38,5 +39,18 @@ export default class Product {
 
         console.log(this._products);
         return this._products;
+    }
+
+    async searchProduct(searchTerm) {
+
+        const query = this.baseURL + `search?api_key=${key}&query=${searchTerm}&pageSize=10`;
+        const products = await getJSON(query);
+
+        products['foods'].map(product => {
+            console.log(product);
+            this._productSearchResult.push([product]);
+        })
+
+        return this._productSearchResult;
     }
 }

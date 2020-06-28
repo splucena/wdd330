@@ -1,6 +1,7 @@
 export default class ProductsView {
     renderProductList(productList, productListElement) {
-        productListElement.innerHTML = '';
+        productListElement.innerHTML = "";
+        console.log(productListElement);
         productList.forEach(element => {
             const item = document.createElement('li');
             //const h2 = document.createElement('h2');
