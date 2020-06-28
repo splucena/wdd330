@@ -56,6 +56,7 @@ export default class QuakesController {
         // // add a listener to the new list of quakes to allow drill down in to the details. The listener should call this.getQuakeDetails on the targeted element
 
         this.parentElement.addEventListener('touchend', e => {
+            console.log(e.target.dataset.id);
             if (e.target.dataset.id) {
                 this.getQuakeDetails(e.target.dataset.id);
             }

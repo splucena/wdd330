@@ -29,6 +29,8 @@ export default class Product {
             this._products.push(result.foods);
         }));
 
+        console.log(this._products);
+
         return this._products;
     }
 
@@ -42,5 +44,21 @@ export default class Product {
         })
 
         return productSearchResult;
+    }
+
+    async searchProductById(id) {
+        let products = [];
+        const query = this.baseURL + `${id}?api_key=${key}`;
+        const product = await getJSON(query);
+
+        //console.log(product);
+
+        return product;
+
+        //products['foods'].map(product => {
+        //    productSearchResult.push([product]);
+        //})
+
+        //return productSearchResult;
     }
 }

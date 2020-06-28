@@ -9,9 +9,12 @@ export default class ProductsView {
             //const h2 = document.createElement('h2');
             //h2.innerHTML = element[0]['description'];
             //item.appendChild(h2);
+            item.setAttribute('data-id', `id${element[0]['fdcId']}`);
+            item.setAttribute('id', `id${element[0]['fdcId']}`);
 
             const divCard = document.createElement('div');
             divCard.classList.add('card');
+            divCard.setAttribute('data-id', `id${element[0]['fdcId']}`);
             const img = document.createElement('img');
             img.src = '/final_project/static/img/no-image-tn.png';
             //img.style.width = '100%';
@@ -20,6 +23,7 @@ export default class ProductsView {
             divCard.appendChild(img);
             const divContainer = document.createElement('div');
             divContainer.classList.add('container');
+            divContainer.setAttribute('data-id', `id${element[0]['fdcId']}`);
             divCard.appendChild(divContainer);
 
             const h4 = document.createElement('h4');
@@ -34,5 +38,40 @@ export default class ProductsView {
             item.appendChild(divCard);
             productListElement.append(item);
         });
+    }
+
+    renderProductDetail(product, parentElement) {
+        parentElement.innerHTML = '';
+        const li = document.createElement('li');
+        const divCard = document.createElement('div');
+        divCard.classList.add('card');
+        divCard.style.gridTemplateColumns = "1fr";
+        const img = document.createElement('img');
+        img.src = '/final_project/static/img/no-image-tn.png';
+        //img.style.width = '100%';
+        img.style.height = '150px';
+        // append image to divCard
+        divCard.appendChild(img);
+
+        const divContainer = document.createElement('div');
+        divContainer.classList.add('container');
+        divCard.appendChild(divContainer)
+
+        const h4 = document.createElement('h4');
+        h4.innerHTML = product['description'];
+        const p = document.createElement('p');
+        p.innerHTML = product['ingredients'];
+        const pOwner = document.createElement('p');
+        pOwner.innerHTML = `Owner: ${product['brandOwner']}`;
+        const pAvailableDate = document.createElement('p');
+        pAvailableDate.innerHTML = `Date Available: ${product['availableDate']}`;
+
+        divContainer.appendChild(h4);
+        divContainer.appendChild(p);
+        divContainer.appendChild(pOwner);
+        divContainer.appendChild(pAvailableDate);
+
+        li.appendChild(divCard);
+        parentElement.appendChild(li);
     }
 }
