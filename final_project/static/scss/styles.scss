@@ -1,23 +1,211 @@
+// fonts
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: url(../fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: Raleway;
+    src: url(../fonts/Raleway-Regular.ttf);
+}
+
+$font-header: OpenSans,
+sans-serif;
+$font-regular: Raleway,
+sans-serif;
+$font-code: monospace;
+
+// colors
+$color-black: #272727;
 $color-red: #B23850;
 $color-blue: #3B8BEB;
 $color-white: #E7E3D4;
 $color-green: #C4DBF6;
 $color-gray: #8590AA;
 
+// menu
+// mixin span pseudo elements
+// variables
+
+@mixin mxn-span($top) {
+    background: $color-red;
+    border-radius: 2px;
+    display: block;
+    height: 5px;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: $top;
+    width: 30px;
+}
+
+@mixin mxn-transition {
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+}
+
+@mixin mxn-rotate($deg) {
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin mxn-translate-rotate($x, $deg) {
+    -webkit-transform: translateX($x) rotate($deg);
+    -moz-transform: translateX($x) rotate($deg);
+    -o-transform: translateX($x) rotate($deg);
+    transform: translateX($x) rotate($deg);
+}
+
+#menu-icon {
+    width: 40px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+    text-align: left;
+
+    // adds hover to span, span::after, and span::before
+    // when container is hovered
+    &:hover span,
+    &:hover span::after,
+    &:hover span::before {
+        background-color: lighten($color-red, 50);
+    }
+
+    &.open {
+        z-index: 1;
+    }
+
+    span {
+        @include mxn-span(0px);
+        @include mxn-rotate(0deg);
+        @include mxn-transition;
+
+        // adds hover to span, span::after, and span::before
+        &:hover,
+        &:hover::after,
+        &:hover::before {
+            background-color: lighten($color-red, 50);
+        }
+
+        &::after {
+            @include mxn-span(10px);
+            content: "";
+        }
+
+        &::before {
+            @include mxn-span(20px);
+            content: "";
+        }
+    }
+
+    &.open span {
+        @include mxn-translate-rotate(215px, 135deg);
+        background-color: $color-red;
+        content: "";
+        top: 10px;
+    }
+
+    &.open span::after {
+        // should inherit span translateX function
+        @include mxn-rotate(-270deg);
+        background-color: $color-red;
+        position: absolute;
+        top: 0px;
+    }
+
+    &.open span::before {
+        content: "";
+        opacity: 0;
+        top: 0px;
+    }
+
+    // adds hover after class .open is applied to #menu-icon
+    &.open:hover span,
+    &.open:hover span::after {
+        background-color: lighten($color-red, 50);
+    }
+}
+
+#sidebar {
+    @include mxn-transition();
+    background-color: rgba($color: $color-black, $alpha: 0.8);
+    height: 100%;
+    left: -260px;
+    opacity: 1;
+    position: absolute;
+    width: 260px;
+    top: 0;
+    z-index: 0;
+
+    &.slide {
+        transform: translateX(260px);
+        z-index: 0;
+    }
+
+    >ul {
+        margin-top: 80px;
+
+        li {
+            color: $color-white;
+            font-size: 18px;
+            list-style: none;
+            padding: 5px;
+
+            &:hover {
+                color: $color-red;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $color-blue;
+    color: $color-white;
+    font-family: $font-regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-header;
+}
 
 .card {
-    background-color: $color-white;
-    box-shadow: 0 4px 8px 0 rgba($color: #000000, $alpha: 0.2);
+    background-color: $color-green;
+    box-shadow: 0 4px 8px 0 rgba($color: $color-red, $alpha: 0.2);
     transition: 0.3s;
     border: solid 1px rgba($color: $color-gray, $alpha: 0.5);
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba($color: #000000, $alpha: 0.2);
+    box-shadow: 0 8px 16px 0 rgba($color: $color-red, $alpha: 0.2);
 }
 
 .container {
+    color: $color-black;
     padding: 2px 16px;
+
+    p {
+        text-transform: lowercase;
+    }
 }
 
 .product-list {
@@ -30,4 +218,14 @@ $color-gray: #8590AA;
             text-align: center;
         }
     }
+
+    li:not(last-child) {
+        margin-bottom: 9px;
+    }
+}
+
+footer {
+    background-color: $color-blue;
+    padding: 1em;
+    text-align: center;
 }

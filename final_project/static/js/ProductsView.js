@@ -3,9 +3,9 @@ export default class ProductsView {
         productListElement.innerHTML = '';
         productList.forEach(element => {
             const item = document.createElement('li');
-            const h2 = document.createElement('h2');
-            h2.innerHTML = element[0]['description'];
-            item.appendChild(h2);
+            //const h2 = document.createElement('h2');
+            //h2.innerHTML = element[0]['description'];
+            //item.appendChild(h2);
 
             const divCard = document.createElement('div');
             divCard.classList.add('card');
