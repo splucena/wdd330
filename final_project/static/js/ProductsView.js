@@ -10,7 +10,9 @@ export default class ProductsView {
             const divCard = document.createElement('div');
             divCard.classList.add('card');
             const img = document.createElement('img');
-
+            img.src = '/final_project/static/img/no-image-tn.png';
+            //img.style.width = '100%';
+            img.style.height = '150px';
             // append image to divCard
             divCard.appendChild(img);
             const divContainer = document.createElement('div');

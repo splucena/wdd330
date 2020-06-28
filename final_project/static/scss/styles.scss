@@ -21,7 +21,7 @@ $font-code: monospace;
 
 // colors
 $color-black: #272727;
-$color-red: #B23850;
+$color-white: #B23850;
 $color-blue: #3B8BEB;
 $color-white: #E7E3D4;
 $color-green: #C4DBF6;
@@ -32,7 +32,7 @@ $color-gray: #8590AA;
 // variables
 
 @mixin mxn-span($top) {
-    background: $color-red;
+    background: $color-white;
     border-radius: 2px;
     display: block;
     height: 5px;
@@ -76,7 +76,7 @@ $color-gray: #8590AA;
     &:hover span,
     &:hover span::after,
     &:hover span::before {
-        background-color: lighten($color-red, 50);
+        background-color: lighten($color-white, 50);
     }
 
     &.open {
@@ -92,7 +92,7 @@ $color-gray: #8590AA;
         &:hover,
         &:hover::after,
         &:hover::before {
-            background-color: lighten($color-red, 50);
+            background-color: lighten($color-white, 50);
         }
 
         &::after {
@@ -108,7 +108,7 @@ $color-gray: #8590AA;
 
     &.open span {
         @include mxn-translate-rotate(215px, 135deg);
-        background-color: $color-red;
+        background-color: $color-white;
         content: "";
         top: 10px;
     }
@@ -116,7 +116,7 @@ $color-gray: #8590AA;
     &.open span::after {
         // should inherit span translateX function
         @include mxn-rotate(-270deg);
-        background-color: $color-red;
+        background-color: $color-white;
         position: absolute;
         top: 0px;
     }
@@ -130,7 +130,7 @@ $color-gray: #8590AA;
     // adds hover after class .open is applied to #menu-icon
     &.open:hover span,
     &.open:hover span::after {
-        background-color: lighten($color-red, 50);
+        background-color: lighten($color-white, 50);
     }
 }
 
@@ -160,7 +160,7 @@ $color-gray: #8590AA;
             padding: 5px;
 
             &:hover {
-                color: $color-red;
+                color: $color-white;
                 cursor: pointer;
             }
         }
@@ -190,13 +190,19 @@ h6 {
 
 .card {
     background-color: $color-green;
-    box-shadow: 0 4px 8px 0 rgba($color: $color-red, $alpha: 0.2);
-    transition: 0.3s;
     border: solid 1px rgba($color: $color-gray, $alpha: 0.5);
+    box-shadow: 0 4px 8px 0 rgba($color: $color-white, $alpha: 0.2);
+    display: grid;
+    grid-template-columns: 150px auto;
+    transition: 0.3s;
+
+    img {
+        object-fit: cover;
+    }
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba($color: $color-red, $alpha: 0.2);
+    box-shadow: 0 8px 16px 0 rgba($color: $color-white, $alpha: 0.2);
 }
 
 .container {
