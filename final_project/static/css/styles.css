@@ -11,11 +11,11 @@
   src: url(../fonts/Raleway-Regular.ttf);
 }
 #menu-icon {
-  width: 40px;
+  cursor: pointer;
   height: 30px;
   position: relative;
-  cursor: pointer;
   text-align: left;
+  width: 40px;
 }
 #menu-icon:hover span, #menu-icon:hover span::after, #menu-icon:hover span::before {
   background-color: #faeff1;
@@ -101,7 +101,7 @@
   -moz-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
-  background-color: rgba(39, 39, 39, 0.8);
+  background-color: rgba(39, 39, 39, 0.9);
   height: 100%;
   left: -260px;
   opacity: 1;

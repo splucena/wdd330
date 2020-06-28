@@ -65,11 +65,11 @@ $color-gray: #8590AA;
 }
 
 #menu-icon {
-    width: 40px;
+    cursor: pointer;
     height: 30px;
     position: relative;
-    cursor: pointer;
     text-align: left;
+    width: 40px;
 
     // adds hover to span, span::after, and span::before
     // when container is hovered
@@ -136,7 +136,7 @@ $color-gray: #8590AA;
 
 #sidebar {
     @include mxn-transition();
-    background-color: rgba($color: $color-black, $alpha: 0.8);
+    background-color: rgba($color: $color-black, $alpha: 0.9);
     height: 100%;
     left: -260px;
     opacity: 1;
