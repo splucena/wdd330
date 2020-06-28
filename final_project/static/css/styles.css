@@ -197,7 +197,7 @@ main {
   padding: 2px 16px;
 }
 .container p {
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .product-list {
