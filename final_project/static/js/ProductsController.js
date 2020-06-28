@@ -20,6 +20,7 @@ export default class ProductsController {
         //searchTerm = this.searchTerm.value;
         //const searchButton = document.querySelector('#searchButton');
         this.searchButton.addEventListener('click', (e) => {
+            this.parentElement.innerHTML = '';
             this.searchProduct(this.searchTerm.value);
         })
     }

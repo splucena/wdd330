@@ -23,21 +23,12 @@ export default class Product {
         //const query = this.baseURL + `search?apiKey=${key}&query=${element}&number=1`;
         // usda
         //    const query = this.baseURL + `search?api_key=${key}&query=${element}&number=1`;
-
         await Promise.all(initialProductList.map(async (product) => {
             const query = this.baseURL + `search?api_key=${key}&query=${product}&pageSize=1`;
             const result = await getJSON(query);
             this._products.push(result.foods);
         }));
-        //for (let i = 0; i < initialProductList.length; i++) {
-        //initialProductList.map(function (product) {
-        //    console.log(initialProductList[i]);
-        //    const query = this.baseURL + `search?api_key=${key}&query=${initialProductList[i]}&pageSize=1`;
-        //    const result = await getJSON(query);
-        //    this._products.push(result.foods);
-        //}
 
-        console.log(this._products);
         return this._products;
     }
 
@@ -47,7 +38,6 @@ export default class Product {
         const products = await getJSON(query);
 
         products['foods'].map(product => {
-            console.log(product);
             this._productSearchResult.push([product]);
         })
 
