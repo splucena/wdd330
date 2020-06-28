@@ -1,0 +1,33 @@
+$color-red: #B23850;
+$color-blue: #3B8BEB;
+$color-white: #E7E3D4;
+$color-green: #C4DBF6;
+$color-gray: #8590AA;
+
+
+.card {
+    background-color: $color-white;
+    box-shadow: 0 4px 8px 0 rgba($color: #000000, $alpha: 0.2);
+    transition: 0.3s;
+    border: solid 1px rgba($color: $color-gray, $alpha: 0.5);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba($color: #000000, $alpha: 0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.product-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        h2 {
+            text-align: center;
+        }
+    }
+}

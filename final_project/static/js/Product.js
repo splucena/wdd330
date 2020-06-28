@@ -18,21 +18,23 @@ export default class Product {
         const initialProductList = ['cheese', 'pasta', 'beef', 'cream', 'milk'];
         //const initialProductList = ['cheese'];
 
-        //await initialProductList.forEach(element => {
-
         // spoonacular
         //const query = this.baseURL + `search?apiKey=${key}&query=${element}&number=1`;
         // usda
         //    const query = this.baseURL + `search?api_key=${key}&query=${element}&number=1`;
 
-        //for (const product in initialProductList) {
-        for (let i = 0; i < initialProductList.length; i++) {
-            //initialProductList.map(function (product) {
-            console.log(initialProductList[i]);
-            const query = this.baseURL + `search?api_key=${key}&query=${initialProductList[i]}&pageSize=1`;
+        await Promise.all(initialProductList.map(async (product) => {
+            const query = this.baseURL + `search?api_key=${key}&query=${product}&pageSize=1`;
             const result = await getJSON(query);
             this._products.push(result.foods);
-        }
+        }));
+        //for (let i = 0; i < initialProductList.length; i++) {
+        //initialProductList.map(function (product) {
+        //    console.log(initialProductList[i]);
+        //    const query = this.baseURL + `search?api_key=${key}&query=${initialProductList[i]}&pageSize=1`;
+        //    const result = await getJSON(query);
+        //    this._products.push(result.foods);
+        //}
 
         console.log(this._products);
         return this._products;
