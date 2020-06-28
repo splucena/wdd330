@@ -18,13 +18,13 @@
   width: 40px;
 }
 #menu-icon:hover span, #menu-icon:hover span::after, #menu-icon:hover span::before {
-  background-color: white;
+  background-color: #E85A4F;
 }
 #menu-icon.open {
   z-index: 1;
 }
 #menu-icon span {
-  background: #E7E3D4;
+  background: #E98074;
   border-radius: 2px;
   display: block;
   height: 5px;
@@ -43,10 +43,10 @@
   transition: 0.25s ease-in-out;
 }
 #menu-icon span:hover, #menu-icon span:hover::after, #menu-icon span:hover::before {
-  background-color: white;
+  background-color: #E85A4F;
 }
 #menu-icon span::after {
-  background: #E7E3D4;
+  background: #E98074;
   border-radius: 2px;
   display: block;
   height: 5px;
@@ -58,7 +58,7 @@
   content: "";
 }
 #menu-icon span::before {
-  background: #E7E3D4;
+  background: #E98074;
   border-radius: 2px;
   display: block;
   height: 5px;
@@ -74,7 +74,7 @@
   -moz-transform: translateX(215px) rotate(135deg);
   -o-transform: translateX(215px) rotate(135deg);
   transform: translateX(215px) rotate(135deg);
-  background-color: #E7E3D4;
+  background-color: #E85A4F;
   content: "";
   top: 10px;
 }
@@ -83,7 +83,7 @@
   -moz-transform: rotate(-270deg);
   -o-transform: rotate(-270deg);
   transform: rotate(-270deg);
-  background-color: #E7E3D4;
+  background-color: #E85A4F;
   position: absolute;
   top: 0px;
 }
@@ -118,13 +118,13 @@
   margin-top: 80px;
 }
 #sidebar > ul li {
-  color: #E7E3D4;
+  color: #E98074;
   font-size: 18px;
   list-style: none;
   padding: 5px;
 }
 #sidebar > ul li:hover {
-  color: #E7E3D4;
+  color: #E85A4F;
   cursor: pointer;
 }
 
@@ -135,8 +135,8 @@
 }
 
 body {
-  background-color: #3B8BEB;
-  color: #E7E3D4;
+  background-color: #EAE7DC;
+  color: #E85A4F;
   font-family: Raleway, sans-serif;
 }
 
@@ -150,9 +150,9 @@ h6 {
 }
 
 .card {
-  background-color: #C4DBF6;
-  border: solid 1px rgba(133, 144, 170, 0.5);
-  box-shadow: 0 4px 8px 0 rgba(231, 227, 212, 0.2);
+  background-color: #E85A4F;
+  border: solid 1px rgba(231, 227, 212, 0.5);
+  box-shadow: 0 4px 8px 0 rgba(133, 144, 170, 0.2);
   display: grid;
   grid-template-columns: 150px auto;
   transition: 0.3s;
@@ -166,7 +166,7 @@ h6 {
 }
 
 .container {
-  color: #272727;
+  color: #EAE7DC;
   padding: 2px 16px;
 }
 .container p {
@@ -186,7 +186,7 @@ h6 {
 }
 
 footer {
-  background-color: #3B8BEB;
+  background-color: #EAE7DC;
   padding: 1em;
   text-align: center;
 }
