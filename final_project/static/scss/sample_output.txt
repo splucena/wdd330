@@ -1,0 +1,21 @@
+availableDate: "7/8/2018"
+brandOwner: "Quesos La Ricura"
+brandedFoodCategory: "Butter & Spread"
+dataSource: "LI"
+dataType: "Branded"
+description: "CREAM"
+fdcId: 495516
+foodAttributes: []
+foodClass: "Branded"
+foodComponents: []
+foodNutrients: (14) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+foodPortions: []
+gtinUpc: "769087000746"
+householdServingFullText: "2 Tbsp"
+ingredients: "PASTEURIZED HEAVY CREAM, CREAM CHEESE (PASTEURIZED CULTURED MILK AND CREAM, WHEY, SALT, LOCUST BEAN GUM), SOUR CREAM (CULTURED MILK, CREAM, MODIFIED FOOD STARCH, SODIUM CITRATE, CARRAGEENAN, GUAR GUM, LOCUST BEAN GUM), SALT, ANNATTO (FOR COLOR). "
+labelNutrients: {fat: {…}, saturatedFat: {…}, transFat: {…}, cholesterol: {…}, sodium: {…}, …}
+marketCountry: "United States"
+modifiedDate: "7/8/2018"
+publicationDate: "4/1/2019"
+servingSize: 30
+servingSizeUnit: "ml"

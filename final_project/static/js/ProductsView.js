@@ -71,7 +71,21 @@ export default class ProductsView {
         divContainer.appendChild(pOwner);
         divContainer.appendChild(pAvailableDate);
 
+
+
+        const addToCart = document.createElement('button');
+        addToCart.innerHTML = 'Add to Cart';
+        const back = document.createElement('button');
+        back.innerHTML = 'Back';
+        const controls = document.createElement('div');
+        controls.appendChild(back);
+        controls.appendChild(addToCart);
+
+        divCard.appendChild(controls);
+
         li.appendChild(divCard);
         parentElement.appendChild(li);
+
+        return [back, addToCart];
     }
 }
