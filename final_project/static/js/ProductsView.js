@@ -39,6 +39,10 @@ export default class ProductsView {
             controls.classList.add('product-view-controls');
             const spanProductDetail = document.createElement('div');
             spanProductDetail.classList.add('spn');
+            const qtyLbl = document.createElement('label');
+            qtyLbl.innerHTML = 'Quantity';
+            const qtyInput = document.createElement('input');
+            qtyInput.type = 'number';
             spanProductDetail.innerHTML = 'Show more details...';
             spanProductDetail.setAttribute('data-id', `id${element[0]['fdcId']}`);
 
@@ -47,6 +51,8 @@ export default class ProductsView {
             addToCart.classList.add('btn');
             addToCart.innerHTML = 'Add to cart';
             controls.appendChild(spanProductDetail);
+            controls.appendChild(qtyLbl);
+            controls.appendChild(qtyInput);
             controls.appendChild(addToCart);
             divContainer.appendChild(controls);
 
