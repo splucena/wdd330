@@ -49,10 +49,14 @@ export default class ProductsController {
             if (e.target.dataset.id && e.target.className === 'btn') {
                 let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
                 const desc = document.querySelector(`#ds${fdcId}`);
+                const qty = document.querySelector(`#qy${fdcId}`);
 
                 // save to cart
-                const cart = new Cart(fdcId, desc.innerHTML);
+                const cart = new Cart(fdcId, desc.innerHTML, qty.value);
                 cart.addProduct('products');
+
+                // clear quantity input
+                qty.value = '';
 
                 // update cart item count
                 const cartItemCount = document.querySelector('.cart-count');

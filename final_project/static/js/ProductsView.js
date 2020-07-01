@@ -42,6 +42,7 @@ export default class ProductsView {
             const qtyLbl = document.createElement('label');
             qtyLbl.innerHTML = 'Quantity';
             const qtyInput = document.createElement('input');
+            qtyInput.setAttribute('id', `qy${element[0]['fdcId']}`);
             qtyInput.type = 'number';
             spanProductDetail.innerHTML = 'Show more details...';
             spanProductDetail.setAttribute('data-id', `id${element[0]['fdcId']}`);

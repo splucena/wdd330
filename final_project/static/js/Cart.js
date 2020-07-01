@@ -1,9 +1,10 @@
 // Customer Cart Model
 
 export default class Cart {
-    constructor(product_id, product_name) {
+    constructor(product_id, product_name, quantity) {
         this.product_id = product_id;
         this.product_name = product_name;
+        this.quantity = quantity;
     }
 
     addProduct(key) {
@@ -16,7 +17,8 @@ export default class Cart {
 
         products.push({
             'product_id': this.product_id,
-            'product_name': this.product_name
+            'product_name': this.product_name,
+            'quantity': this.quantity,
         });
         // Save changes to local storage
         this.setLocalStorage(key, products);
