@@ -26,6 +26,7 @@ nav {
   background-color: #272727;
   padding: 10px;
   color: #e7e3d4;
+  border-bottom: 2px solid #eae7dc;
 }
 nav .main-menu-list {
   list-style: none;
