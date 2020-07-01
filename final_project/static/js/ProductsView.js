@@ -16,7 +16,7 @@ export default class ProductsView {
             divCard.classList.add('card');
             //divCard.setAttribute('data-id', `id${element[0]['fdcId']}`);
             const img = document.createElement('img');
-            img.src = '/final_project/static/img/no-image-tn.png';
+            img.src = 'static/img/no-image-tn.png';
             //img.style.width = '100%';
             img.style.height = '150px';
             // append image to divCard
