@@ -418,6 +418,27 @@ main {
   }
 }
 
+.cart-table {
+  border-collapse: collapse;
+  color: $color-black;
+
+  th {
+    padding: 4px;
+  }
+
+  td {
+    padding: 4px;
+
+    input[type=number] {
+      padding: 4px;
+    }
+  }
+
+  td:first-child {
+    text-transform: uppercase;
+  }
+}
+
 footer {
   background-color: $color-light-brown;
   padding: 1em;

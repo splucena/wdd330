@@ -351,6 +351,23 @@ main {
   float: right;
 }
 
+.cart-table {
+  border-collapse: collapse;
+  color: #272727;
+}
+.cart-table th {
+  padding: 4px;
+}
+.cart-table td {
+  padding: 4px;
+}
+.cart-table td input[type=number] {
+  padding: 4px;
+}
+.cart-table td:first-child {
+  text-transform: uppercase;
+}
+
 footer {
   background-color: #eae7dc;
   padding: 1em;
