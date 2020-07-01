@@ -7,6 +7,7 @@ export default class CartView {
         parent.innerHTML = '';
         const tbl = document.createElement('table');
         tbl.classList.add('cart-table');
+        tbl.setAttribute('id', 'cart-table');
         const tblHeader = document.createElement('tr');
         const productNameTd = document.createElement('th');
         productNameTd.innerHTML = 'Name';
@@ -53,12 +54,14 @@ export default class CartView {
         const updateItem = document.createElement('button');
         updateItem.innerHTML = 'Update';
         updateItem.classList.add('btn');
+        updateItem.setAttribute('id', `ui${product['product_id']}`);
         updateItemTd.appendChild(updateItem);
 
         const removeItemTd = document.createElement('td');
         const removeItem = document.createElement('button');
         removeItem.innerHTML = 'Remove';
         removeItem.classList.add('btn');
+        removeItem.setAttribute('id', `ri${product['product_id']}`);
         removeItemTd.appendChild(removeItem)
 
         //container.appendChild(productName);
