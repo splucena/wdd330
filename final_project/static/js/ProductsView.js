@@ -58,7 +58,7 @@ export default class ProductsView {
         });
     }
 
-    renderProductDetail(product, parent) {
+    renderProductDetail1(product, parent) {
         const parentElement = document.querySelector(parent);
         parentElement.innerHTML = '';
         const li = document.createElement('li');
@@ -104,5 +104,38 @@ export default class ProductsView {
         parentElement.appendChild(li);
 
         return [back, addToCart];
+    }
+
+    renderProductDetail(product, parent) {
+        console.log([product, parent]);
+        const parentElement = document.querySelector(parent);
+        parentElement.innerHTML = '';
+
+        const h2 = document.createElement('h2');
+        h2.classList.add('headline');
+        h2.innerHTML = product['description'];
+        const close = document.createElement('div');
+        close.classList.add('close');
+
+        // image
+        const img = document.createElement('img');
+        img.src = '/final_project/static/img/no-image-tn.png';
+        img.style.height = '150px';
+
+        const p = document.createElement('p');
+        p.innerHTML = product['ingredients'];
+        const pOwner = document.createElement('p');
+        pOwner.innerHTML = `Owner: ${product['brandOwner']}`;
+        const pAvailableDate = document.createElement('p');
+        pAvailableDate.innerHTML = `Date Available: ${product['availableDate']}`;
+
+        parentElement.appendChild(close);
+        parentElement.appendChild(h2);
+        parentElement.appendChild(img);
+        parentElement.appendChild(p);
+        parentElement.appendChild(pOwner);
+        parentElement.appendChild(pAvailableDate);
+
+        return close;
     }
 }

@@ -23,7 +23,7 @@ nav {
   z-index: 999;
   height: 70px;
   width: 100%;
-  background-color: #d8c3a5;
+  background-color: #272727;
   padding: 10px;
 }
 nav .cart {
@@ -165,17 +165,17 @@ nav .cart > .cart-count {
   position: fixed;
   height: 100vh;
   width: 400px;
-  background: #8590aa;
+  background: rgba(39, 39, 39, 0.8);
   top: 70px;
   left: -100%;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   padding: 30px;
   color: #fff;
 }
 .quickview .close {
   height: 20px;
   width: 20px;
-  float: left;
+  float: right;
   cursor: pointer;
 }
 .quickview .close:before, .quickview .close:after {

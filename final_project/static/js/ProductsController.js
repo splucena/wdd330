@@ -71,7 +71,12 @@ export default class ProductsController {
         const product = await this.products.searchProductById(id);
         console.log(product);
         //const [back, addToCart] = this.productsView.renderProductDetail(product, '#product-detail');
-        this.productsView.renderProductDetail(product, '#product-detail');
+        //this.productsView.renderProductDetail(product, '#product-detail');
+        const close = this.productsView.renderProductDetail(product, '#quickview');
+        close.addEventListener('click', e => {
+            const quickview = document.querySelector('#quickview');
+            quickview.classList.remove('active');
+        })
 
         /*back.addEventListener('click', e => {
             console.log('Back button clicked');

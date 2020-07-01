@@ -12,16 +12,16 @@ function showProducts() {
 }
 showProducts();
 
-const viewProducts = document.querySelector('#view-products');
-viewProducts.addEventListener('click', e => {
-    showProducts();
-})
+//const viewProducts = document.querySelector('#view-products');
+//viewProducts.addEventListener('click', e => {
+//    showProducts();
+//})
 
 const cart = new CartController('#product-list');
-const viewCart = document.querySelector('#view-cart');
-viewCart.addEventListener('click', e => {
-    cart.showAllProducts();
-})
+//const viewCart = document.querySelector('#view-cart');
+//viewCart.addEventListener('click', e => {
+//    cart.showAllProducts();
+//})
 
 // Product count
 const cartCount = document.querySelector('.cart-count');
