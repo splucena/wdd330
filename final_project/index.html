@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
-    <link rel="stylesheet" href="static/css/styles.css"/>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
 
-  <body>
-    <!--<script> // c92bf6840af98c5ff8ae08d8dd1857b1 const url = "https://www.googleapis.com/books/v1/volumes/1"; fetch(url) .then(resp => resp.json()) .then(function (data) { console.log(data); }) .catch(function (error) { console.log(error); }); </script>-->
-    <header>
-      <nav>
-        <div class="menu-icon" id="menu-icon" onclick="toggleNav()">
-          <span></span>
-        </div>
-        <div class="sidebar" id="sidebar">
-          <ul>
-            <li>One</li>
-            <li>Two</li>
-            <li>Three</li>
-            <li>Four</li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <br>
-    <main>
-      <div class="search">
-        <input type="text" id="searchTerm" required="required"/>
-        <button id="searchButton"></button>
+<body>
+  <!--<script> // c92bf6840af98c5ff8ae08d8dd1857b1 const url = "https://www.googleapis.com/books/v1/volumes/1"; fetch(url) .then(resp => resp.json()) .then(function (data) { console.log(data); }) .catch(function (error) { console.log(error); }); </script>-->
+  <header>
+    <nav>
+      <div class="menu-icon" id="menu-icon" onclick="toggleNav()">
+        <span></span>
       </div>
-      <h1>Select Item</h1>
-      <ul id="product-list" class="product-list"></ul>
-    </main>
-    <footer>
-      &copy; 2020 |Final Project | Sumilang Plucena
-    </footer>
-    <script src="static/js/toggle.js"></script>
-    <script src="static/js/app.js" type="module"></script>
-  </body>
+      <div class="sidebar" id="sidebar">
+        <ul>
+          <li id="view-cart">View Cart</li>
+          <li id="view-products">View Products</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <br>
+  <main>
+    <div class="search">
+      <input type="text" id="searchTerm" required="required" />
+      <button id="searchButton"></button>
+    </div>
+    <h1>Select Item</h1>
+    <ul id="product-list" class="product-list"></ul>
+  </main>
+  <footer>
+    &copy; 2020 |Final Project | Sumilang Plucena
+  </footer>
+  <script src="static/js/toggle.js"></script>
+  <script src="static/js/app.js" type="module"></script>
+</body>
 
 </html>
