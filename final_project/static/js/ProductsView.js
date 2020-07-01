@@ -34,9 +34,22 @@ export default class ProductsView {
             divContainer.appendChild(h4);
             divContainer.appendChild(p);
 
+            const controls = document.createElement('div');
+            controls.classList.add('product-view-controls');
+            const spanProductDetail = document.createElement('div');
+            spanProductDetail.innerHTML = 'Show more details...';
+            const addToCart = document.createElement('button');
+            addToCart.classList.add('btn');
+            addToCart.innerHTML = 'Add to cart';
+            controls.appendChild(spanProductDetail);
+            controls.appendChild(addToCart);
+            divContainer.appendChild(controls);
+
             //item.innerHTML = element[0]['description'];
             item.appendChild(divCard);
             productListElement.append(item);
+
+            return [spanProductDetail, addToCart];
         });
     }
 
@@ -70,8 +83,6 @@ export default class ProductsView {
         divContainer.appendChild(p);
         divContainer.appendChild(pOwner);
         divContainer.appendChild(pAvailableDate);
-
-
 
         const addToCart = document.createElement('button');
         addToCart.innerHTML = 'Add to Cart';

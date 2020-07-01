@@ -185,7 +185,7 @@ main {
   border: 1px solid gray;
   background: #fff;
 }
-.search button {
+.search .button-search {
   float: left;
   padding: 15px;
   background: #fff url("../img/icons8-search-48.png") no-repeat;
@@ -197,12 +197,37 @@ main {
   cursor: pointer;
 }
 
+.btn {
+  box-shadow: inset 0px 1px 0px 0px #54a3f7;
+  background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  background-color: #007dc1;
+  border-radius: 20px;
+  border: 1px solid #124d77;
+  color: #fff;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #154682;
+}
+
+.btn:hover {
+  background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+  background-color: #0061a7;
+}
+
+.btn:active {
+  position: relative;
+  top: 1px;
+}
+
 .card {
   background-color: #e85a4f;
   border: solid 1px rgba(231, 227, 212, 0.5);
   box-shadow: 0 4px 8px 0 rgba(133, 144, 170, 0.2);
   display: grid;
   grid-template-columns: 150px auto;
+  padding: 10px;
   transition: 0.3s;
 }
 .card img {
@@ -231,6 +256,20 @@ main {
 }
 .product-list li:not(last-child) {
   margin-bottom: 9px;
+}
+
+.product-view-controls {
+  display: grid;
+  grid-template-columns: auto 120px;
+  grid-column-gap: 1em;
+  cursor: pointer;
+}
+.product-view-controls :first-child {
+  padding-top: 8px;
+  text-align: right;
+}
+.product-view-controls :nth-child(2) {
+  float: right;
 }
 
 footer {

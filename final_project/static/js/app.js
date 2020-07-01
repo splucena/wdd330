@@ -30,7 +30,7 @@ cartCount.addEventListener('click', e => {
     cart.showAllProducts();
 })
 
-const cartIcon = document.querySelector('.count-icon');
+const cartIcon = document.querySelector('.cart-icon');
 cartIcon.addEventListener('click', e => {
     cart.showAllProducts();
 })
