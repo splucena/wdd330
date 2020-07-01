@@ -15,6 +15,7 @@ export default class ProductsController {
         this.productsView = new ProductsView();
         this.searchTerm = document.querySelector('#searchTerm');
         this.searchButton = document.querySelector('#searchButton');
+        this.cart = new Cart();
     }
 
     async init() {
@@ -52,15 +53,18 @@ export default class ProductsController {
                 const qty = document.querySelector(`#qy${fdcId}`);
 
                 // save to cart
-                const cart = new Cart(fdcId, desc.innerHTML, qty.value);
-                cart.addProduct('products');
+                //const cart = new Cart(fdcId, desc.innerHTML, qty.value);
+                this.cart.product_id = fdcId;
+                this.cart.product_name = desc.innerHTML;
+                this.cart.quantity = qty.value;
+                this.cart.addProduct('products');
 
                 // clear quantity input
                 qty.value = '';
 
                 // update cart item count
                 const cartItemCount = document.querySelector('.cart-count');
-                cartItemCount.innerHTML = cart.getProductCount('products');
+                cartItemCount.innerHTML = this.cart.getProductCount('products');
             }
         });
     }

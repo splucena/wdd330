@@ -20,6 +20,7 @@ export default class Cart {
             'product_name': this.product_name,
             'quantity': this.quantity,
         });
+        console.log(products);
         // Save changes to local storage
         this.setLocalStorage(key, products);
     }
@@ -36,7 +37,7 @@ export default class Cart {
     }
 
     setLocalStorage(key, products) {
-        return localStorage.setItem(key, JSON.stringify(products));
+        localStorage.setItem(key, JSON.stringify(products));
     }
 
     getAllProducts(key) {
