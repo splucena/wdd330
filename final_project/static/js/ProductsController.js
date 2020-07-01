@@ -37,9 +37,26 @@ export default class ProductsController {
 
         this.parentElement.addEventListener('click', (e) => {
             console.log(e.target.dataset.id);
-            if (e.target.dataset.id) {
+            if (e.target.dataset.id && e.target.className === 'spn') {
                 let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
                 this.getProductDetails(fdcId);
+
+                const quickview = document.querySelector('#quickview');
+                quickview.classList.remove('close');
+                quickview.classList.add('active');
+            }
+
+            if (e.target.dataset.id && e.target.className === 'btn') {
+                let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
+                const desc = document.querySelector(`#ds${fdcId}`);
+
+                // save to cart
+                const cart = new Cart(fdcId, desc.innerHTML);
+                cart.addProduct('products');
+
+                // update cart item count
+                const cartItemCount = document.querySelector('.cart-count');
+                cartItemCount.innerHTML = cart.getProductCount('products');
             }
         });
     }
@@ -53,8 +70,10 @@ export default class ProductsController {
     async getProductDetails(id) {
         const product = await this.products.searchProductById(id);
         console.log(product);
-        const [back, addToCart] = this.productsView.renderProductDetail(product, this.parentElement);
-        back.addEventListener('click', e => {
+        //const [back, addToCart] = this.productsView.renderProductDetail(product, '#product-detail');
+        this.productsView.renderProductDetail(product, '#product-detail');
+
+        /*back.addEventListener('click', e => {
             console.log('Back button clicked');
         })
 
@@ -72,7 +91,7 @@ export default class ProductsController {
             cartItemCount.innerHTML = cartController.getProductCount();
         })
 
-        return true;
+        return true;*/
     }
 }
 /*  search by id result

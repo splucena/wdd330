@@ -13,14 +13,18 @@
   <!--<script> // c92bf6840af98c5ff8ae08d8dd1857b1 const url = "https://www.googleapis.com/books/v1/volumes/1"; fetch(url) .then(resp => resp.json()) .then(function (data) { console.log(data); }) .catch(function (error) { console.log(error); }); </script>-->
   <header>
     <nav>
-      <div class="menu-icon" id="menu-icon" onclick="toggleNav()">
+      <!--<div class="menu-icon" id="menu-icon" onclick="toggleNav()">
         <span></span>
       </div>
       <div class="sidebar" id="sidebar">
-        <ul>
+        <ul id="product-detail">
           <li id="view-cart">View Cart</li>
           <li id="view-products">View Products</li>
         </ul>
+      </div>-->
+      <div>Cart | Products</div>
+      <div id="quickview" class="quickview close">
+        <ul id="product-detail"></ul>
       </div>
       <div class="cart">
         <div class="cart-count">&nbsp;</div>
@@ -34,7 +38,7 @@
       <input type="text" id="searchTerm" required="required" />
       <button id="searchButton" class="button-search"></button>
     </div>
-    <h1>Select Item</h1>
+    <br>
     <ul id="product-list" class="product-list"></ul>
   </main>
   <footer>

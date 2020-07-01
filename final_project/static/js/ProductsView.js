@@ -9,12 +9,12 @@ export default class ProductsView {
             //const h2 = document.createElement('h2');
             //h2.innerHTML = element[0]['description'];
             //item.appendChild(h2);
-            item.setAttribute('data-id', `id${element[0]['fdcId']}`);
-            item.setAttribute('id', `id${element[0]['fdcId']}`);
+            //item.setAttribute('data-id', `id${element[0]['fdcId']}`);
+            //item.setAttribute('id', `id${element[0]['fdcId']}`);
 
             const divCard = document.createElement('div');
             divCard.classList.add('card');
-            divCard.setAttribute('data-id', `id${element[0]['fdcId']}`);
+            //divCard.setAttribute('data-id', `id${element[0]['fdcId']}`);
             const img = document.createElement('img');
             img.src = '/final_project/static/img/no-image-tn.png';
             //img.style.width = '100%';
@@ -23,11 +23,12 @@ export default class ProductsView {
             divCard.appendChild(img);
             const divContainer = document.createElement('div');
             divContainer.classList.add('container');
-            divContainer.setAttribute('data-id', `id${element[0]['fdcId']}`);
+            //divContainer.setAttribute('data-id', `id${element[0]['fdcId']}`);
             divCard.appendChild(divContainer);
 
             const h4 = document.createElement('h4');
             h4.innerHTML = element[0]['description'];
+            h4.setAttribute('id', `ds${element[0]['fdcId']}`);
             const p = document.createElement('p');
             p.innerHTML = element[0]['ingredients'];
 
@@ -37,8 +38,12 @@ export default class ProductsView {
             const controls = document.createElement('div');
             controls.classList.add('product-view-controls');
             const spanProductDetail = document.createElement('div');
+            spanProductDetail.classList.add('spn');
             spanProductDetail.innerHTML = 'Show more details...';
+            spanProductDetail.setAttribute('data-id', `id${element[0]['fdcId']}`);
+
             const addToCart = document.createElement('button');
+            addToCart.setAttribute('data-id', `id${element[0]['fdcId']}`);
             addToCart.classList.add('btn');
             addToCart.innerHTML = 'Add to cart';
             controls.appendChild(spanProductDetail);
@@ -49,11 +54,12 @@ export default class ProductsView {
             item.appendChild(divCard);
             productListElement.append(item);
 
-            return [spanProductDetail, addToCart];
+            //return [spanProductDetail, addToCart];
         });
     }
 
-    renderProductDetail(product, parentElement) {
+    renderProductDetail(product, parent) {
+        const parentElement = document.querySelector(parent);
         parentElement.innerHTML = '';
         const li = document.createElement('li');
         const divCard = document.createElement('div');
