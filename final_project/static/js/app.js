@@ -17,8 +17,20 @@ viewProducts.addEventListener('click', e => {
     showProducts();
 })
 
+const cart = new CartController('#product-list');
 const viewCart = document.querySelector('#view-cart');
 viewCart.addEventListener('click', e => {
-    const cart = new CartController('#product-list');
+    cart.showAllProducts();
+})
+
+// Product count
+const cartCount = document.querySelector('.cart-count');
+cartCount.innerHTML = cart.getProductCount();
+cartCount.addEventListener('click', e => {
+    cart.showAllProducts();
+})
+
+const cartIcon = document.querySelector('.count-icon');
+cartIcon.addEventListener('click', e => {
     cart.showAllProducts();
 })

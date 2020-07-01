@@ -13,8 +13,10 @@
   src: url(../fonts/Raleway-Regular.ttf);
 }
 
-$font-header: OpenSans, sans-serif;
-$font-regular: Raleway, sans-serif;
+$font-header: OpenSans,
+sans-serif;
+$font-regular: Raleway,
+sans-serif;
 $font-code: monospace;
 
 // colors
@@ -63,6 +65,29 @@ $color-brown: #d8c3a5;
   -moz-transform: translateX($x) rotate($deg);
   -o-transform: translateX($x) rotate($deg);
   transform: translateX($x) rotate($deg);
+}
+
+nav {
+  display: grid;
+  grid-template-columns: auto 90px;
+
+  .cart {
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    cursor: pointer;
+
+    >.cart-count {
+      border-radius: 50%;
+      border: 2px solid $color-blue;
+      font-weight: bold;
+      padding: 8px;
+      text-align: center;
+      width: 40px;
+    }
+  }
 }
 
 #menu-icon {
@@ -151,7 +176,7 @@ $color-brown: #d8c3a5;
     z-index: 0;
   }
 
-  > ul {
+  >ul {
     margin-top: 80px;
 
     li {
@@ -213,7 +238,8 @@ main {
     color: white;
     font-size: 17px;
     border: 1px solid gray;
-    border-left: none; /* Prevent double borders */
+    border-left: none;
+    /* Prevent double borders */
     cursor: pointer;
   }
 

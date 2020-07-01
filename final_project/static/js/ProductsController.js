@@ -66,7 +66,10 @@ export default class ProductsController {
 
             const cartController = new CartController('#product-list');
             cartController.showAllProducts();
-            // save 
+
+            // update cart item count
+            const cartItemCount = document.querySelector('.cart-count');
+            cartItemCount.innerHTML = cartController.getProductCount();
         })
 
         return true;

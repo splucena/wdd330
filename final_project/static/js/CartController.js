@@ -16,5 +16,7 @@ export default class CartController {
         this.CartView.renderProductList(products, this.parentElement);
     }
 
-
+    getProductCount() {
+        return this.Cart.getProductCount(this.key);
+    }
 }

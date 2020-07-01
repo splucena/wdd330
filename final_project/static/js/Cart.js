@@ -42,4 +42,8 @@ export default class Cart {
 
         return JSON.parse(localStorage.getItem(key));
     }
+
+    getProductCount(key) {
+        return this.getAllProducts(key).length;
+    }
 }
