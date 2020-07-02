@@ -30,8 +30,6 @@ export default class Product {
             products.push(result.foods);
         }));
 
-        console.log(products);
-
         return products;
     }
 
