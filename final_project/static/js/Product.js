@@ -11,7 +11,7 @@ export default class Product {
         //this.baseURL = 'https://api.spoonacular.com/food/products/';
         // usda
         this.baseURL = 'https://api.nal.usda.gov/fdc/v1/';
-        this._products = [];
+        //this._products = [];
         //this._productSearchResult = [];
     }
 
@@ -23,15 +23,16 @@ export default class Product {
         //const query = this.baseURL + `search?apiKey=${key}&query=${element}&number=1`;
         // usda
         //    const query = this.baseURL + `search?api_key=${key}&query=${element}&number=1`;
+        let products = [];
         await Promise.all(initialProductList.map(async (product) => {
             const query = this.baseURL + `search?api_key=${key}&query=${product}&pageSize=1`;
             const result = await getJSON(query);
-            this._products.push(result.foods);
+            products.push(result.foods);
         }));
 
-        console.log(this._products);
+        console.log(products);
 
-        return this._products;
+        return products;
     }
 
     async searchProduct(searchTerm) {

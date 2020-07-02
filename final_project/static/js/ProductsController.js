@@ -28,16 +28,18 @@ export default class ProductsController {
             this.parentElement.innerHTML = '';
             this.searchProduct(this.searchTerm.value);
         })
-    }
 
-    async getProducts() {
-        this.parentElement.innerHTML = '<li>Loading...</li>';
-
-        const products = await this.products.getProducts();
-        this.productsView.renderProductList(products, this.parentElement);
+        const viewProducts = document.querySelector('#view-products');
+        viewProducts.addEventListener('click', e => {
+            //showProducts();
+            //p.getProducts();
+            this.getProducts();
+        })
 
         this.parentElement.addEventListener('click', (e) => {
-            console.log(e.target.dataset.id);
+            e.preventDefault();
+
+            //console.log(e.target.dataset.id);
             if (e.target.dataset.id && e.target.className === 'spn') {
                 let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
                 this.getProductDetails(fdcId);
@@ -47,11 +49,14 @@ export default class ProductsController {
                 quickview.classList.add('active');
             }
 
-            if (e.target.dataset.id && e.target.className === 'btn') {
+            //let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
+            //let suffix = (e.target.dataset.id).slice(0, 2);
+            if (e.target.dataset.id && (e.target.className === 'btn')) {
                 let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
                 const desc = document.querySelector(`#ds${fdcId}`);
                 const qty = document.querySelector(`#qy${fdcId}`);
 
+                console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
                 // save to cart
                 //const cart = new Cart(fdcId, desc.innerHTML, qty.value);
                 this.cart.product_id = fdcId;
@@ -66,7 +71,16 @@ export default class ProductsController {
                 const cartItemCount = document.querySelector('.cart-count');
                 cartItemCount.innerHTML = this.cart.getProductCount('products');
             }
-        });
+        }, false);
+    }
+
+    async getProducts() {
+        this.parentElement.innerHTML = '<li>Loading...</li>';
+
+        const products = await this.products.getProducts();
+        this.productsView.renderProductList(products, this.parentElement);
+
+
     }
 
     async searchProduct(searchTerm) {

@@ -48,7 +48,8 @@ export default class ProductsView {
             spanProductDetail.setAttribute('data-id', `id${element[0]['fdcId']}`);
 
             const addToCart = document.createElement('button');
-            addToCart.setAttribute('data-id', `id${element[0]['fdcId']}`);
+            addToCart.setAttribute('data-id', `ac${element[0]['fdcId']}`);
+            //addToCart.setAttribute('id', `ac${element[0]['fdcId']}`);
             addToCart.classList.add('btn');
             addToCart.innerHTML = 'Add to cart';
             controls.appendChild(spanProductDetail);

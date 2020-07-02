@@ -5,16 +5,18 @@
 import ProductsController from "./ProductsController.js";
 import CartController from "./CartController.js";
 
+const output = '#product-list';
+const p = new ProductsController(output);
+
 function showProducts() {
-    const output = '#product-list';
-    const p = new ProductsController(output);
     p.init();
 }
 showProducts();
 
 const viewProducts = document.querySelector('#view-products');
 viewProducts.addEventListener('click', e => {
-    showProducts();
+    //showProducts();
+    //p.getProducts();
 })
 
 const cart = new CartController('#product-list');
