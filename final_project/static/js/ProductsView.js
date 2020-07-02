@@ -44,7 +44,7 @@ export default class ProductsView {
             const qtyInput = document.createElement('input');
             qtyInput.setAttribute('id', `qy${element[0]['fdcId']}`);
             qtyInput.type = 'number';
-            spanProductDetail.innerHTML = 'Show more details...';
+            spanProductDetail.innerHTML = 'Quickview';
             spanProductDetail.setAttribute('data-id', `id${element[0]['fdcId']}`);
 
             const addToCart = document.createElement('button');

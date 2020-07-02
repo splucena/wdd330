@@ -335,7 +335,7 @@ main {
   color: #fff;
   display: inline-block;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #154682;
 }
@@ -396,9 +396,10 @@ main {
 
 .product-view-controls {
   display: grid;
-  grid-template-columns: auto 60px 50px 120px;
-  grid-column-gap: 1em;
+  grid-template-columns: auto 60px 50px 100px;
+  grid-column-gap: 0.5em;
   cursor: pointer;
+  font-size: 14px;
 
   :first-child {
     padding-top: 8px;
@@ -431,6 +432,7 @@ main {
 
     input[type=number] {
       padding: 4px;
+      width: 50px;
     }
   }
 
