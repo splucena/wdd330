@@ -20,11 +20,11 @@ export default class CartController {
         cartTable.addEventListener('click', e => {
             let productId = (e.target.id).slice(2, (e.target.id).length);
             let btnSuffix = (e.target.id).slice(0, 2);
-            console.log(btnSuffix);
+            //console.log(btnSuffix);
 
             // remove
             if (btnSuffix === 'ri') {
-                console.log('remove item');
+                //console.log('remove item');
                 this.Cart.removeProductItem(productId, 'products');
                 this.showAllProducts();
 
@@ -34,7 +34,10 @@ export default class CartController {
             }
             // update
             if (btnSuffix === 'ui') {
-                console.log('update item');
+                //console.log('update item');
+                const qty = document.querySelector(`#it${productId}`);
+                this.Cart.updateProductItemQuantity(productId, 'products', qty.value);
+                this.showAllProducts();
             }
         })
     }

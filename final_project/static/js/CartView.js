@@ -45,6 +45,7 @@ export default class CartView {
         const quantity = document.createElement('input');
         quantity.type = 'number';
         quantity.value = product['quantity'];
+        quantity.setAttribute('id', `it${product['product_id']}`);
         quantityTd.appendChild(quantity);
 
         const updateItemTd = document.createElement('td');

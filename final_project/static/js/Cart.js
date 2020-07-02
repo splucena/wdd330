@@ -27,12 +27,20 @@ export default class Cart {
 
     removeProductItem(product_id, key) {
         let products = this.getAllProducts(key);
-        console.log(product_id);
+        //console.log(product_id);
         let index = products.findIndex(product => Number(product.product_id) === Number(product_id));
 
-        console.log(index);
+        //console.log(index);
         // Remove product from cart
         products.splice(index, 1);
+        this.setLocalStorage(key, products);
+    }
+
+    updateProductItemQuantity(product_id, key, value) {
+        let products = this.getAllProducts(key);
+        //console.log(product_id);
+        let index = products.findIndex(product => Number(product.product_id) === Number(product_id));
+        products[index].quantity = value;
         this.setLocalStorage(key, products);
     }
 
