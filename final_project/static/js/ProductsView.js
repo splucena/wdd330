@@ -53,7 +53,6 @@ export default class ProductsView {
     }
 
     renderProductDetail(product, parent) {
-        console.log([product, parent]);
         const parentElement = document.querySelector(parent);
         parentElement.innerHTML = '';
 

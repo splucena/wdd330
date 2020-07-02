@@ -75,7 +75,11 @@ export default class ProductsController {
     async searchProduct(searchTerm) {
         this.parentElement.innerHTML = '<li>Loading...</li>';
         const products = await this.products.searchProduct(searchTerm);
-        this.productsView.renderProductList(products, this.parentElement);
+        if (products.length > 0) {
+            this.productsView.renderProductList(products, this.parentElement);
+        } else {
+            this.parentElement.innerHTML = `<h2>${searchTerm.toUpperCase()} not found.</h2>`;
+        }
     }
 
     async getProductDetails(id) {
