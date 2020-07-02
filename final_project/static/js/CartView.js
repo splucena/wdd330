@@ -35,10 +35,7 @@ export default class CartView {
     }
 
     renderProductItem(product) {
-
-        //const container = document.createElement('div');
         const productItem = document.createElement('tr');
-        //productItem.innerHTML = product['product_name'];
         const productNameTd = document.createElement('td');
         const productName = document.createElement('span');
         productName.innerHTML = product['product_name'];
@@ -66,10 +63,6 @@ export default class CartView {
         removeItem.setAttribute('id', `ri${product['product_id']}`);
         removeItemTd.appendChild(removeItem)
 
-        //container.appendChild(productName);
-        //container.appendChild(quantity);
-        //container.appendChild(updateItem);
-        //container.appendChild(removeItem);
         productItem.appendChild(productNameTd);
         productItem.appendChild(quantityTd);
         productItem.appendChild(updateItemTd);

@@ -22,24 +22,19 @@ export default class ProductsController {
         this.parentElement = document.querySelector(this.parent);
         this.getProducts();
 
-        //searchTerm = this.searchTerm.value;
-        //const searchButton = document.querySelector('#searchButton');
         this.searchButton.addEventListener('click', (e) => {
             this.parentElement.innerHTML = '';
             this.searchProduct(this.searchTerm.value);
-        })
 
-        const viewProducts = document.querySelector('#view-products');
-        viewProducts.addEventListener('click', e => {
-            //showProducts();
-            //p.getProducts();
-            this.getProducts();
+            const viewProducts = document.querySelector('#view-products');
+            const viewCart = document.querySelector('#view-cart');
+            viewCart.classList.remove('active-link');
+            viewProducts.classList.add('active-link');
         })
 
         this.parentElement.addEventListener('click', (e) => {
             e.preventDefault();
 
-            //console.log(e.target.dataset.id);
             if (e.target.dataset.id && e.target.className === 'spn') {
                 let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
                 this.getProductDetails(fdcId);
@@ -49,14 +44,11 @@ export default class ProductsController {
                 quickview.classList.add('active');
             }
 
-            //let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
-            //let suffix = (e.target.dataset.id).slice(0, 2);
             if (e.target.dataset.id && (e.target.className === 'btn')) {
                 let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
                 const desc = document.querySelector(`#ds${fdcId}`);
                 const qty = document.querySelector(`#qy${fdcId}`);
 
-                console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
                 // save to cart
                 //const cart = new Cart(fdcId, desc.innerHTML, qty.value);
                 this.cart.product_id = fdcId;
@@ -65,7 +57,7 @@ export default class ProductsController {
                 this.cart.addProduct('products');
 
                 // clear quantity input
-                qty.value = '';
+                qty.value = '0';
 
                 // update cart item count
                 const cartItemCount = document.querySelector('.cart-count');
@@ -76,11 +68,8 @@ export default class ProductsController {
 
     async getProducts() {
         this.parentElement.innerHTML = '<li>Loading...</li>';
-
         const products = await this.products.getProducts();
         this.productsView.renderProductList(products, this.parentElement);
-
-
     }
 
     async searchProduct(searchTerm) {
@@ -91,34 +80,11 @@ export default class ProductsController {
 
     async getProductDetails(id) {
         const product = await this.products.searchProductById(id);
-        console.log(product);
-        //const [back, addToCart] = this.productsView.renderProductDetail(product, '#product-detail');
-        //this.productsView.renderProductDetail(product, '#product-detail');
         const close = this.productsView.renderProductDetail(product, '#quickview');
         close.addEventListener('click', e => {
             const quickview = document.querySelector('#quickview');
             quickview.classList.remove('active');
         })
-
-        /*back.addEventListener('click', e => {
-            console.log('Back button clicked');
-        })
-
-        addToCart.addEventListener('click', e => {
-            console.log('addToCart button clicked');
-
-            const cart = new Cart(product['fdcId'], product['description']);
-            cart.addProduct('products');
-
-            const cartController = new CartController('#product-list');
-            cartController.showAllProducts();
-
-            // update cart item count
-            const cartItemCount = document.querySelector('.cart-count');
-            cartItemCount.innerHTML = cartController.getProductCount();
-        })
-
-        return true;*/
     }
 }
 /*  search by id result

@@ -44,6 +44,7 @@ export default class ProductsView {
             const qtyInput = document.createElement('input');
             qtyInput.setAttribute('id', `qy${element[0]['fdcId']}`);
             qtyInput.type = 'number';
+            qtyInput.value = '0';
             spanProductDetail.innerHTML = 'Quickview';
             spanProductDetail.setAttribute('data-id', `id${element[0]['fdcId']}`);
 
@@ -66,54 +67,6 @@ export default class ProductsView {
         });
     }
 
-    renderProductDetail1(product, parent) {
-        const parentElement = document.querySelector(parent);
-        parentElement.innerHTML = '';
-        const li = document.createElement('li');
-        const divCard = document.createElement('div');
-        divCard.classList.add('card');
-        divCard.style.gridTemplateColumns = "1fr";
-        const img = document.createElement('img');
-        img.src = '/final_project/static/img/no-image-tn.png';
-        //img.style.width = '100%';
-        img.style.height = '150px';
-        // append image to divCard
-        divCard.appendChild(img);
-
-        const divContainer = document.createElement('div');
-        divContainer.classList.add('container');
-        divCard.appendChild(divContainer)
-
-        const h4 = document.createElement('h4');
-        h4.innerHTML = product['description'];
-        const p = document.createElement('p');
-        p.innerHTML = product['ingredients'];
-        const pOwner = document.createElement('p');
-        pOwner.innerHTML = `Owner: ${product['brandOwner']}`;
-        const pAvailableDate = document.createElement('p');
-        pAvailableDate.innerHTML = `Date Available: ${product['availableDate']}`;
-
-        divContainer.appendChild(h4);
-        divContainer.appendChild(p);
-        divContainer.appendChild(pOwner);
-        divContainer.appendChild(pAvailableDate);
-
-        const addToCart = document.createElement('button');
-        addToCart.innerHTML = 'Add to Cart';
-        const back = document.createElement('button');
-        back.innerHTML = 'Back';
-        const controls = document.createElement('div');
-        controls.appendChild(back);
-        controls.appendChild(addToCart);
-
-        divCard.appendChild(controls);
-
-        li.appendChild(divCard);
-        parentElement.appendChild(li);
-
-        return [back, addToCart];
-    }
-
     renderProductDetail(product, parent) {
         console.log([product, parent]);
         const parentElement = document.querySelector(parent);
@@ -127,7 +80,7 @@ export default class ProductsView {
 
         // image
         const img = document.createElement('img');
-        img.src = '/final_project/static/img/no-image-tn.png';
+        img.src = 'static/img/no-image-tn.png';
         img.style.height = '150px';
 
         const p = document.createElement('p');

@@ -175,7 +175,7 @@ nav .cart > .cart-count {
 .quickview {
   position: fixed;
   height: 100vh;
-  width: 400px;
+  width: 350px;
   background: rgba(234, 231, 220, 0.9);
   top: 70px;
   left: -100%;
@@ -221,6 +221,10 @@ nav .cart > .cart-count {
 *::after,
 *::before {
   box-sizing: border-box;
+}
+
+.active-link {
+  color: #3b8beb;
 }
 
 body {

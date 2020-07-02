@@ -14,15 +14,21 @@ function showProducts() {
 showProducts();
 
 const viewProducts = document.querySelector('#view-products');
+const viewCart = document.querySelector('#view-cart');
+viewProducts.classList.add('active-link');
+
 viewProducts.addEventListener('click', e => {
     //showProducts();
-    //p.getProducts();
+    p.getProducts();
+    viewProducts.classList.add('active-link');
+    viewCart.classList.remove('active-link');
 })
 
 const cart = new CartController('#product-list');
-const viewCart = document.querySelector('#view-cart');
 viewCart.addEventListener('click', e => {
     cart.showAllProducts();
+    viewCart.classList.add('active-link');
+    viewProducts.classList.remove('active-link');
 })
 
 // Product count

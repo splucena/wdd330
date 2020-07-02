@@ -51,15 +51,6 @@ export default class Product {
         let products = [];
         const query = this.baseURL + `${id}?api_key=${key}`;
         const product = await getJSON(query);
-
-        //console.log(product);
-
         return product;
-
-        //products['foods'].map(product => {
-        //    productSearchResult.push([product]);
-        //})
-
-        //return productSearchResult;
     }
 }
