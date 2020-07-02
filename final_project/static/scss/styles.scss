@@ -278,7 +278,10 @@ nav {
 }
 
 .active-link {
-  color: $color-blue;
+  color: $color-white;
+  background-color: $color-red;
+  border-radius: 2px;
+  padding: 10px;
 }
 
 body {

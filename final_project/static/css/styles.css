@@ -224,7 +224,10 @@ nav .cart > .cart-count {
 }
 
 .active-link {
-  color: #3b8beb;
+  color: #e7e3d4;
+  background-color: #e85a4f;
+  border-radius: 2px;
+  padding: 10px;
 }
 
 body {
