@@ -339,14 +339,14 @@ main {
   font-size: 14px;
 }
 .product-view-controls :first-child {
-  padding-top: 8px;
+  padding-top: 6px;
   text-align: right;
 }
 .product-view-controls :nth-child(2) {
-  padding-top: 8px;
+  padding-top: 6px;
 }
 .product-view-controls :nth-child(3) {
-  padding: 8px;
+  padding: 4px;
 }
 .product-view-controls :nth-child(4) {
   float: right;
@@ -357,10 +357,12 @@ main {
   color: #272727;
 }
 .cart-table th {
-  padding: 4px;
+  padding: 8px;
 }
 .cart-table td {
-  padding: 4px;
+  padding: 6px;
+  border-top: 1px solid #272727;
+  border-bottom: 1px solid #272727;
 }
 .cart-table td input[type=number] {
   padding: 4px;
