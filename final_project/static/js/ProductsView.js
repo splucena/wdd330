@@ -99,4 +99,26 @@ export default class ProductsView {
 
         return close;
     }
+
+    renderResources(parent) {
+        parent.innerHTML = '';
+
+        const li = document.createElement('li');
+        li.classList.add('resources');
+        const h2API = document.createElement('h2');
+        h2API.innerHTML = 'API Link';
+        const pAPI = document.createElement('p');
+        pAPI.innerHTML = '<a href="https://api.nal.usda.gov">https://api.nal.usda.gov</a>';
+
+        const h2Icon = document.createElement('h2');
+        h2Icon.innerHTML = 'Icon Link';
+        const pIcon = document.createElement('p');
+        pIcon.innerHTML = '<a href="https://icons8.com" target="blank">https://icons8.com</a>';
+
+        li.appendChild(h2API);
+        li.appendChild(pAPI);
+        li.appendChild(h2Icon);
+        li.appendChild(pIcon);
+        parent.appendChild(li);
+    }
 }

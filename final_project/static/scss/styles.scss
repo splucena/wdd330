@@ -286,7 +286,6 @@ nav {
 
 body {
   background-color: $color-light-brown;
-  color: $color-red;
   font-family: $font-regular;
 }
 
@@ -389,12 +388,6 @@ main {
   list-style-type: none;
   padding: 0;
   margin: 0;
-
-  li {
-    h2 {
-      text-align: center;
-    }
-  }
 
   li:not(last-child) {
     margin-bottom: 9px;

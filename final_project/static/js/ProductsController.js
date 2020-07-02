@@ -86,6 +86,10 @@ export default class ProductsController {
             quickview.classList.remove('active');
         })
     }
+
+    showResources() {
+        this.productsView.renderResources(this.parentElement);
+    }
 }
 /*  search by id result
     availableDate: "1/19/2019"

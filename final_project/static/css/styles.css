@@ -232,7 +232,6 @@ nav .cart > .cart-count {
 
 body {
   background-color: #eae7dc;
-  color: #e85a4f;
   font-family: Raleway, sans-serif;
 }
 
@@ -330,9 +329,6 @@ main {
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
-.product-list li h2 {
-  text-align: center;
 }
 .product-list li:not(last-child) {
   margin-bottom: 9px;

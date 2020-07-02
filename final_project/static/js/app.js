@@ -15,6 +15,8 @@ showProducts();
 
 const viewProducts = document.querySelector('#view-products');
 const viewCart = document.querySelector('#view-cart');
+const viewResources = document.querySelector('#view-resources');
+
 viewProducts.classList.add('active-link');
 
 viewProducts.addEventListener('click', e => {
@@ -22,6 +24,14 @@ viewProducts.addEventListener('click', e => {
     p.getProducts();
     viewProducts.classList.add('active-link');
     viewCart.classList.remove('active-link');
+    viewResources.classList.remove('active-link');
+})
+
+viewResources.addEventListener('click', e => {
+    p.showResources();
+    viewResources.classList.add('active-link');
+    viewCart.classList.remove('active-link');
+    viewProducts.classList.remove('active-link');
 })
 
 const cart = new CartController('#product-list');
@@ -29,6 +39,7 @@ viewCart.addEventListener('click', e => {
     cart.showAllProducts();
     viewCart.classList.add('active-link');
     viewProducts.classList.remove('active-link');
+    viewResources.classList.remove('active-link');
 })
 
 // Product count
