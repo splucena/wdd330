@@ -17,6 +17,8 @@ export default class CartView {
         // temporary
         const priceTd = document.createElement('th');
         priceTd.innerHTML = 'Price';
+        const subtotalTd = document.createElement('th');
+        subtotalTd.innerHTML = 'Subtotal';
 
 
         const removeItemTd = document.createElement('th');
@@ -26,6 +28,7 @@ export default class CartView {
         tblHeader.appendChild(quantityTd);
         // temporary
         tblHeader.appendChild(priceTd);
+        tblHeader.appendChild(subtotalTd);
         //
         tblHeader.appendChild(updateItemTd);
         tblHeader.appendChild(removeItemTd);
@@ -63,6 +66,11 @@ export default class CartView {
         price.innerHTML = `$${product['price']}`;
         priceTd.appendChild(price);
 
+        const subtotalTd = document.createElement('td');
+        const subtotal = document.createElement('span');
+        subtotal.innerHTML = '$' + product['price'] * product['quantity'];
+        subtotalTd.appendChild(subtotal);
+
         const updateItemTd = document.createElement('td');
         const updateItem = document.createElement('button');
         updateItem.innerHTML = 'Update';
@@ -83,6 +91,7 @@ export default class CartView {
         productItem.appendChild(quantityTd);
         // temporary
         productItem.appendChild(priceTd);
+        productItem.appendChild(subtotalTd);
         //
         productItem.appendChild(updateItemTd);
         productItem.appendChild(removeItemTd);
