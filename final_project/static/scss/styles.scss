@@ -434,12 +434,17 @@ main {
 
     input[type=number] {
       padding: 4px;
+      text-align: center;
       width: 50px;
     }
   }
 
   td:first-child {
     text-transform: uppercase;
+  }
+
+  td:nth-child(2) {
+    text-align: center;
   }
 }
 

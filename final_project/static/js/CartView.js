@@ -67,7 +67,7 @@ export default class CartView {
         const updateItem = document.createElement('button');
         updateItem.innerHTML = 'Update';
         updateItem.classList.add('btn');
-        updateItem.style.width = "100px";
+        updateItem.style.width = "70px";
         updateItem.setAttribute('id', `ui${product['product_id']}`);
         updateItemTd.appendChild(updateItem);
 
@@ -75,7 +75,7 @@ export default class CartView {
         const removeItem = document.createElement('button');
         removeItem.innerHTML = 'Remove';
         removeItem.classList.add('btn');
-        removeItem.style.width = "100px";
+        removeItem.style.width = "70px";
         removeItem.setAttribute('id', `ri${product['product_id']}`);
         removeItemTd.appendChild(removeItem)
 
