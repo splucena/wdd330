@@ -36,14 +36,44 @@ export default class CartView {
 
 
         parent.appendChild(tbl);
-
+        let grandTotal = 0;
         products.forEach(product => {
-            const productItem = this.renderProductItem(product);
+            const [productItem, subtotal] = this.renderProductItem(product);
 
             if (productItem) {
                 tbl.appendChild(productItem);
             }
+            grandTotal += subtotal;
         });
+
+        console.log(grandTotal);
+        const grandTotalTr = document.createElement('tr');
+        const td1 = document.createElement('td');
+        const td2 = document.createElement('td');
+        const td3 = document.createElement('td');
+        td3.innerHTML = 'Grand Total';
+        const grandTotalTd = document.createElement('td');
+        grandTotalTd.innerHTML = '$' + grandTotal;
+        const td5 = document.createElement('td');
+        td5.colSpan = '2';
+        const checkout = document.createElement('button');
+        checkout.innerHTML = 'Checkout';
+        checkout.classList.add('btn');
+        checkout.style.width = '100%';
+        td5.appendChild(checkout);
+        //const td6 = document.createElement('td');
+
+        grandTotalTr.appendChild(td1);
+        grandTotalTr.appendChild(td2);
+        grandTotalTr.appendChild(td3);
+        grandTotalTr.appendChild(grandTotalTd);
+        grandTotalTr.appendChild(td5);
+        //grandTotalTr.appendChild(td6);
+
+        tbl.appendChild(grandTotalTr);
+
+
+
     }
 
     renderProductItem(product) {
@@ -96,6 +126,6 @@ export default class CartView {
         productItem.appendChild(updateItemTd);
         productItem.appendChild(removeItemTd);
 
-        return productItem;
+        return [productItem, product['price'] * product['quantity']];
     }
 }
