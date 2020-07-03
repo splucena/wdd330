@@ -41,6 +41,13 @@ export default class CartController {
                     this.showAllProducts();
                 }
             });
+
+            const checkout = document.querySelector('#checkout');
+            checkout.addEventListener('click', e => {
+                console.log(1);
+                localStorage.removeItem('products');
+                this.showAllProducts();
+            });
         } else {
             this.parentElement.innerHTML = `<h2>Your cart is empty.</h2>`;
         }

@@ -46,22 +46,21 @@ export default class CartView {
             grandTotal += subtotal;
         });
 
-        console.log(grandTotal);
         const grandTotalTr = document.createElement('tr');
         const td1 = document.createElement('td');
         const td2 = document.createElement('td');
         const td3 = document.createElement('td');
         td3.innerHTML = 'Grand Total';
         const grandTotalTd = document.createElement('td');
-        grandTotalTd.innerHTML = '$' + grandTotal;
+        grandTotalTd.innerHTML = '$' + Number(grandTotal).toFixed(2);
         const td5 = document.createElement('td');
         td5.colSpan = '2';
         const checkout = document.createElement('button');
         checkout.innerHTML = 'Checkout';
         checkout.classList.add('btn');
         checkout.style.width = '100%';
+        checkout.setAttribute('id', 'checkout');
         td5.appendChild(checkout);
-        //const td6 = document.createElement('td');
 
         grandTotalTr.appendChild(td1);
         grandTotalTr.appendChild(td2);
