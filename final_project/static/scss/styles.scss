@@ -332,6 +332,18 @@ main {
   }
 }
 
+.edit {
+  background: transparent url("../img/edit.png") no-repeat !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.remove {
+  background: transparent url("../img/remove.png") no-repeat !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 .btn {
   box-shadow: inset 0px 1px 0px 0px #54a3f7;
   background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
