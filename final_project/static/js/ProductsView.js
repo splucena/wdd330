@@ -21,13 +21,18 @@ export default class ProductsView {
             const p = document.createElement('p');
             p.innerHTML = element[0]['ingredients'];
 
-            const price = document.createElement('p');
-            price.innerHTML = element[0].hasOwnProperty('score') ? `Price: $${Number(element[0]['score']).toFixed(2)}` : `Price: $${Number(element[0]['servingSize']).toFixed(2)}`;
+            const priceLbl = document.createElement('span');
+            priceLbl.innerHTML = 'Price: $';
+            priceLbl.classList.add('red');
+
+            const price = document.createElement('span');
+            price.innerHTML = element[0].hasOwnProperty('score') ? `${Number(element[0]['score']).toFixed(2)}` : `${Number(element[0]['servingSize']).toFixed(2)}`;
             price.classList.add('red');
             price.setAttribute('id', `pi${element[0]['fdcId']}`);
 
             divContainer.appendChild(h4);
             divContainer.appendChild(p);
+            divContainer.appendChild(priceLbl);
             divContainer.appendChild(price);
 
             const controls = document.createElement('div');

@@ -60,7 +60,7 @@ export default class CartView {
         // temporary
         const priceTd = document.createElement('td');
         const price = document.createElement('span');
-        price.innerHTML = product['price'];
+        price.innerHTML = `$${product['price']}`;
         priceTd.appendChild(price);
 
         const updateItemTd = document.createElement('td');
