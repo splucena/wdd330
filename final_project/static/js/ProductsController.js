@@ -48,12 +48,16 @@ export default class ProductsController {
                 let fdcId = (e.target.dataset.id).slice(2, (e.target.dataset.id).length);
                 const desc = document.querySelector(`#ds${fdcId}`);
                 const qty = document.querySelector(`#qy${fdcId}`);
+                const price = document.querySelector(`#pi${fdcId}`);
+
+                console.log(price);
 
                 // save to cart
                 //const cart = new Cart(fdcId, desc.innerHTML, qty.value);
                 this.cart.product_id = fdcId;
                 this.cart.product_name = desc.innerHTML;
                 this.cart.quantity = qty.value;
+                this.cart.price = price.innerHTML;
                 this.cart.addProduct('products');
 
                 // clear quantity input

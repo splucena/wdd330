@@ -13,11 +13,20 @@ export default class CartView {
         productNameTd.innerHTML = 'Name';
         const quantityTd = document.createElement('th');
         quantityTd.innerHTML = 'Quantity';
+
+        // temporary
+        const priceTd = document.createElement('th');
+        priceTd.innerHTML = 'Price';
+
+
         const removeItemTd = document.createElement('th');
         const updateItemTd = document.createElement('th');
 
         tblHeader.appendChild(productNameTd);
         tblHeader.appendChild(quantityTd);
+        // temporary
+        tblHeader.appendChild(priceTd);
+        //
         tblHeader.appendChild(updateItemTd);
         tblHeader.appendChild(removeItemTd);
         tbl.appendChild(tblHeader);
@@ -48,6 +57,12 @@ export default class CartView {
         quantity.setAttribute('id', `it${product['product_id']}`);
         quantityTd.appendChild(quantity);
 
+        // temporary
+        const priceTd = document.createElement('td');
+        const price = document.createElement('span');
+        price.innerHTML = product['price'];
+        priceTd.appendChild(price);
+
         const updateItemTd = document.createElement('td');
         const updateItem = document.createElement('button');
         updateItem.innerHTML = 'Update';
@@ -66,6 +81,9 @@ export default class CartView {
 
         productItem.appendChild(productNameTd);
         productItem.appendChild(quantityTd);
+        // temporary
+        productItem.appendChild(priceTd);
+        //
         productItem.appendChild(updateItemTd);
         productItem.appendChild(removeItemTd);
 

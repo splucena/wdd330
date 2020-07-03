@@ -21,8 +21,14 @@ export default class ProductsView {
             const p = document.createElement('p');
             p.innerHTML = element[0]['ingredients'];
 
+            const price = document.createElement('p');
+            price.innerHTML = element[0].hasOwnProperty('score') ? `Price: $${Number(element[0]['score']).toFixed(2)}` : `Price: $${Number(element[0]['servingSize']).toFixed(2)}`;
+            price.classList.add('red');
+            price.setAttribute('id', `pi${element[0]['fdcId']}`);
+
             divContainer.appendChild(h4);
             divContainer.appendChild(p);
+            divContainer.appendChild(price);
 
             const controls = document.createElement('div');
             controls.classList.add('product-view-controls');
@@ -39,7 +45,7 @@ export default class ProductsView {
 
             const addToCart = document.createElement('button');
             addToCart.setAttribute('data-id', `ac${element[0]['fdcId']}`);
-            
+
             addToCart.classList.add('btn');
             addToCart.innerHTML = 'Add to cart';
             controls.appendChild(spanProductDetail);

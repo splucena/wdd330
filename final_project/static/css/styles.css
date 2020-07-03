@@ -375,6 +375,10 @@ main {
   text-transform: uppercase;
 }
 
+.red {
+  color: #e85a4f;
+}
+
 footer {
   background-color: #eae7dc;
   padding: 1em;
