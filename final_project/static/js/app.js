@@ -36,7 +36,7 @@ viewResources.addEventListener('click', e => {
 
 const cart = new CartController('#product-list');
 viewCart.addEventListener('click', e => {
-    cart.showAllProducts();
+    cart.showAllProducts('');
     viewCart.classList.add('active-link');
     viewProducts.classList.remove('active-link');
     viewResources.classList.remove('active-link');
@@ -46,10 +46,10 @@ viewCart.addEventListener('click', e => {
 const cartCount = document.querySelector('.cart-count');
 cartCount.innerHTML = cart.getProductCount();
 cartCount.addEventListener('click', e => {
-    cart.showAllProducts();
+    cart.showAllProducts('');
 })
 
 const cartIcon = document.querySelector('.cart-icon');
 cartIcon.addEventListener('click', e => {
-    cart.showAllProducts();
+    cart.showAllProducts('');
 })

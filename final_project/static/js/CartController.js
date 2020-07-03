@@ -11,7 +11,7 @@ export default class CartController {
         this.key = 'products';
     }
 
-    showAllProducts() {
+    showAllProducts(message) {
         const products = this.Cart.getAllProducts(this.key);
 
 
@@ -27,7 +27,7 @@ export default class CartController {
                 if (btnSuffix === 'ri') {
                     //console.log('remove item');
                     this.Cart.removeProductItem(productId, 'products');
-                    this.showAllProducts();
+                    this.showAllProducts('');
 
                     // update cart counter
                     const cartItemCount = document.querySelector('.cart-count');
@@ -35,10 +35,9 @@ export default class CartController {
                 }
                 // update
                 if (btnSuffix === 'ui') {
-                    //console.log('update item');
                     const qty = document.querySelector(`#it${productId}`);
                     this.Cart.updateProductItemQuantity(productId, 'products', qty.value);
-                    this.showAllProducts();
+                    this.showAllProducts('');
                 }
             });
 
@@ -46,13 +45,15 @@ export default class CartController {
             checkout.addEventListener('click', e => {
                 console.log(1);
                 localStorage.removeItem('products');
-                this.showAllProducts();
+                this.showAllProducts('checkout');
             });
         } else {
-            this.parentElement.innerHTML = `<h2>Your cart is empty.</h2>`;
+            if (message === 'checkout') {
+                this.parentElement.innerHTML = `<h2>Thank you for shopping with us!</h2>`;
+            } else {
+                this.parentElement.innerHTML = `<h2>Your cart is empty.</h2>`;
+            }
         }
-
-
     }
 
     getProductCount() {
