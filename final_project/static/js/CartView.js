@@ -97,7 +97,7 @@ export default class CartView {
 
         const subtotalTd = document.createElement('td');
         const subtotal = document.createElement('span');
-        subtotal.innerHTML = '$' + product['price'] * product['quantity'];
+        subtotal.innerHTML = '$' + Number(product['price'] * product['quantity']).toFixed(2);
         subtotalTd.appendChild(subtotal);
 
         const updateItemTd = document.createElement('td');
