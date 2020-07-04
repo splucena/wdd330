@@ -19,6 +19,8 @@ export default class CartController {
             this.CartView.renderProductList(products, this.parentElement);
 
             const cartTable = document.querySelector('#cart-table');
+            const cartItemCount = document.querySelector('.cart-count');
+
             cartTable.addEventListener('click', e => {
                 let productId = (e.target.id).slice(2, (e.target.id).length);
                 let btnSuffix = (e.target.id).slice(0, 2);
@@ -30,7 +32,6 @@ export default class CartController {
                     this.showAllProducts('');
 
                     // update cart counter
-                    const cartItemCount = document.querySelector('.cart-count');
                     cartItemCount.innerHTML = this.Cart.getProductCount('products');
                 }
                 // update
@@ -43,9 +44,9 @@ export default class CartController {
 
             const checkout = document.querySelector('#checkout');
             checkout.addEventListener('click', e => {
-                console.log(1);
                 localStorage.removeItem('products');
                 this.showAllProducts('checkout');
+                cartItemCount.innerHTML = '0';
             });
         } else {
             if (message === 'checkout') {
