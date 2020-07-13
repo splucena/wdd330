@@ -36,6 +36,10 @@ p {
   margin: 0.1em;
 }
 
+.go-back {
+  color: #ffffff;
+}
+
 figure {
   background-color: #d3e3fc;
   border-radius: 4px;
